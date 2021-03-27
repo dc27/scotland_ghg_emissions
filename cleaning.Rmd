@@ -1,0 +1,33 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(readxl)
+```
+
+
+```{r}
+excel_sheets("data/raw_data/2005-18-uk-local-regional-co2-emissions.xlsx")
+```
+
+```{r}
+emissions <- read_xlsx("data/raw_data/2005-18-uk-local-regional-co2-emissions.xlsx", 2, skip = 1) %>% 
+  janitor::clean_names() %>% 
+  filter(second_tier_authority == "Scotland") %>% 
+  rename(country = 1) %>% 
+  select(-2) %>% 
+  pivot_longer(-c(1,2,3,4, population_000s_mid_year_estimate, area_km2, per_capita_emissions_t, emissions_per_km2_kt), names_to = "emission_source_sector", values_to = "emissions")
+```
+
+```{r}
+emissions
+```
+
+```{r}
+em
+```
+
+

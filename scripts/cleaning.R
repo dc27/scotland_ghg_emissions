@@ -7,28 +7,31 @@ emissions <- read_xlsx(
   janitor::clean_names()
 
 
-# filter for only scotland data and pivot to long form
+# filter for only Scotland data and pivot to long form
 emissions_scot <- emissions %>% 
   select(-1) %>% 
   filter(second_tier_authority == "Scotland")
 
+# extract totals information
 emissions_totals <- emissions_scot %>% 
   select(c(1,2,3,4, industry_and_commercial_total, 
            domestic_total, transport_total, lulucf_net_emissions,grand_total)) %>% 
   select(-1) %>% 
   pivot_longer(-c(1,2,3), names_to = "emissions_sector", values_to = "value") %>% 
-  mutate(emissions_sector = str_remove(emissions_sector,"_total$|_net_emissions$")) %>% 
-  mutate(emissions_sector = str_to_title(str_replace_all(emissions_sector, "_", " "))) %>% 
+  mutate(emissions_sector = str_remove(emissions_sector,
+                                       "_total$|_net_emissions$")) %>% 
+  mutate(emissions_sector = str_to_title(
+    str_replace_all(emissions_sector, "_", " "))
+    ) %>% 
   mutate(emissions_sector = ifelse(emissions_sector == "Lulucf", "LULUCF", emissions_sector)) %>% 
   mutate(units = "kilotonnes")
 
-
+# extract local authority information (unrelated to C02 but used in future calcs)
 la_info <- emissions_scot %>% 
   select(c(1,2,3,4, population_000s_mid_year_estimate, area_km2))
 
-emissions_breakdown <- emissions_scot %>% 
-  select(-1) %>% 
-  filter(second_tier_authority == "Scotland") %>% 
+# extract breakdown info for subsectors
+emissions_breakdown <- emissions_scot %>%
   select(c(1,2,3,4, matches("^[a-z]_"))) %>% 
   pivot_longer(-c(1,2,3,4), names_to = "emissions_sector_subsector",
                values_to = "value") %>% 
@@ -39,11 +42,17 @@ emissions_breakdown <- emissions_scot %>%
     str_detect(emissions_sector_subsector, "^[n-s]_") ~ "LULUCF",
     TRUE ~ NA_character_
   ), .before = "emissions_sector_subsector") %>% 
+  mutate(emissions_sector_subsector = str_to_title(
+    str_replace_all(emissions_sector_subsector, "_", " "))
+  ) %>%
   mutate(units = "kilotonnes")
 
 # write clean files
-emissions_summary %>% 
+emissions_totals %>% 
   write_csv("data/clean_data/scot_emissions_summary.csv")
 
-emissions_long %>% 
+emissions_breakdown %>% 
   write_csv("data/clean_data/scot_emissions.csv")
+
+la_info %>% 
+  write_csv("data/clean_data/la_info.csv")

@@ -13,7 +13,15 @@ ui <- dashboardPage(
       leafletOutput("scotland_map")
     ),
     column(
-      width = 3
+      width = 3,
+      selectInput(
+        "df_choice",
+        label = "Dataset Options",
+        choices = sort(names(dfs)),
+        selected = "Standardised Emissions"
+      ),
+      tags$hr(),
+      uiOutput("dropdowns")
     )
   )
 )

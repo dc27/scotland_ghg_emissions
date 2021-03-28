@@ -20,11 +20,29 @@ emissions_scot <- emissions %>%
 # extract summary information
 emissions_summary <- emissions_scot %>% 
   select(-c(emission_source_sector, emissions)) %>% 
-  unique()
+  unique() %>% 
+  pivot_longer(-c(1,2,3,4), names_to = "statistic", values_to = "value")
+
+# filter for summary info, add units
+emissions_summary <- emissions_summary %>% 
+  mutate(statistic = str_to_title(str_replace_all(statistic,"_", " "))) %>% 
+  mutate(statistic = case_when(
+    statistic == "Per Capita Emissions T" ~ "Emissions per Capita",
+    statistic == "Emissions Per Km2 Kt" ~ "Emissions per Km2",
+    TRUE ~ statistic
+  )) %>% 
+  filter(statistic == "Emissions per Capita"|
+           statistic == "Emissions per Km2") %>% 
+  mutate(units = case_when(
+    statistic == "Emissions per Capita" ~ "tonnes",
+    statistic == "Emissions per Km2" ~ "kilotonnes"
+  ))
 
 # and breakdown stats
 emissions_long <- emissions_scot %>% 
-  select(country, name, code, year, emission_source_sector, emissions)
+  select(country, name, code, year, emission_source_sector, emissions) %>% 
+  mutate(emission_source_sector = str_to_title(str_replace_all(emission_source_sector, "_", " "))) %>% 
+  mutate(units = "kilotonnes")
 
 # write clean files
 emissions_summary %>% 

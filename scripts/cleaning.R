@@ -9,39 +9,36 @@ emissions <- read_xlsx(
 
 # filter for only scotland data and pivot to long form
 emissions_scot <- emissions %>% 
+  select(-1) %>% 
+  filter(second_tier_authority == "Scotland")
+
+emissions_totals <- emissions_scot %>% 
+  select(c(1,2,3,4, industry_and_commercial_total, 
+           domestic_total, transport_total, lulucf_net_emissions,grand_total)) %>% 
+  select(-1) %>% 
+  pivot_longer(-c(1,2,3), names_to = "emissions_sector", values_to = "value") %>% 
+  mutate(emissions_sector = str_remove(emissions_sector,"_total$|_net_emissions$")) %>% 
+  mutate(emissions_sector = str_to_title(str_replace_all(emissions_sector, "_", " "))) %>% 
+  mutate(emissions_sector = ifelse(emissions_sector == "Lulucf", "LULUCF", emissions_sector)) %>% 
+  mutate(units = "kilotonnes")
+
+
+la_info <- emissions_scot %>% 
+  select(c(1,2,3,4, population_000s_mid_year_estimate, area_km2))
+
+emissions_breakdown <- emissions_scot %>% 
+  select(-1) %>% 
   filter(second_tier_authority == "Scotland") %>% 
-  rename(country = 1) %>% 
-  select(-2) %>% 
-  pivot_longer(
-    -c(1,2,3,4, population_000s_mid_year_estimate, area_km2,
-       per_capita_emissions_t, emissions_per_km2_kt),
-    names_to = "emission_source_sector", values_to = "emissions")
-
-# extract summary information
-emissions_summary <- emissions_scot %>% 
-  select(-c(emission_source_sector, emissions)) %>% 
-  unique() %>% 
-  pivot_longer(-c(1,2,3,4), names_to = "statistic", values_to = "value")
-
-# filter for summary info, add units
-emissions_summary <- emissions_summary %>% 
-  mutate(statistic = str_to_title(str_replace_all(statistic,"_", " "))) %>% 
-  mutate(statistic = case_when(
-    statistic == "Per Capita Emissions T" ~ "Emissions per Capita",
-    statistic == "Emissions Per Km2 Kt" ~ "Emissions per Km2",
-    TRUE ~ statistic
-  )) %>% 
-  filter(statistic == "Emissions per Capita"|
-           statistic == "Emissions per Km2") %>% 
-  mutate(units = case_when(
-    statistic == "Emissions per Capita" ~ "tonnes",
-    statistic == "Emissions per Km2" ~ "kilotonnes"
-  ))
-
-# and breakdown stats
-emissions_long <- emissions_scot %>% 
-  select(country, name, code, year, emission_source_sector, emissions) %>% 
-  mutate(emission_source_sector = str_to_title(str_replace_all(emission_source_sector, "_", " "))) %>% 
+  select(c(1,2,3,4, matches("^[a-z]_"))) %>% 
+  pivot_longer(-c(1,2,3,4), names_to = "emissions_sector_subsector",
+               values_to = "value") %>% 
+  mutate(emissions_sector = case_when(
+    str_detect(emissions_sector_subsector, "^[a-e]_") ~ "Industry and Commercial",
+    str_detect(emissions_sector_subsector, "^[f-h]_") ~ "Domestic",
+    str_detect(emissions_sector_subsector, "^[i-m]_") ~ "Transport",
+    str_detect(emissions_sector_subsector, "^[n-s]_") ~ "LULUCF",
+    TRUE ~ NA_character_
+  ), .before = "emissions_sector_subsector") %>% 
   mutate(units = "kilotonnes")
 
 # write clean files

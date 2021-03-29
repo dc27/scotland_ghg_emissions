@@ -21,7 +21,10 @@ ui <- dashboardPage(
         selected = "Standardised Emissions"
       ),
       tags$hr(),
-      uiOutput("dropdowns")
+      uiOutput("dropdowns"),
+      checkboxInput("legend", "Show legend", TRUE),
+      tags$div(style = "text-align:center;",
+               actionButton("update", "Update"))
     )
   )
 )

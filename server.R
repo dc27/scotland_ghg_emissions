@@ -1,6 +1,5 @@
-# source("R/plot_functions.R")
 source("R/filter_vars_and_join_functions.R")
-
+source("R/filter_vars_and_join_functions.R")
 
 server <- function(input, output, session) {
 
@@ -18,6 +17,17 @@ server <- function(input, output, session) {
     reduce(each_var, `&`)
   })
   
+  # filter df
+  selected_df <- eventReactive(input$update, {
+      dataset()[selected(), ]
+  })
+  
+  # get units
+  units <- eventReactive(input$update, {
+    potential_units <- unique(selected_df()$units)
+    # remove NAs, select first value in the case where multiple are provided.
+    potential_units[!is.na(potential_units)][1]
+  })
   
   # render basemap
   output$scotland_map <- renderLeaflet({
@@ -29,5 +39,42 @@ server <- function(input, output, session) {
                    lng2 = -9,
                    lat2 = 63) %>% 
       addProviderTiles(providers$Esri.WorldGrayCanvas)
+  })
+
+
+  plot_spdf <- eventReactive(input$update, {
+    join_with_shapes(selected_df(), la_shapes)
+  })
+  
+  observeEvent(input$update, {
+    # dev/testing! - this is a good spot for a break-point
+    if (nrow(selected_df()) == 0) {
+      # no data label
+      leafletProxy("scotland_map") %>% 
+        clearShapes() %>% 
+        clearMarkers() %>% 
+        addLabelOnlyMarkers(
+          lng = -5, lat = 58,
+          label = "No Data",
+          labelOptions = labelOptions(noHide = T, textsize = "32px")
+        )
+    } else {
+      add_coloured_polygons(
+        basemap = "scotland_map", spdf = plot_spdf(),
+        units = units()
+      )
+    }
+  })
+  
+  # plot legend
+  observeEvent(input$update, {
+    leafletProxy("scotland_map") %>%
+      clearControls()
+    
+    if (input$legend & nrow(selected_df())!=0)  {
+      add_legend(
+        "scotland_map", spdf = plot_spdf(),
+        units = units()
+      )}
   })
 }

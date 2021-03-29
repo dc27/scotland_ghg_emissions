@@ -8,17 +8,28 @@ ui <- dashboardPage(
       #scotland_map {height: calc(100vh - 160px) !important;}
       "
     ),
-    box(
-      width = 9,
-      leafletOutput("scotland_map")
+    fluidRow(
+      column(
+        width = 3,
+        pickerInput("indus_commercial",sectors[[1]], choices=subsectors[[sectors[[1]]]], options = list(`actions-box` = TRUE),multiple = T),
+      ),
+      column(
+        width = 3,
+        pickerInput("domestic",sectors[[2]], choices=subsectors[[sectors[[2]]]], options = list(`actions-box` = TRUE),multiple = T),
+      ),
+      column(
+        width = 3,
+        pickerInput("transport",sectors[[3]], choices=subsectors[[sectors[[3]]]], options = list(`actions-box` = TRUE),multiple = T),
+      ),
+      column(
+        width = 3,
+        pickerInput("LULUCF",sectors[[4]], choices=subsectors[[sectors[[4]]]], options = list(`actions-box` = TRUE),multiple = T),
+      )
     ),
-    column(
-      width = 3,
-      selectInput(
-        "df_choice",
-        label = "Dataset Options",
-        choices = sort(names(dfs)),
-        selected = "Standardised Emissions"
+    fluidRow(
+      box(
+        width = 9,
+        leafletOutput("scotland_map")
       ),
       tags$hr(),
       uiOutput("dropdowns"),

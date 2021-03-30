@@ -3,23 +3,16 @@ source("R/filter_vars_and_join_functions.R")
 
 server <- function(input, output, session) {
 
-  # dynamic ui
-  # dataset <- reactive(dfs[[input$df_choice]]$data)
-  # vars <- reactive(dfs[[input$df_choice]]$explorable_vars)
-  # 
-  # output$dropdowns <- renderUI(
-  #   map(vars(), ~ make_dropdown(dataset(), .x))
-  # )
-  # 
-  # # user inputs for dynamic vars
-  # selected <- eventReactive(input$update, {
-  #   each_var <- map(vars(), ~ filter_var(dataset()[[.x]], input[[.x]]))
-  #   reduce(each_var, `&`)
-  # })
+  dataset <- dfs$emissions_breakdown$data
   
   # filter df
   selected_df <- eventReactive(input$update, {
-      dataset()[selected(), ]
+    dataset %>% 
+      filter(emissions_sector_subsector %in% input$subsector) %>% 
+      filter(year == input$year) %>% 
+      group_by(year, name) %>% 
+      summarise(code, value = sum(value), units, .groups = "drop_last") %>% 
+      unique()
   })
   
   # get units

@@ -9,33 +9,43 @@ ui <- dashboardPage(
       "
     ),
     fluidRow(
-      column(
-        width = 3,
-        pickerInput("indus_commercial",sectors[[1]], choices=subsectors[[sectors[[1]]]], options = list(`actions-box` = TRUE),multiple = T),
-      ),
-      column(
-        width = 3,
-        pickerInput("domestic",sectors[[2]], choices=subsectors[[sectors[[2]]]], options = list(`actions-box` = TRUE),multiple = T),
-      ),
-      column(
-        width = 3,
-        pickerInput("transport",sectors[[3]], choices=subsectors[[sectors[[3]]]], options = list(`actions-box` = TRUE),multiple = T),
-      ),
-      column(
-        width = 3,
-        pickerInput("LULUCF",sectors[[4]], choices=subsectors[[sectors[[4]]]], options = list(`actions-box` = TRUE),multiple = T),
-      )
-    ),
-    fluidRow(
       box(
         width = 9,
-        leafletOutput("scotland_map")
+        leafletOutput("scotland_map"),
+        absolutePanel(
+          bottom = 0,
+          right = 20,
+          left = 20,
+          tags$style(
+            ".irs-bar {",
+            "  border-color: transparent;",
+            "  background-color: transparent;",
+            "}",
+            ".irs-bar-edge {",
+            "  border-color: transparent;",
+            "  background-color: transparent;",
+            "}"
+          ),
+          sliderInput("year",
+                      "Select year",
+                      value = 2018,
+                      max = max(years), min = min(years),
+                      sep = "",
+                      ticks = TRUE
+          )
+        )
       ),
-      tags$hr(),
-      uiOutput("dropdowns"),
-      checkboxInput("legend", "Show legend", TRUE),
-      tags$div(style = "text-align:center;",
-               actionButton("update", "Update"))
+      column(
+        width = 3,
+        pickerInput("subsector",
+                    "Subsector",
+                    choices = subsectors,
+                    options = list(`actions-box` = TRUE),multiple = T),
+        tags$hr(),
+        checkboxInput("legend", "Show legend", TRUE),
+        tags$div(style = "text-align:center;",
+                 actionButton("update", "Update"))
+      )
     )
   )
 )

@@ -26,6 +26,8 @@ for (sector in sectors) {
     pull()
 }
 
+years <- sort(unique(dfs$emissions_breakdown$data$year))
+
 la_shapes <- readOGR(
   dsn = "data/shapefiles/la/scottish_local_authorities",
   layer = "scottish_local_authorities",

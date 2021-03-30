@@ -4,8 +4,8 @@ make_dropdown <- function(df, var) {
   selectInput(var, varname, sort(unique(df[[var]])))
 }
 
-filter_var <- function(x, val) {
-  x %in% val
+filter_var <- function(x, val = NULL) {
+  val %in% x
 }
 
 # combine measurements with polygon data

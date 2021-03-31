@@ -7,12 +7,29 @@ server <- function(input, output, session) {
   
   # filter df
   selected_df <- eventReactive(input$update, {
-    dataset %>% 
+    dataset <- dataset %>% 
       filter(emissions_sector_subsector %in% input$subsector) %>% 
       filter(year == input$year) %>% 
       group_by(year, name) %>% 
       summarise(code, value = sum(value), units, .groups = "drop_last") %>% 
       unique()
+  
+      if (input$per_capita) {
+        dataset <- dataset %>% 
+          left_join((dfs$la_info$data %>% 
+            filter(year == input$year) %>% 
+            select(-c(1,6))), by = c("code")) %>% 
+          mutate(value = value/population_000s_mid_year_estimate) %>% 
+          mutate(units = "tonnes")
+      } else if (input$per_sq_km) {
+        dataset <- dataset %>% 
+          left_join((dfs$la_info$data %>% 
+                       filter(year == input$year) %>% 
+                       select(-c(1,5))), by = c("code")) %>% 
+          mutate(value = value/area_km2)
+      } else {
+        dataset <- dataset
+      }
   })
   
   # get units

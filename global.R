@@ -11,6 +11,9 @@ dfs <- list(
   "emissions_breakdown" = list(
     data = read_csv("data/clean_data/scot_emissions.csv"),
     explorable_vars = c("year", "emissions_sector_subsector")
+  ),
+  "la_info" = list(
+    data = read_csv("data/clean_data/la_info.csv")
   )
 )
 

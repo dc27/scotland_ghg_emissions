@@ -1,12 +1,4 @@
-make_dropdown <- function(df, var) {
-  # convert snakecase variable name to title for ui
-  varname <- str_to_title(str_replace_all(var, "_", " "))
-  selectInput(var, varname, sort(unique(df[[var]])))
-}
 
-filter_var <- function(x, val = NULL) {
-  val %in% x
-}
 
 # combine measurements with polygon data
 join_with_shapes <- function(measurement_df, spdf) {

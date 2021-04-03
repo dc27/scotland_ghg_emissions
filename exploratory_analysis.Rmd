@@ -1,0 +1,88 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(readxl)
+```
+
+```{r}
+ghg_emissions_data <- read_xlsx("../../../Downloads/2021/scotland_net_zero/scottish-ghg-dataset-2018.xlsx", 2)
+```
+
+```{r}
+ghg_emissions_data %>% 
+  filter(EmissionYear != "BaseYear") %>% 
+  mutate(EmissionYear = as.numeric(EmissionYear)) %>% 
+  group_by(`National Communication Categories`, EmissionYear) %>% 
+  summarise(total_ghg_emissions = sum(`Emissions (MtCO2e)`)) %>% 
+  ggplot() +
+  aes(x = EmissionYear, y = total_ghg_emissions, group = `National Communication Categories`, colour = `National Communication Categories`) +
+  geom_line() +
+  geom_point() +
+  scale_x_continuous(breaks = seq(1990,2020,5)) +
+  theme(legend.position = 0)
+```
+
+```{r}
+ghg_emissions_data %>% 
+  distinct(`National Communication Categories`)
+```
+```{r}
+ghg_emissions_data %>% 
+  filter(EmissionYear != "BaseYear") %>% 
+  mutate(EmissionYear = as.numeric(EmissionYear)) %>% 
+  group_by(EmissionYear) %>% 
+  summarise(total_ghg_emissions = sum(`Emissions (MtCO2e)`)) %>% 
+  ggplot() +
+  aes(x = EmissionYear, y = total_ghg_emissions) +
+  geom_line() +
+  geom_point() +
+  scale_x_continuous(breaks = seq(1990,2020,5)) +
+  ylim(0, 80) +
+  theme(legend.position = 0) +
+  theme_bw()
+```
+
+
+```{r}
+ghg_emissions_data %>% 
+  distinct(`CCP mapping`)
+```
+
+```{r}
+
+```
+
+
+```{r}
+ghg_emissions_data %>% 
+  distinct(`National Communication Categories`)
+```
+```{r}
+ghg_emissions_data
+```
+```{r}
+ghg_emissions_data %>% 
+  filter(EmissionYear != "BaseYear") %>% 
+  mutate(EmissionYear = as.numeric(EmissionYear)) %>% 
+  group_by(`CCP mapping`, EmissionYear) %>% 
+  summarise(total_ghg_emissions = sum(`Emissions (MtCO2e)`)) %>% 
+  ggplot() +
+  aes(x = EmissionYear, y = total_ghg_emissions, group = `CCP mapping`, colour = `CCP mapping`) +
+  geom_line() +
+  geom_point() +
+  scale_x_continuous(breaks = seq(1990,2020,5))
+```
+
+```{r}
+ghg_emissions_data %>% 
+  filter(EmissionYear != "BaseYear") %>% 
+  mutate(EmissionYear = as.numeric(EmissionYear)) %>% 
+  filter(`National Communication Categories` != `CCP mapping`) %>% 
+  select(`National Communication Categories`, `CCP mapping`) %>% 
+  unique()
+```
+

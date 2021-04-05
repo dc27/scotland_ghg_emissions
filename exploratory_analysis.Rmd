@@ -9,8 +9,19 @@ library(readxl)
 ```
 
 ```{r}
-ghg_emissions_data <- read_xlsx("../../../Downloads/2021/scotland_net_zero/scottish-ghg-dataset-2018.xlsx", 2)
+ghg_emissions_data <- read_xlsx("data/raw_data/scottish-ghg-dataset-2018.xlsx", 2)
 ```
+
+```{r}
+ghg_emissions_data %>% 
+  names()
+```
+
+```{r}
+ghg_emissions_data %>% 
+  select()
+```
+
 
 ```{r}
 ghg_emissions_data %>% 

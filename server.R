@@ -7,7 +7,7 @@ server <- function(input, output, session) {
   })
   
   output$test_text <- renderText({
-    input$`input$col_choice`
+    input[[input$col_choice]]
   })
   
   output$emission_graph <- renderPlot({

@@ -4,6 +4,7 @@ ui <- dashboardPage(
   dashboardBody(
     selectInput("col_choice", "Category Method", colnames(emissions_data)[1:3]),
     uiOutput("dropdowns"),
-    textOutput("test_text")
+    textOutput("test_text"),
+    plotOutput("emission_graph")
   )
 )

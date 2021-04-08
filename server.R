@@ -18,6 +18,7 @@ server <- function(input, output, session) {
       aes_string(x = "emission_year", y = "total_ghg_emissions", group = input$col_choice, colour = input$col_choice) +
       geom_line() +
       geom_point() +
-      scale_x_continuous(breaks = seq(1990,2020,5))
+      scale_x_continuous(breaks = seq(1990,2020,5)) +
+      theme_bw()
   })
 }

@@ -13,6 +13,25 @@ ghg_emissions_data <- read_xlsx("data/raw_data/scottish-ghg-dataset-2018.xlsx", 
 ```
 
 ```{r}
+ghg_emissions_clean <- ghg_emissions_data %>% 
+  janitor::clean_names() %>% 
+  mutate(units = "megatonnes of co2 equivelant") %>% 
+  rename(emissions = emissions_mt_co2e) %>% 
+  filter(emission_year != "BaseYear") %>% 
+  mutate(emission_year = as.numeric(emission_year))
+```
+
+```{r}
+ghg_emissions_clean %>% 
+  write_csv("data/clean_data/ghg_emissions.csv")
+```
+
+```{r}
+ghg_emissions_clean
+```
+
+
+```{r}
 ghg_emissions_data %>% 
   names()
 ```
@@ -23,12 +42,19 @@ ghg_emissions_data %>%
 ```
 
 
+
 ```{r}
-ghg_emissions_data %>% 
-  filter(EmissionYear != "BaseYear") %>% 
-  mutate(EmissionYear = as.numeric(EmissionYear)) %>% 
-  group_by(`National Communication Categories`, EmissionYear) %>% 
-  summarise(total_ghg_emissions = sum(`Emissions (MtCO2e)`)) %>% 
+input <- list()
+
+input$col_choice = "national_communication_categories"
+```
+
+
+
+```{r}
+ghg_emissions_clean %>%
+  group_by_(input$col_choice, "emission_year") %>% 
+  summarise(total_ghg_emissions = sum(emissions)) %>% 
   ggplot() +
   aes(x = EmissionYear, y = total_ghg_emissions, group = `National Communication Categories`, colour = `National Communication Categories`) +
   geom_line() +

@@ -11,11 +11,15 @@ ui <- dashboardPage(
     fluidRow(
       column(
         6,
-        selectInput("col_choice", "Category Method", colnames(emissions_data)[1:3])
+        selectInput("col_choice", "Category Method", 
+                    choices = c("National Communication Categories" = colnames(emissions_data)[1],
+                                "SG Source Sector" = colnames(emissions_data)[2],
+                                "CCP Mapping" = colnames(emissions_data)[3]))
       ),
       column(
         6,
-        uiOutput("dropdowns")
+        radioButtons("plot_choice", "Plot Options",
+                     choices = c("Scatter", "Area", "Line", "Sankey"))
       )
     ),
     fluidRow(

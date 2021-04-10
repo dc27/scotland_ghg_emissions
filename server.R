@@ -10,21 +10,22 @@ server <- function(input, output, session) {
     input[[input$col_choice]]
   })
   
-  summarised_data <- reactive({
+  summarised_data <- eventReactive(input$update, {
     emissions_data %>% 
       group_by_(input$col_choice, "emission_year") %>% 
       summarise(total_ghg_emissions = sum(emissions))
   })
   
-  
-  output$emission_graph <- renderPlot({
-    p <- summarised_data() %>%
+  p <- eventReactive(input$update, {
+    summarised_data() %>%
       ggplot() +
       aes_string(x = "emission_year", y = "total_ghg_emissions", group = input$col_choice, colour = input$col_choice, fill = input$col_choice) +
       scale_x_continuous(breaks = seq(1990,2020,5)) +
       theme_bw() +
       theme(text = element_text(size=20))
-    
+    })
+  
+  which_plot <- eventReactive(input$update, {
     if (input$plot_choice == "Area") {
       p <- p() +
         geom_area(alpha = 0.6)
@@ -35,8 +36,12 @@ server <- function(input, output, session) {
     } else {
       p <- p() +
         geom_point(size = 2)
-      
     }
-
+    return(p)
+  })
+  
+  output$emission_graph <- renderPlot({
+    which_plot()
+    
   })
 }

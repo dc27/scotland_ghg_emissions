@@ -18,8 +18,9 @@ ui <- dashboardPage(
       ),
       column(
         6,
-        radioButtons("plot_choice", "Plot Options",
-                     choices = c("Scatter", "Area", "Line", "Sankey"))
+        radioButtons(inline = TRUE, "plot_choice", "Plot Options",
+                     choices = c("Scatter", "Area", "Line", "Sankey")),
+        actionButton("update", "Update")
       )
     ),
     fluidRow(

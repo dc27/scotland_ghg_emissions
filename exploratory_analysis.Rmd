@@ -2,6 +2,9 @@
 title: "R Notebook"
 output: html_notebook
 ---
+# Todo:
+
+- add columns for totals for each pollutant/sector
 
 ```{r}
 library(tidyverse)

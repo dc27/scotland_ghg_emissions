@@ -21,7 +21,9 @@ ghg_emissions_clean <- ghg_emissions_data %>%
   mutate(units = "megatonnes of co2 equivelant") %>% 
   rename(emissions = emissions_mt_co2e) %>% 
   filter(emission_year != "BaseYear") %>% 
-  mutate(emission_year = as.numeric(emission_year))
+  mutate(emission_year = as.numeric(emission_year)) %>% 
+  select(ccp_mapping, source_name, pollutant, year = emission_year, value = 
+           emissions, units)
 ```
 
 ```{r}

@@ -32,7 +32,28 @@ ghg_emissions_clean %>%
 ```
 
 ```{r}
-ghg_emissions_clean
+library(plotly)
+```
+
+
+```{r}
+plotly::ggplotly(
+  ghg_emissions_clean %>% 
+    filter(year == 2018) %>%
+    filter(pollutant == "CO2") %>% 
+    ggplot() +
+    aes(x = ccp_mapping, y = value, fill = source_name,
+        text = ~paste('</br> Map Name: ', ccp_mapping,
+                      '</br> Emissions: ', value,
+                      '</br> Source Name: ', source_name)) +
+    geom_col(position = "stack") +
+    theme_bw() +
+    facet_wrap(~pollutant) +
+    theme(legend.position = "none") +
+    coord_flip(),
+    tooltip = 'text'
+  )
+
 ```
 
 

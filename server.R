@@ -1,47 +1,29 @@
 server <- function(input, output, session) {
-  output$dropdowns <- renderUI({
-      # convert snakecase variable name to title for ui
-      varname <- str_to_title(str_replace_all(input$col_choice, "_", " "))
-      selectInput(input$col_choice, varname,
-                  sort(unique(emissions_data[[input$col_choice]])))
-  })
-  
-  output$test_text <- renderText({
-    input[[input$col_choice]]
-  })
-  
-  summarised_data <- eventReactive(input$update, {
+  filtered_emissions <- eventReactive(input$update, {
     emissions_data %>% 
-      group_by_(input$col_choice, "emission_year") %>% 
-      summarise(total_ghg_emissions = sum(emissions))
+      filter(year == input$year_select) %>%
+      filter(pollutant %in% c(input$gas_select))
   })
   
-  p <- eventReactive(input$update, {
-    summarised_data() %>%
-      ggplot() +
-      aes_string(x = "emission_year", y = "total_ghg_emissions", group = input$col_choice, colour = input$col_choice, fill = input$col_choice) +
-      scale_x_continuous(breaks = seq(1990,2020,5)) +
-      theme_bw() +
-      theme(text = element_text(size=20))
-    })
   
-  which_plot <- eventReactive(input$update, {
-    if (input$plot_choice == "Area") {
-      p <- p() +
-        geom_area(alpha = 0.6)
-    } else if (input$plot_choice == "Line") {
-      p <- p() +
-        geom_line(size = 1.2) +
-        geom_point(size = 2.5)
-    } else {
-      p <- p() +
-        geom_point(size = 2)
-    }
-    return(p)
-  })
-  
-  output$emission_graph <- renderPlot({
-    which_plot()
+  output$emissions_breakdown <- renderPlotly({
+    ggplotly(
+      filtered_emissions() %>% 
+        ggplot() +
+        aes(x = factor(ccp_mapping, levels = rev(levels(factor(ccp_mapping)))),
+            y = value, fill = source_name,
+            text = paste0('</br> Sector: ', ccp_mapping,
+                          '</br> Emissions: ', value,
+                          '</br> Source Name: ', source_name)) +
+        geom_col(position = "stack") +
+        theme_bw() +
+        facet_wrap(~pollutant) +
+        theme(legend.position = "none") +
+        labs(x = "Sector",
+             y = paste0("Emissions (", emissions_data$units[1], ")")) +
+        coord_flip(),
+      tooltip = 'text'
+    )
     
   })
 }

@@ -9,6 +9,7 @@ output: html_notebook
 ```{r}
 library(tidyverse)
 library(readxl)
+library(plotly)
 ```
 
 ```{r}
@@ -31,25 +32,24 @@ ghg_emissions_clean %>%
   write_csv("data/clean_data/ghg_emissions.csv")
 ```
 
-```{r}
-library(plotly)
-```
-
 
 ```{r}
 plotly::ggplotly(
   ghg_emissions_clean %>% 
     filter(year == 2018) %>%
-    filter(pollutant == "CO2") %>% 
+    filter(pollutant %in% c("CO2", "N2O", "CH4")) %>% 
     ggplot() +
-    aes(x = ccp_mapping, y = value, fill = source_name,
-        text = ~paste('</br> Map Name: ', ccp_mapping,
+    aes(x = factor(ccp_mapping, levels = rev(levels(factor(ccp_mapping)))),
+        y = value, fill = source_name,
+        text = paste0('</br> Sector: ', ccp_mapping,
                       '</br> Emissions: ', value,
                       '</br> Source Name: ', source_name)) +
     geom_col(position = "stack") +
     theme_bw() +
     facet_wrap(~pollutant) +
     theme(legend.position = "none") +
+    labs(x = "Sector",
+         y = paste0("Emissions (", ghg_emissions_clean$units[1], ")")) +
     coord_flip(),
     tooltip = 'text'
   )

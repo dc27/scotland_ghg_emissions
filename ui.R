@@ -5,26 +5,25 @@ ui <- dashboardPage(
     tags$style(
       type = "text/css",
       "
-      #emission_graph {height: calc(100vh - 160px) !important;}
+      #emissions_breakdown {height: calc(100vh - 160px) !important;}
       "
     ),
     fluidRow(
       column(
-        6,
-        selectInput("col_choice", "Category Method", 
-                    choices = c("National Communication Categories" = colnames(emissions_data)[1],
-                                "SG Source Sector" = colnames(emissions_data)[2],
-                                "CCP Mapping" = colnames(emissions_data)[3]))
+        3,
+        selectInput("year_select", "Year: ", 
+                    choices = years,
+                    selected = "2018"),
+        selectInput("gas_select", "Pollutant(s): ", 
+                    choices = pollutants,
+                    selected = "CO2"),
+        tags$br(),
+        actionButton("update", "Update")
       ),
       column(
-        6,
-        radioButtons(inline = TRUE, "plot_choice", "Plot Options",
-                     choices = c("Scatter", "Area", "Line", "Sankey")),
-        actionButton("update", "Update")
+        9,
+        plotlyOutput("emissions_breakdown")
       )
-    ),
-    fluidRow(
-      plotOutput("emission_graph")
     )
   )
 )

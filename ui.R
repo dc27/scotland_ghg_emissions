@@ -14,9 +14,11 @@ ui <- dashboardPage(
         selectInput("year_select", "Year: ", 
                     choices = years,
                     selected = "2018"),
-        selectInput("gas_select", "Pollutant(s): ", 
+        pickerInput("gas_select", "Pollutant(s): ", 
                     choices = pollutants,
-                    selected = "CO2"),
+                    selected = "CO2",
+                    options = list(`actions-box` = TRUE),
+                    multiple = TRUE),
         tags$br(),
         actionButton("update", "Update")
       ),

@@ -1,5 +1,7 @@
 server <- function(input, output, session) {
-  filtered_emissions <- eventReactive(input$update, {
+  filtered_emissions <- eventReactive(input$update,
+                                      ignoreNULL = FALSE,
+                                      {
     emissions_data %>% 
       filter(year == input$year_select) %>%
       filter(pollutant %in% c(input$gas_select))

@@ -19,6 +19,9 @@ ui <- dashboardPage(
                     selected = "CO2",
                     options = list(`actions-box` = TRUE),
                     multiple = TRUE),
+        radioButtons("facet_select", "Faceting: ",
+                    choices = c("single", "multiple"),
+                    selected = "single"),
         tags$br(),
         actionButton("update", "Update")
       ),

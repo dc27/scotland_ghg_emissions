@@ -37,7 +37,7 @@ ghg_emissions_clean %>%
 plotly::ggplotly(
   ghg_emissions_clean %>% 
     filter(year == 2018) %>%
-    filter(pollutant %in% c("CO2", "N2O", "CH4")) %>% 
+    filter(pollutant %in% c("CO2", "CH4")) %>%
     ggplot() +
     aes(x = factor(ccp_mapping, levels = rev(levels(factor(ccp_mapping)))),
         y = value, fill = source_name,
@@ -46,7 +46,6 @@ plotly::ggplotly(
                       '</br> Source Name: ', source_name)) +
     geom_col(position = "stack") +
     theme_bw() +
-    facet_wrap(~pollutant) +
     theme(legend.position = "none") +
     labs(x = "Sector",
          y = paste0("Emissions (", ghg_emissions_clean$units[1], ")")) +

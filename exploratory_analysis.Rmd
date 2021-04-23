@@ -7,29 +7,286 @@ output: html_notebook
 - add columns for totals for each pollutant/sector
 
 ```{r}
+# load libraries and read data
 library(tidyverse)
 library(readxl)
 library(plotly)
+
+ghg_emissions_clean <- read_csv("data/clean_data/ghg_emissions.csv")
+```
+
+Only emissions - > emissions that are greater than 0
+
+```{r}
+ghg_true_emissions <- ghg_emissions_clean %>% 
+  filter(year == max(ghg_true_emissions$year)) %>% 
+  filter(!value < 0) %>% 
+  mutate(across(where(is.character), ~str_to_title(.)))
+```
+
+get sector totals for parent df (top level)
+
+```{r}
+ghg_sector_totals <- ghg_true_emissions %>% 
+  group_by(ccp_mapping) %>% 
+  summarise(sector_total = sum(value), .groups = "drop_last")
 ```
 
 ```{r}
-ghg_emissions_data <- read_xlsx("data/raw_data/scottish-ghg-dataset-2018.xlsx", 2)
+parent_df <- ghg_sector_totals %>% 
+  mutate(parent = "") %>% 
+  select(label = ccp_mapping,
+         parent,
+         value = sector_total)
+```
+
+get second levels for initial vis
+
+```{r}
+children_df <- ghg_true_emissions %>% 
+  filter(year == max(ghg_true_emissions$year)) %>% 
+  group_by(source_name, ccp_mapping) %>% 
+  summarise(value = sum(value), .groups = "drop_last") %>% 
+  select(label = source_name,
+         parent = ccp_mapping,
+         value)
+```
+
+combine into one df - ready for vis
+
+```{r}
+emissions_long <- bind_rows(list(parent_df, children_df)) %>% 
+  mutate(id = paste(parent, label, sep = " - "), .before = 'label') %>% 
+  mutate(id = str_remove(id, "^ - "))
 ```
 
 ```{r}
-ghg_emissions_clean <- ghg_emissions_data %>% 
-  janitor::clean_names() %>% 
-  mutate(units = "megatonnes of co2 equivelant") %>% 
-  rename(emissions = emissions_mt_co2e) %>% 
-  filter(emission_year != "BaseYear") %>% 
-  mutate(emission_year = as.numeric(emission_year)) %>% 
-  select(ccp_mapping, source_name, pollutant, year = emission_year, value = 
-           emissions, units)
+emissions_long %>%
+  plot_ly(
+    ids = ~id,
+    labels = ~label,
+    parents = ~parent,
+    values = ~value,
+    type = "sunburst",
+    maxdepth = 2,
+    branchvalues = "total"
+  )
 ```
+
+
+```{r}
+first_born <- children_df %>% 
+  mutate(sub_group = str_extract(label, "^.+?(?= -)")) %>% 
+  mutate(sub_group = ifelse(is.na(sub_group), label, sub_group)) %>% 
+  group_by(sub_group, parent) %>%
+  summarise(value = sum(value), .groups = "drop_last") %>% 
+  ungroup() %>% 
+  mutate(id = paste(parent, sub_group, sep = " - ")) %>% 
+  select(id,
+         label = sub_group,
+         parent,
+         value)
+```
+
+```{r}
+second_born <- children_df %>% 
+  mutate(child = str_extract(label, "(?<=- ).*")) %>%
+  mutate(sub_group = str_extract(label, "^.+?(?= -)")) %>% 
+  drop_na() %>% 
+  ungroup() %>%
+  mutate(id = paste(parent, sub_group, child, sep = " - ")) %>% 
+  select(id,
+         label = child,
+         parent = sub_group,
+         value)
+```
+
+# Other method - seperate column
+
+```{r}
+emissions_wide <- emissions_long %>% 
+  separate(id, " - ", into = c("first", "second", "third", "fourth"),
+           remove = FALSE, extra = "merge", fill = "right")
+```
+
+```{r}
+parents <- emissions_wide %>% 
+  filter(is.na(second)) %>% 
+  select(id, label, parent, value)
+```
+
+```{r}
+first_born <- emissions_wide %>% 
+  filter(!is.na(second)) %>% 
+  group_by(second, first) %>% 
+  summarise(value = sum(value), .groups = "drop_last") %>% 
+  mutate(id = paste(first, second, sep = " - ")) %>% 
+  ungroup() %>% 
+  select(id,
+         label = second,
+         parent = first,
+         value)
+```
+
+```{r}
+second_born <- emissions_wide %>% 
+  filter(!is.na(third)) %>% 
+  group_by(third, second, first) %>% 
+  summarise(value = sum(value), .groups = "drop_last") %>% 
+  mutate(id = paste(first, second, third, sep = " - ")) %>% 
+  mutate(parent = paste(first, second, sep = " - ")) %>% 
+  ungroup() %>% 
+  select(id,
+         label = third,
+         parent,
+         value)
+```
+
+```{r}
+third_born <- emissions_wide %>% 
+  filter(!is.na(fourth)) %>% 
+  group_by(fourth, third, second, first) %>% 
+  summarise(value = sum(value), .groups = "drop_last") %>% 
+  mutate(id = paste(first, second, third, fourth, sep = " - ")) %>% 
+  mutate(parent = paste(first, second, third, sep = " - ")) %>% 
+  ungroup() %>% 
+  select(id,
+         label = fourth,
+         parent,
+         value)
+```
+
+```{r}
+emissions_long <- bind_rows(list(parents, first_born, second_born, third_born))
+```
+
+```{r}
+emissions_long %>%
+  data.frame(stringsAsFactors = FALSE) %>% 
+  plot_ly(
+    ids = ~id,
+    labels = ~label,
+    parents = ~parent,
+    values = ~value,
+    type = "sunburst",
+    branchvalues = "total",
+    maxdepth = 2,
+    insidetextorientation = 'radial',
+    textinfo='label+percent root'
+  )
+```
+
+
+```{r}
+plot_ly(
+  labels = c("Eve", "Seth", "Enos", "Noam", "Awan", "Enoch"),
+  parents = c("", "Eve", "Seth", "Seth", "Eve", "Awan"),
+  values = c(16, 12, 10, 2, 4, 4),
+  type = "sunburst",
+  branchvalues = "total"
+)
+```
+
+```{r}
+tibble(
+  labels = c("Eve", "Seth", "Enos", "Noam", "Awan", "Enoch"),
+  parents = c("", "Eve", "Seth", "Seth", "Eve", "Awan"),
+  values = c(16, 12, 10, 2, 4, 4)
+)
+```
+
+```{r}
+emissions_long
+```
+
+
+```{r}
+fig <- plot_ly(
+  labels = cain_ble$labels,
+  parents = cain_ble$parents,
+  values = cain_ble$values,
+  type = 'sunburst'
+)
+
+fig
+```
+
+
+```{r}
+emissions_long$label[1:10]
+```
+
+
+```{r}
+d <- data.frame(
+    ids = c(
+    "North America", "Europe", "Australia", "North America - Football", "Soccer",
+    "North America - Rugby", "Europe - Football", "Rugby",
+    "Europe - American Football","Australia - Football", "Association",
+    "Australian Rules", "Autstralia - American Football", "Australia - Rugby",
+    "Rugby League", "Rugby Union"
+  ),
+  labels = c(
+    "North<br>America", "Europe", "Australia", "Football", "Soccer", "Rugby",
+    "Football", "Rugby", "American<br>Football", "Football", "Association",
+    "Australian<br>Rules", "American<br>Football", "Rugby", "Rugby<br>League",
+    "Rugby<br>Union"
+  ),
+  parents = c(
+    "", "", "", "North America", "North America", "North America", "Europe",
+    "Europe", "Europe","Australia", "Australia - Football", "Australia - Football",
+    "Australia - Football", "Australia - Football", "Australia - Rugby",
+    "Australia - Rugby"
+  ),
+  stringsAsFactors = FALSE
+)
+
+fig <- plot_ly(d, ids = ~ids, labels = ~labels, parents = ~parents, type = 'sunburst')
+
+d
+```
+
+```{r}
+class(emissions_long)
+```
+```{r}
+class(cain_ble)
+```
+
+
+```{r}
+diff_order <- ghg_emissions_clean %>% 
+  dplyr::group_by(ccp_mapping, year, pollutant) %>% 
+  dplyr::summarise(value = sum(value), units = units[1], .groups = "keep") %>%
+  filter(pollutant == "CO2") %>% 
+  filter(year == min(ghg_emissions_clean$year) |
+           year == max(ghg_emissions_clean$year)) %>% 
+  ungroup() %>% 
+  group_by(ccp_mapping) %>% 
+  mutate(diff = lag(value) - value) %>% 
+  arrange(diff) %>%
+  drop_na() %>% 
+  select(ccp_mapping) %>% 
+  pull()
+```
+
 
 ```{r}
 ghg_emissions_clean %>% 
-  write_csv("data/clean_data/ghg_emissions.csv")
+  dplyr::group_by(ccp_mapping, year, pollutant) %>% 
+  dplyr::summarise(value = sum(value), units = units[1], .groups = "keep") %>%
+  filter(pollutant == "CO2") %>%
+  mutate(ccp_mapping = factor(ccp_mapping, levels = rev(diff_order))) %>% 
+  ggplot() +
+  aes(x = year, y = value, fill = ccp_mapping) +
+  geom_area() +
+  facet_wrap(~pollutant) +
+  theme_bw()
+```
+```{r}
+ghg_emissions_clean %>% 
+  group_by(pollutant) %>% 
+  summarise(emissions = sum(value))
 ```
 
 

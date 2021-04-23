@@ -39,8 +39,5 @@ server <- function(input, output, session) {
       emission_totals_plot(),
       tooltip = 'text'
     )
-    
-
-    
   })
 }

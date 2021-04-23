@@ -168,13 +168,31 @@ emissions_long %>%
     labels = ~label,
     parents = ~parent,
     values = ~value,
-    type = "sunburst",
+    type = "treemap",
     branchvalues = "total",
     maxdepth = 2,
-    insidetextorientation = 'radial',
-    textinfo='label+percent root'
+    textinfo='label+percent root+entry'
   )
 ```
+
+
+```{r}
+emissions_long %>%
+  data.frame(stringsAsFactors = FALSE) %>% 
+  plot_ly(
+    ids = ~id,
+    labels = ~label,
+    parents = ~parent,
+    values = ~value,
+    type = "sunburst",
+    maxdepth = 2,
+    branchvalues = "total",
+    insidetextorientation = 'radial',
+    textinfo='label+percent root',
+    hovertemplate = ("%{label}: <br>%{value}<br>")
+  )
+```
+
 
 
 ```{r}

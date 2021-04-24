@@ -24,6 +24,10 @@ ghg_true_emissions <- ghg_emissions_clean %>%
   mutate(across(where(is.character), ~str_to_title(.)))
 ```
 
+```{r}
+ghg_emissions_clean
+```
+
 
 
 ```{r}
@@ -110,6 +114,35 @@ third_born <- emissions_wide %>%
          parent,
          value)
 ```
+
+```{r}
+# the number of potential child layers is the maximum included in the dataset
+n_potential_child_layers <- emissions_long %>% 
+  select(id) %>% 
+  pull() %>% 
+  str_count(" - ") %>% 
+  max()
+```
+
+
+
+```{r}
+create_hierarchy_df <- function(df, id_col = "id", id_sep = " - ") {
+  n_potential_child_layers <- df %>% 
+    select(col) %>% 
+    pull() %>% 
+    str_count(sep) %>% 
+    max()
+  
+  
+}
+```
+
+
+
+```{r}
+```
+
 
 ```{r}
 emissions_long <- bind_rows(list(parents, first_born, second_born, third_born)) %>% 

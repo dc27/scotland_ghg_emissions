@@ -20,29 +20,27 @@ Only emissions - > emissions that are greater than 0
 ```{r}
 ghg_true_emissions <- ghg_emissions_clean %>% 
   filter(year == max(ghg_true_emissions$year)) %>% 
-  filter(!value < 0) %>% 
+  filter(value >= 0) %>% 
   mutate(across(where(is.character), ~str_to_title(.)))
 ```
 
-get sector totals for parent df (top level)
+
 
 ```{r}
+# get sector totals for parent df (top level)
+
 ghg_sector_totals <- ghg_true_emissions %>% 
   group_by(ccp_mapping) %>% 
   summarise(sector_total = sum(value), .groups = "drop_last")
-```
 
-```{r}
 parent_df <- ghg_sector_totals %>% 
   mutate(parent = "") %>% 
   select(label = ccp_mapping,
          parent,
          value = sector_total)
-```
 
-get second levels for initial vis
+# the rest of the data
 
-```{r}
 children_df <- ghg_true_emissions %>% 
   filter(year == max(ghg_true_emissions$year)) %>% 
   group_by(source_name, ccp_mapping) %>% 
@@ -50,55 +48,12 @@ children_df <- ghg_true_emissions %>%
   select(label = source_name,
          parent = ccp_mapping,
          value)
-```
 
-combine into one df - ready for vis
+# combine into one hierarchical df, create id column
 
-```{r}
 emissions_long <- bind_rows(list(parent_df, children_df)) %>% 
   mutate(id = paste(parent, label, sep = " - "), .before = 'label') %>% 
   mutate(id = str_remove(id, "^ - "))
-```
-
-```{r}
-emissions_long %>%
-  plot_ly(
-    ids = ~id,
-    labels = ~label,
-    parents = ~parent,
-    values = ~value,
-    type = "sunburst",
-    maxdepth = 2,
-    branchvalues = "total"
-  )
-```
-
-
-```{r}
-first_born <- children_df %>% 
-  mutate(sub_group = str_extract(label, "^.+?(?= -)")) %>% 
-  mutate(sub_group = ifelse(is.na(sub_group), label, sub_group)) %>% 
-  group_by(sub_group, parent) %>%
-  summarise(value = sum(value), .groups = "drop_last") %>% 
-  ungroup() %>% 
-  mutate(id = paste(parent, sub_group, sep = " - ")) %>% 
-  select(id,
-         label = sub_group,
-         parent,
-         value)
-```
-
-```{r}
-second_born <- children_df %>% 
-  mutate(child = str_extract(label, "(?<=- ).*")) %>%
-  mutate(sub_group = str_extract(label, "^.+?(?= -)")) %>% 
-  drop_na() %>% 
-  ungroup() %>%
-  mutate(id = paste(parent, sub_group, child, sep = " - ")) %>% 
-  select(id,
-         label = child,
-         parent = sub_group,
-         value)
 ```
 
 # Other method - seperate column
@@ -157,8 +112,12 @@ third_born <- emissions_wide %>%
 ```
 
 ```{r}
-emissions_long <- bind_rows(list(parents, first_born, second_born, third_born))
+emissions_long <- bind_rows(list(parents, first_born, second_born, third_born)) %>% 
+  mutate(units = ghg_emissions_clean$units[1]) %>% 
+  write_csv("data/clean_data/hierarchical_data.csv")
 ```
+
+
 
 ```{r}
 emissions_long %>%
@@ -177,7 +136,7 @@ emissions_long %>%
 
 
 ```{r}
-emissions_long %>%
+emissions_long %>% 
   data.frame(stringsAsFactors = FALSE) %>% 
   plot_ly(
     ids = ~id,
@@ -186,10 +145,11 @@ emissions_long %>%
     values = ~value,
     type = "sunburst",
     maxdepth = 2,
-    branchvalues = "total",
     insidetextorientation = 'radial',
-    textinfo='label+percent root',
-    hovertemplate = ("%{label}: <br>%{value}<br>")
+    marker=list(colorscale='Portland'),
+    text = ~units,
+    textinfo='label+percent root+percent entry',
+    hoverinfo = paste("%{label}: <br>%{value}",'text')
   )
 ```
 

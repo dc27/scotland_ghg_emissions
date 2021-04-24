@@ -1,0 +1,481 @@
+id,label,parent,value,units
+Agriculture,Agriculture,,7.473525047109887,megatonnes of co2 equivelant
+Electricity Generation,Electricity Generation,,2.152457503468334,megatonnes of co2 equivelant
+Industry,Industry,,11.525742991505934,megatonnes of co2 equivelant
+Land Use,Land Use,,7.659636888903999,megatonnes of co2 equivelant
+Residential,Residential,,6.231281555645589,megatonnes of co2 equivelant
+Services,Services,,3.174064228232718,megatonnes of co2 equivelant
+Transport,Transport,,14.807012496318467,megatonnes of co2 equivelant
+Waste,Waste,,1.6758362664139206,megatonnes of co2 equivelant
+Residential - Accidental Fires,Accidental Fires,Residential,3.2818912458331567e-4,megatonnes of co2 equivelant
+Services - Accidental Fires,Accidental Fires,Services,2.09254815524616e-4,megatonnes of co2 equivelant
+Industry - Adipic Acid Production,Adipic Acid Production,Industry,0,megatonnes of co2 equivelant
+Residential - Aerosols,Aerosols,Residential,0.0442748357508189,megatonnes of co2 equivelant
+Agriculture - Agricultural Engines,Agricultural Engines,Agriculture,1.7480003735505e-5,megatonnes of co2 equivelant
+Agriculture - Agriculture,Agriculture,Agriculture,0.8066554072530145,megatonnes of co2 equivelant
+Transport - Aircraft,Aircraft,Transport,2.23124377776325,megatonnes of co2 equivelant
+Transport - Aircraft Between Uk And Bermuda,Aircraft Between Uk And Bermuda,Transport,0,megatonnes of co2 equivelant
+Transport - Aircraft Between Uk And Cds,Aircraft Between Uk And Cds,Transport,0.0035637161373435495,megatonnes of co2 equivelant
+Transport - Aircraft Between Uk And Gibraltar,Aircraft Between Uk And Gibraltar,Transport,0,megatonnes of co2 equivelant
+Transport - Aircraft Between Uk And Other Ots (Excl Gib. And Bermuda),Aircraft Between Uk And Other Ots (Excl Gib. And Bermuda),Transport,0,megatonnes of co2 equivelant
+Transport - Aircraft Engines,Aircraft Engines,Transport,5.06959559781221e-6,megatonnes of co2 equivelant
+Agriculture - All Horses Prp,All Horses Prp,Agriculture,0.00625915372870483,megatonnes of co2 equivelant
+Industry - Ammonia Production,Ammonia Production,Industry,0,megatonnes of co2 equivelant
+Waste - Anaerobic Digestion (Other),Anaerobic Digestion (Other),Waste,0.013894901935686899,megatonnes of co2 equivelant
+Agriculture - Arable,Arable,Agriculture,0.49388076920042345,megatonnes of co2 equivelant
+Industry - Autogeneration,Autogeneration,Industry,0.2591778351489396,megatonnes of co2 equivelant
+Industry - Autogenerators,Autogenerators,Industry,0.18589937846106724,megatonnes of co2 equivelant
+Industry - Awacs,Awacs,Industry,0.009667442292148021,megatonnes of co2 equivelant
+Industry - Basic Oxygen Furnaces,Basic Oxygen Furnaces,Industry,0,megatonnes of co2 equivelant
+Industry - Blast Furnaces,Blast Furnaces,Industry,0,megatonnes of co2 equivelant
+Industry - Bread Baking,Bread Baking,Industry,8.841547986259351e-4,megatonnes of co2 equivelant
+Industry - Brick Manufacture,Brick Manufacture,Industry,0,megatonnes of co2 equivelant
+Land Use - Carbon Stock Change,Carbon Stock Change,Land Use,2.34663244948,megatonnes of co2 equivelant
+Industry - Cement,Cement,Industry,0.389845977636028,megatonnes of co2 equivelant
+Industry - Cement Production,Cement Production,Industry,0.19426184807635483,megatonnes of co2 equivelant
+Industry - Charcoal Production,Charcoal Production,Industry,2.74582939776059e-4,megatonnes of co2 equivelant
+Industry - Chemical Industry,Chemical Industry,Industry,0.00884546289824873,megatonnes of co2 equivelant
+Industry - Chemical Industry – Other Process Sources,Chemical Industry – Other Process Sources,Industry,0,megatonnes of co2 equivelant
+Industry - Chemicals (Combustion),Chemicals (Combustion),Industry,2.5545266080815896,megatonnes of co2 equivelant
+Industry - Closed Coal Mines,Closed Coal Mines,Industry,0.0668920709821946,megatonnes of co2 equivelant
+Industry - Coal Storage And Transport,Coal Storage And Transport,Industry,0,megatonnes of co2 equivelant
+Industry - Coke Production,Coke Production,Industry,0,megatonnes of co2 equivelant
+Industry - Collieries,Collieries,Industry,0,megatonnes of co2 equivelant
+Services - Commercial Refrigeration,Commercial Refrigeration,Services,0.17737470413874676,megatonnes of co2 equivelant
+Residential - Composting (At Household),Composting (At Household),Residential,0.00733970880634091,megatonnes of co2 equivelant
+Land Use - Cropland Converted To Forest Land,Cropland Converted To Forest Land,Land Use,0.002959752986,megatonnes of co2 equivelant
+Land Use - Cropland Converted To Settlements,Cropland Converted To Settlements,Land Use,0.1073934597710001,megatonnes of co2 equivelant
+Agriculture - Cropland Management,Cropland Management,Agriculture,0.238709609624496,megatonnes of co2 equivelant
+Land Use - Cropland Remaining Cropland,Cropland Remaining Cropland,Land Use,2.46931333e-4,megatonnes of co2 equivelant
+Agriculture - Dairy,Dairy,Agriculture,0.13005793031941598,megatonnes of co2 equivelant
+Industry - Deep-Mined Coal,Deep-Mined Coal,Industry,0,megatonnes of co2 equivelant
+Agriculture - Deer Fam,Deer Fam,Agriculture,6.238201332976885e-5,megatonnes of co2 equivelant
+Agriculture - Deer Prp,Deer Prp,Agriculture,2.498891560523322e-4,megatonnes of co2 equivelant
+Agriculture - Deer Wastes,Deer Wastes,Agriculture,3.4221474742789467e-4,megatonnes of co2 equivelant
+Land Use - Direct N2o Emission From N Fertilisation Of Forest Land,Direct N2o Emission From N Fertilisation Of Forest Land,Land Use,0.0019109559920000001,megatonnes of co2 equivelant
+Residential - Domestic Combustion,Domestic Combustion,Residential,6.063969572667266,megatonnes of co2 equivelant
+Services - Domestic Refrigeration,Domestic Refrigeration,Services,0.005758890778986093,megatonnes of co2 equivelant
+Industry - Electric Arc Furnaces,Electric Arc Furnaces,Industry,0,megatonnes of co2 equivelant
+Industry - Electrical Insulation,Electrical Insulation,Industry,0.0164926991323452,megatonnes of co2 equivelant
+Industry - Electronics,Electronics,Industry,0.0167169429648555,megatonnes of co2 equivelant
+Industry - Electronics And Shoes,Electronics And Shoes,Industry,0.1479137024597209,megatonnes of co2 equivelant
+Agriculture - Enteric,Enteric,Agriculture,3.622730792964784,megatonnes of co2 equivelant
+Agriculture - Excreta,Excreta,Agriculture,0.03593357984485113,megatonnes of co2 equivelant
+Services - F-Gas Handling,F-Gas Handling,Services,0,megatonnes of co2 equivelant
+Agriculture - Fertiliser Application,Fertiliser Application,Agriculture,0.0246792296969351,megatonnes of co2 equivelant
+Agriculture - Field Burning,Field Burning,Agriculture,0,megatonnes of co2 equivelant
+Industry - Firefighting,Firefighting,Industry,0.026100929861570202,megatonnes of co2 equivelant
+Transport - Fishing Vessels,Fishing Vessels,Transport,0.35220254145717095,megatonnes of co2 equivelant
+Industry - Flue Gas Treatment (Neutralisation),Flue Gas Treatment (Neutralisation),Industry,0.0017424436703325401,megatonnes of co2 equivelant
+Industry - Foams,Foams,Industry,0.020610263155114102,megatonnes of co2 equivelant
+Industry - Foams Hfcs For The 2006 Gls,Foams Hfcs For The 2006 Gls,Industry,0.0171588015230486,megatonnes of co2 equivelant
+"Industry - Food & Drink, Tobacco (Combustion)","Food & Drink, Tobacco (Combustion)",Industry,0.4836508737311049,megatonnes of co2 equivelant
+Land Use - Forest Land,Forest Land,Land Use,0.027171521992,megatonnes of co2 equivelant
+Land Use - Forest Land Converted To Cropland,Forest Land Converted To Cropland,Land Use,7.895213333333341e-4,megatonnes of co2 equivelant
+Land Use - Forest Land Converted To Grassland,Forest Land Converted To Grassland,Land Use,0.540945846666001,megatonnes of co2 equivelant
+Land Use - Forest Land Converted To Settlements,Forest Land Converted To Settlements,Land Use,0.4804103794230004,megatonnes of co2 equivelant
+Land Use - Forest Land Remaining Forest Land,Forest Land Remaining Forest Land,Land Use,0.024470702269,megatonnes of co2 equivelant
+Industry - Gas Leakage,Gas Leakage,Industry,0.24056683690760838,megatonnes of co2 equivelant
+Industry - Gas Production,Gas Production,Industry,0.2693918243346655,megatonnes of co2 equivelant
+Industry - Glass,Glass,Industry,0.0512477105850937,megatonnes of co2 equivelant
+Agriculture - Goats Fam,Goats Fam,Agriculture,1.8276005694558438e-5,megatonnes of co2 equivelant
+Agriculture - Goats Prp,Goats Prp,Agriculture,2.8020629544730743e-4,megatonnes of co2 equivelant
+Agriculture - Goats Wastes,Goats Wastes,Agriculture,9.999575810024825e-5,megatonnes of co2 equivelant
+Agriculture - Grass,Grass,Agriculture,0.4321380745581814,megatonnes of co2 equivelant
+Land Use - Grassland Converted To Cropland,Grassland Converted To Cropland,Land Use,2.41847976512833,megatonnes of co2 equivelant
+Land Use - Grassland Converted To Flooded Land,Grassland Converted To Flooded Land,Land Use,0,megatonnes of co2 equivelant
+Land Use - Grassland Converted To Forest Land,Grassland Converted To Forest Land,Land Use,0.041710641608000004,megatonnes of co2 equivelant
+Land Use - Grassland Converted To Settlements,Grassland Converted To Settlements,Land Use,0.8112144405976669,megatonnes of co2 equivelant
+Land Use - Grassland Remaining Grassland,Grassland Remaining Grassland,Land Use,0.006260245200000001,megatonnes of co2 equivelant
+Industry - Halocarbons Production,Halocarbons Production,Industry,0,megatonnes of co2 equivelant
+Agriculture - Horses Fam,Horses Fam,Agriculture,0.002633596049691537,megatonnes of co2 equivelant
+Agriculture - Horses Prp,Horses Prp,Agriculture,0.001534561098045113,megatonnes of co2 equivelant
+Agriculture - Horses Wastes,Horses Wastes,Agriculture,0.014496984586360609,megatonnes of co2 equivelant
+Residential - House And Garden Machinery,House And Garden Machinery,Residential,0.0330385157239023,megatonnes of co2 equivelant
+Waste - Incineration,Incineration,Waste,0.009457905153337162,megatonnes of co2 equivelant
+Industry - Industrial Engines,Industrial Engines,Industry,6.83815621044771e-4,megatonnes of co2 equivelant
+Industry - Industrial Off-Road Mobile Machinery,Industrial Off-Road Mobile Machinery,Industry,0.514103904841072,megatonnes of co2 equivelant
+Industry - Industrial Refrigeration,Industrial Refrigeration,Industry,0.12073059436582606,megatonnes of co2 equivelant
+Waste - Industrial Waste Water Treatment,Industrial Waste Water Treatment,Waste,0.140149759122864,megatonnes of co2 equivelant
+Transport - Inland Goods-Carrying Vessels,Inland Goods-Carrying Vessels,Transport,5.335632184366189e-4,megatonnes of co2 equivelant
+Industry - Iron And Steel,Iron And Steel,Industry,0.024538040544993835,megatonnes of co2 equivelant
+Industry - Ladle Arc Furnaces,Ladle Arc Furnaces,Industry,0,megatonnes of co2 equivelant
+Land Use - Land Converted For Peat Extraction,Land Converted For Peat Extraction,Land Use,2.5006666666666703e-5,megatonnes of co2 equivelant
+Waste - Landfill,Landfill,Waste,1.27016547255552,megatonnes of co2 equivelant
+Industry - Lime Production,Lime Production,Industry,0,megatonnes of co2 equivelant
+Agriculture - Liming,Liming,Agriculture,0.2155471086432401,megatonnes of co2 equivelant
+Land Use - Lulucf Indirect N2o,Lulucf Indirect N2o,Land Use,0.09053481976000001,megatonnes of co2 equivelant
+Industry - Magnesium Cover Gas,Magnesium Cover Gas,Industry,0,megatonnes of co2 equivelant
+Agriculture - Managed Histosols,Managed Histosols,Agriculture,0.2386384,megatonnes of co2 equivelant
+Agriculture - Managed Manure,Managed Manure,Agriculture,0.539710830633052,megatonnes of co2 equivelant
+Transport - Marine Engines,Marine Engines,Transport,3.26661836291842e-4,megatonnes of co2 equivelant
+Waste - Mechanical Biological Treatment,Mechanical Biological Treatment,Waste,0.05297507993094098,megatonnes of co2 equivelant
+Residential - Metered Dose Inhalers,Metered Dose Inhalers,Residential,0.08005057314928431,megatonnes of co2 equivelant
+Industry - Methanol Production – Combustion,Methanol Production – Combustion,Industry,0,megatonnes of co2 equivelant
+Electricity Generation - Miscellaneous Industrial/Commercial Combustion,Miscellaneous Industrial/Commercial Combustion,Electricity Generation,0.013280939992784846,megatonnes of co2 equivelant
+Services - Miscellaneous Industrial/Commercial Combustion,Miscellaneous Industrial/Commercial Combustion,Services,1.2989865489428574,megatonnes of co2 equivelant
+Services - Mobile Air Conditioning,Mobile Air Conditioning,Services,0.2482871279224922,megatonnes of co2 equivelant
+"Transport - Motorboats / Workboats (E.g. Canal Boats, Dredgers, Service Boats, Tourist Boats, River Boats)","Motorboats / Workboats (E.g. Canal Boats, Dredgers, Service Boats, Tourist Boats, River Boats)",Transport,0.06107595092930742,megatonnes of co2 equivelant
+Services - N2o Use As An Anaesthetic,N2o Use As An Anaesthetic,Services,0.0493739814283731,megatonnes of co2 equivelant
+Industry - Nitric Acid Production,Nitric Acid Production,Industry,0,megatonnes of co2 equivelant
+Residential - Non-Aerosol Products,Non-Aerosol Products,Residential,0.0019530588783938801,megatonnes of co2 equivelant
+Industry - Non-Ferrous Metal (Combustion),Non-Ferrous Metal (Combustion),Industry,0.010975594029546657,megatonnes of co2 equivelant
+Industry - Non-Ferrous Metal Processes,Non-Ferrous Metal Processes,Industry,0,megatonnes of co2 equivelant
+Industry - Non Energy Use: Chemical Feedstock,Non Energy Use: Chemical Feedstock,Industry,8.76692242539687e-4,megatonnes of co2 equivelant
+Industry - Non Energy Use: Petroleum Coke,Non Energy Use: Petroleum Coke,Industry,0.0033431358733927697,megatonnes of co2 equivelant
+Industry - Nuclear Fuel Production,Nuclear Fuel Production,Industry,0,megatonnes of co2 equivelant
+Industry - One Component Foams,One Component Foams,Industry,0,megatonnes of co2 equivelant
+Industry - Open-Cast Coal,Open-Cast Coal,Industry,0.00707285402588749,megatonnes of co2 equivelant
+Agriculture - Other Cattle,Other Cattle,Agriculture,0.47650388214885364,megatonnes of co2 equivelant
+Industry - Other Emissive Applications Of  Sodium Bicarbonate,Other Emissive Applications Of  Sodium Bicarbonate,Industry,1.56027317404576e-4,megatonnes of co2 equivelant
+Industry - Other Emissive Applications Of Soda Ash,Other Emissive Applications Of Soda Ash,Industry,0,megatonnes of co2 equivelant
+Industry - Other Food,Other Food,Industry,0.0034657388207376,megatonnes of co2 equivelant
+Industry - Other Industrial Combustion,Other Industrial Combustion,Industry,1.630349454716488,megatonnes of co2 equivelant
+Land Use - Other Land Converted To Forest Land,Other Land Converted To Forest Land,Land Use,0,megatonnes of co2 equivelant
+Industry - Particle Accelerators,Particle Accelerators,Industry,4.39743059521033e-4,megatonnes of co2 equivelant
+Land Use - Peat Extraction Remaining Peat Extraction,Peat Extraction Remaining Peat Extraction,Land Use,0.100340664526667,megatonnes of co2 equivelant
+Transport - Personal Watercraft E.g. Jet Ski,Personal Watercraft E.g. Jet Ski,Transport,0.012250649440148077,megatonnes of co2 equivelant
+Industry - Petroleum Processes,Petroleum Processes,Industry,0,megatonnes of co2 equivelant
+Agriculture - Pig,Pig,Agriculture,0.03332957497092939,megatonnes of co2 equivelant
+Agriculture - Poultry,Poultry,Agriculture,0.041362991523627164,megatonnes of co2 equivelant
+Electricity Generation - Power Stations,Power Stations,Electricity Generation,2.139138009245036,megatonnes of co2 equivelant
+Industry - Precision Cleaning ,Precision Cleaning ,Industry,0.0013199656525497202,megatonnes of co2 equivelant
+Industry - Primary Aluminium Production,Primary Aluminium Production,Industry,0.078816672854185,megatonnes of co2 equivelant
+Electricity Generation - Public Sector Combustion,Public Sector Combustion,Electricity Generation,3.8554230513207254e-5,megatonnes of co2 equivelant
+Services - Public Sector Combustion,Public Sector Combustion,Services,1.0990231727432143,megatonnes of co2 equivelant
+"Industry - Pulp, Paper And Print (Combustion)","Pulp, Paper And Print (Combustion)",Industry,0.0996928958325066,megatonnes of co2 equivelant
+Transport - Rail,Rail,Transport,0.005103776508793277,megatonnes of co2 equivelant
+Transport - Railways,Railways,Transport,0.15285263949894662,megatonnes of co2 equivelant
+Residential - Recreational Use Of N2o,Recreational Use Of N2o,Residential,3.27101544999635e-4,megatonnes of co2 equivelant
+Industry - Refineries,Refineries,Industry,2.1064303758931686,megatonnes of co2 equivelant
+Services - Refrigerant Containers,Refrigerant Containers,Services,0.00335447104450531,megatonnes of co2 equivelant
+Services - Refrigerated Transport,Refrigerated Transport,Services,0.04204132357534021,megatonnes of co2 equivelant
+Transport - Road Transport,Road Transport,Transport,10.019710165137168,megatonnes of co2 equivelant
+Transport - Road Vehicle Engines,Road Vehicle Engines,Transport,0.0205108578438597,megatonnes of co2 equivelant
+Transport - Sailing Boats With Auxiliary Engines,Sailing Boats With Auxiliary Engines,Transport,6.523064358245291e-4,megatonnes of co2 equivelant
+Land Use - Settlements Converted To Forest Land,Settlements Converted To Forest Land,Land Use,0.005478259756,megatonnes of co2 equivelant
+Land Use - Settlements Remaining Settlements,Settlements Remaining Settlements,Land Use,0.6520781021053339,megatonnes of co2 equivelant
+Agriculture - Sewage Sludge Application,Sewage Sludge Application,Agriculture,0.013744949065693655,megatonnes of co2 equivelant
+Waste - Sewage Sludge Decomposition,Sewage Sludge Decomposition,Waste,0.08130255570103889,megatonnes of co2 equivelant
+Waste - Sewage Sludge Decomposition In Private Systems,Sewage Sludge Decomposition In Private Systems,Waste,0.0245714542401925,megatonnes of co2 equivelant
+Industry - Sf6 Used As A Tracer Gas,Sf6 Used As A Tracer Gas,Industry,5.39308730435987e-5,megatonnes of co2 equivelant
+Agriculture - Sheep,Sheep,Agriculture,0.1009693374698,megatonnes of co2 equivelant
+Transport - Shipping,Shipping,Transport,1.9381600883772165,megatonnes of co2 equivelant
+Transport - Shipping Between Uk And Bermuda,Shipping Between Uk And Bermuda,Transport,3.937912821368761e-6,megatonnes of co2 equivelant
+Transport - Shipping Between Uk And Cds,Shipping Between Uk And Cds,Transport,0.008287053587429961,megatonnes of co2 equivelant
+Transport - Shipping Between Uk And Gibraltar,Shipping Between Uk And Gibraltar,Transport,4.348081327407184e-4,megatonnes of co2 equivelant
+Transport - Shipping Between Uk And Ots (Excl. Gib And Bermuda),Shipping Between Uk And Ots (Excl. Gib And Bermuda),Transport,9.493250611972223e-5,megatonnes of co2 equivelant
+Industry - Sinter Production,Sinter Production,Industry,0,megatonnes of co2 equivelant
+Industry - Solid Smokeless Fuel Production,Solid Smokeless Fuel Production,Industry,0,megatonnes of co2 equivelant
+Services - Stationary Air Conditioning,Stationary Air Conditioning,Services,0.24965475284267813,megatonnes of co2 equivelant
+Waste - Total Composting (Non-Household),Total Composting (Non-Household),Waste,0.08331913777434001,megatonnes of co2 equivelant
+Industry - Town Gas Manufacture,Town Gas Manufacture,Industry,0,megatonnes of co2 equivelant
+Industry - Unknown Applications Of Sodium Bicarbonate,Unknown Applications Of Sodium Bicarbonate,Industry,3.51061464160297e-4,megatonnes of co2 equivelant
+Industry - Upstream Gas Production,Upstream Gas Production,Industry,0.8688594835914804,megatonnes of co2 equivelant
+Industry - Upstream Oil And Gas Production,Upstream Oil And Gas Production,Industry,0.2874256214658898,megatonnes of co2 equivelant
+Industry - Upstream Oil Production,Upstream Oil Production,Industry,0.8041889987800637,megatonnes of co2 equivelant
+Agriculture - Wastes,Wastes,Agriculture,0.00293783975,megatonnes of co2 equivelant
+Land Use - Wetlands,Wetlands,Land Use,2.81786118e-4,megatonnes of co2 equivelant
+Land Use - Wetlands Converted To Grassland,Wetlands Converted To Grassland,Land Use,3.0163619200000003e-4,megatonnes of co2 equivelant
+Transport - Aircraft -  Military, Military,Transport - Aircraft,0.08373647980969329,megatonnes of co2 equivelant
+Industry - Chemical Industry - Acrylonitrile,Acrylonitrile,Industry - Chemical Industry,0,megatonnes of co2 equivelant
+Industry - Brick Manufacture - All Types,All Types,Industry - Brick Manufacture,0,megatonnes of co2 equivelant
+Transport - Road Transport - All Vehicles Biofuels Use,All Vehicles Biofuels Use,Transport - Road Transport,0.013848027519856,megatonnes of co2 equivelant
+Transport - Road Transport - All Vehicles Lpg Use,All Vehicles Lpg Use,Transport - Road Transport,0.0158385424726573,megatonnes of co2 equivelant
+Waste - Mechanical Biological Treatment - Anaerobic Digestion,Anaerobic Digestion,Waste - Mechanical Biological Treatment,0.00182456920081538,megatonnes of co2 equivelant
+Land Use - Lulucf Indirect N2o - Atmospheric Deposition,Atmospheric Deposition,Land Use - Lulucf Indirect N2o,1.9109548000000002e-4,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Beef Females For Slaughter,Beef Females For Slaughter,Agriculture - Other Cattle,0.09157948278738075,megatonnes of co2 equivelant
+Land Use - Cropland Remaining Cropland - Biomass Burning,Biomass Burning,Land Use - Cropland Remaining Cropland,0,megatonnes of co2 equivelant
+Land Use - Forest Land Converted To Cropland - Biomass Burning,Biomass Burning,Land Use - Forest Land Converted To Cropland,0,megatonnes of co2 equivelant
+Land Use - Forest Land Converted To Grassland - Biomass Burning,Biomass Burning,Land Use - Forest Land Converted To Grassland,0.137599520100667,megatonnes of co2 equivelant
+Land Use - Forest Land Converted To Settlements - Biomass Burning,Biomass Burning,Land Use - Forest Land Converted To Settlements,0.0878076401763334,megatonnes of co2 equivelant
+Land Use - Forest Land Remaining Forest Land - Biomass Burning,Biomass Burning,Land Use - Forest Land Remaining Forest Land,0.024470702269,megatonnes of co2 equivelant
+Land Use - Grassland Remaining Grassland - Biomass Burning,Biomass Burning,Land Use - Grassland Remaining Grassland,0.006251364800000001,megatonnes of co2 equivelant
+Agriculture - Pig - Boar,Boar,Agriculture - Pig,1.934972207596294e-4,megatonnes of co2 equivelant
+Agriculture - Poultry - Breeding Flock,Breeding Flock,Agriculture - Poultry,0.007328451421773517,megatonnes of co2 equivelant
+Agriculture - Poultry - Broilers,Broilers,Agriculture - Poultry,0.007081624051339203,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Bulls For Breeding,Bulls For Breeding,Agriculture - Other Cattle,0.01131679782403106,megatonnes of co2 equivelant
+Transport - Road Transport - Buses And Coaches,Buses And Coaches,Transport - Road Transport,0.41355205330621664,megatonnes of co2 equivelant
+Industry - Halocarbons Production - By-Product,By-Product,Industry - Halocarbons Production,0,megatonnes of co2 equivelant
+Industry - Chemical Industry - Carbon Black,Carbon Black,Industry - Chemical Industry,0,megatonnes of co2 equivelant
+Land Use - Cropland Converted To Settlements - Carbon Stock Change,Carbon Stock Change,Land Use - Cropland Converted To Settlements,0.0993244911230001,megatonnes of co2 equivelant
+Land Use - Cropland Remaining Cropland - Carbon Stock Change,Carbon Stock Change,Land Use - Cropland Remaining Cropland,2.46931333e-4,megatonnes of co2 equivelant
+Land Use - Forest Land Converted To Cropland - Carbon Stock Change,Carbon Stock Change,Land Use - Forest Land Converted To Cropland,7.27573689333334e-4,megatonnes of co2 equivelant
+Land Use - Forest Land Converted To Grassland - Carbon Stock Change,Carbon Stock Change,Land Use - Forest Land Converted To Grassland,0.388530111053334,megatonnes of co2 equivelant
+Land Use - Forest Land Converted To Settlements - Carbon Stock Change,Carbon Stock Change,Land Use - Forest Land Converted To Settlements,0.372538907634667,megatonnes of co2 equivelant
+Land Use - Grassland Converted To Cropland - Carbon Stock Change,Carbon Stock Change,Land Use - Grassland Converted To Cropland,2.22626445953633,megatonnes of co2 equivelant
+Land Use - Grassland Converted To Flooded Land - Carbon Stock Change,Carbon Stock Change,Land Use - Grassland Converted To Flooded Land,0,megatonnes of co2 equivelant
+Land Use - Grassland Converted To Settlements - Carbon Stock Change,Carbon Stock Change,Land Use - Grassland Converted To Settlements,0.748145131451667,megatonnes of co2 equivelant
+Land Use - Land Converted For Peat Extraction - Carbon Stock Change,Carbon Stock Change,Land Use - Land Converted For Peat Extraction,2.5006666666666703e-5,megatonnes of co2 equivelant
+Land Use - Other Land Converted To Forest Land - Carbon Stock Change,Carbon Stock Change,Land Use - Other Land Converted To Forest Land,0,megatonnes of co2 equivelant
+Land Use - Peat Extraction Remaining Peat Extraction - Carbon Stock Change,Carbon Stock Change,Land Use - Peat Extraction Remaining Peat Extraction,0.100340664526667,megatonnes of co2 equivelant
+Land Use - Settlements Remaining Settlements - Carbon Stock Change,Carbon Stock Change,Land Use - Settlements Remaining Settlements,0.6009145226333339,megatonnes of co2 equivelant
+Land Use - Wetlands Converted To Grassland - Carbon Stock Change,Carbon Stock Change,Land Use - Wetlands Converted To Grassland,3.0163619200000003e-4,megatonnes of co2 equivelant
+Transport - Road Transport - Cars,Cars,Transport - Road Transport,5.818649641882081,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Cereal Fed Bull,Cereal Fed Bull,Agriculture - Other Cattle,0.029559637360186762,megatonnes of co2 equivelant
+Waste - Incineration - Chemical Waste,Chemical Waste,Waste - Incineration,0,megatonnes of co2 equivelant
+Waste - Incineration - Clinical Waste,Clinical Waste,Waste - Incineration,0.006674537843287157,megatonnes of co2 equivelant
+Transport - Rail - Coal,Coal,Transport - Rail,0.005103776508793277,megatonnes of co2 equivelant
+Transport - Shipping - Coastal,Coastal,Transport - Shipping,1.5733439938619407,megatonnes of co2 equivelant
+Industry - Ammonia Production - Combustion,Combustion,Industry - Ammonia Production,0,megatonnes of co2 equivelant
+Industry - Cement Production - Combustion,Combustion,Industry - Cement Production,0.19426184807635483,megatonnes of co2 equivelant
+Industry - Collieries - Combustion,Combustion,Industry - Collieries,0,megatonnes of co2 equivelant
+Industry - Refineries - Combustion,Combustion,Industry - Refineries,2.1064303758931686,megatonnes of co2 equivelant
+Industry - Upstream Oil And Gas Production - Combustion At Gas Separation Plant,Combustion At Gas Separation Plant,Industry - Upstream Oil And Gas Production,0.2874256214658898,megatonnes of co2 equivelant
+Industry - Iron And Steel - Combustion Plant,Combustion Plant,Industry - Iron And Steel,0.024538040544993835,megatonnes of co2 equivelant
+Waste - Mechanical Biological Treatment - Composting,Composting,Waste - Mechanical Biological Treatment,0.051150510730125595,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Cows,Cows,Agriculture - Other Cattle,0.15013355384092636,megatonnes of co2 equivelant
+Industry - Other Food - Cream Consumption,Cream Consumption,Industry - Other Food,0.0034657388207376,megatonnes of co2 equivelant
+Transport - Aircraft Between Uk And Bermuda - Cruise,Cruise,Transport - Aircraft Between Uk And Bermuda,0,megatonnes of co2 equivelant
+Transport - Aircraft Between Uk And Cds - Cruise,Cruise,Transport - Aircraft Between Uk And Cds,0.002868379582390936,megatonnes of co2 equivelant
+Transport - Aircraft Between Uk And Gibraltar - Cruise,Cruise,Transport - Aircraft Between Uk And Gibraltar,0,megatonnes of co2 equivelant
+Transport - Aircraft Between Uk And Other Ots (Excl Gib. And Bermuda) - Cruise,Cruise,Transport - Aircraft Between Uk And Other Ots (Excl Gib. And Bermuda),0,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Dairy Calves Female,Dairy Calves Female,Agriculture - Other Cattle,0.013609563990352154,megatonnes of co2 equivelant
+Agriculture - Dairy - Dairy Cows,Dairy Cows,Agriculture - Dairy,0.13005793031941598,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Dairy In Calf Heifers,Dairy In Calf Heifers,Agriculture - Other Cattle,0.017926822035643213,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Dairy Replacements Female,Dairy Replacements Female,Agriculture - Other Cattle,0.007164089811457537,megatonnes of co2 equivelant
+Industry - Cement - Decarbonising,Decarbonising,Industry - Cement,0.389845977636028,megatonnes of co2 equivelant
+Industry - Lime Production - Decarbonising,Decarbonising,Industry - Lime Production,0,megatonnes of co2 equivelant
+Agriculture - All Horses Prp - Direct,Direct,Agriculture - All Horses Prp,0.00625915372870483,megatonnes of co2 equivelant
+Agriculture - Arable - Direct,Direct,Agriculture - Arable,0.37907426068104244,megatonnes of co2 equivelant
+Agriculture - Deer Fam - Direct,Direct,Agriculture - Deer Fam,4.38619573428579e-5,megatonnes of co2 equivelant
+Agriculture - Deer Prp - Direct,Direct,Agriculture - Deer Prp,2.00686665811726e-4,megatonnes of co2 equivelant
+Agriculture - Deer Wastes - Direct,Direct,Agriculture - Deer Wastes,3.17600773681973e-4,megatonnes of co2 equivelant
+Agriculture - Goats Fam - Direct,Direct,Agriculture - Goats Fam,1.2685464055248299e-5,megatonnes of co2 equivelant
+Agriculture - Goats Prp - Direct,Direct,Agriculture - Goats Prp,2.25034443515424e-4,megatonnes of co2 equivelant
+Agriculture - Goats Wastes - Direct,Direct,Agriculture - Goats Wastes,9.255550895098231e-5,megatonnes of co2 equivelant
+Agriculture - Grass - Direct,Direct,Agriculture - Grass,0.4085498925351783,megatonnes of co2 equivelant
+Agriculture - Horses Fam - Direct,Direct,Agriculture - Horses Fam,0.00188286056981773,megatonnes of co2 equivelant
+Agriculture - Horses Wastes - Direct,Direct,Agriculture - Horses Wastes,0.0135011461075735,megatonnes of co2 equivelant
+Agriculture - Sewage Sludge Application - Direct,Direct,Agriculture - Sewage Sludge Application,0.0106313054747703,megatonnes of co2 equivelant
+Land Use - Cropland Converted To Forest Land - Direct N2o Emissions From N Mineralization/Immobilization,Direct N2o Emissions From N Mineralization/Immobilization,Land Use - Cropland Converted To Forest Land,0.002959752986,megatonnes of co2 equivelant
+Land Use - Cropland Converted To Settlements - Direct N2o Emissions From N Mineralization/Immobilization,Direct N2o Emissions From N Mineralization/Immobilization,Land Use - Cropland Converted To Settlements,0.008068968648,megatonnes of co2 equivelant
+Land Use - Forest Land Converted To Cropland - Direct N2o Emissions From N Mineralization/Immobilization,Direct N2o Emissions From N Mineralization/Immobilization,Land Use - Forest Land Converted To Cropland,6.1947644e-5,megatonnes of co2 equivelant
+Land Use - Forest Land Converted To Grassland - Direct N2o Emissions From N Mineralization/Immobilization,Direct N2o Emissions From N Mineralization/Immobilization,Land Use - Forest Land Converted To Grassland,0.014816215511999999,megatonnes of co2 equivelant
+Land Use - Forest Land Converted To Settlements - Direct N2o Emissions From N Mineralization/Immobilization,Direct N2o Emissions From N Mineralization/Immobilization,Land Use - Forest Land Converted To Settlements,0.020063831612,megatonnes of co2 equivelant
+Land Use - Grassland Converted To Cropland - Direct N2o Emissions From N Mineralization/Immobilization,Direct N2o Emissions From N Mineralization/Immobilization,Land Use - Grassland Converted To Cropland,0.19221530559199998,megatonnes of co2 equivelant
+Land Use - Grassland Converted To Forest Land - Direct N2o Emissions From N Mineralization/Immobilization,Direct N2o Emissions From N Mineralization/Immobilization,Land Use - Grassland Converted To Forest Land,0.041710641608000004,megatonnes of co2 equivelant
+Land Use - Grassland Converted To Settlements - Direct N2o Emissions From N Mineralization/Immobilization,Direct N2o Emissions From N Mineralization/Immobilization,Land Use - Grassland Converted To Settlements,0.06306930914600001,megatonnes of co2 equivelant
+Land Use - Grassland Remaining Grassland - Direct N2o Emissions From N Mineralization/Immobilization,Direct N2o Emissions From N Mineralization/Immobilization,Land Use - Grassland Remaining Grassland,8.8804e-6,megatonnes of co2 equivelant
+Land Use - Other Land Converted To Forest Land - Direct N2o Emissions From N Mineralization/Immobilization,Direct N2o Emissions From N Mineralization/Immobilization,Land Use - Other Land Converted To Forest Land,0,megatonnes of co2 equivelant
+Land Use - Settlements Converted To Forest Land - Direct N2o Emissions From N Mineralization/Immobilization,Direct N2o Emissions From N Mineralization/Immobilization,Land Use - Settlements Converted To Forest Land,0.005478259756,megatonnes of co2 equivelant
+Land Use - Settlements Remaining Settlements - Direct N2o Emissions From N Mineralization/Immobilization,Direct N2o Emissions From N Mineralization/Immobilization,Land Use - Settlements Remaining Settlements,0.051163579472,megatonnes of co2 equivelant
+Transport - Aircraft - Domestic Cruise,Domestic Cruise,Transport - Aircraft,0.3705787532504639,megatonnes of co2 equivelant
+Transport - Aircraft - Domestic Take Off And Landing,Domestic Take Off And Landing,Transport - Aircraft,0.1217613201614403,megatonnes of co2 equivelant
+Land Use - Forest Land - Drainage And Rewetting And Other Management Of Organic And Mineral Soils,Drainage And Rewetting And Other Management Of Organic And Mineral Soils,Land Use - Forest Land,0.027171521992,megatonnes of co2 equivelant
+Land Use - Wetlands - Drainage And Rewetting And Other Management Of Organic And Mineral Soils,Drainage And Rewetting And Other Management Of Organic And Mineral Soils,Land Use - Wetlands,2.81786118e-4,megatonnes of co2 equivelant
+Agriculture - Poultry - Ducks,Ducks,Agriculture - Poultry,3.8596054654241834e-4,megatonnes of co2 equivelant
+Residential - Accidental Fires - Dwellings,Dwellings,Residential - Accidental Fires,2.61124824126127e-4,megatonnes of co2 equivelant
+Industry - Chemical Industry - Ethylene,Ethylene,Industry - Chemical Industry,0.0040051762740449005,megatonnes of co2 equivelant
+Industry - Chemical Industry - Ethylene Dichloride,Ethylene Dichloride,Industry - Chemical Industry,0.00484028662420383,megatonnes of co2 equivelant
+Industry - Chemical Industry - Ethylene Oxide,Ethylene Oxide,Industry - Chemical Industry,0,megatonnes of co2 equivelant
+Agriculture - Sheep - Ewe,Ewe,Agriculture - Sheep,0.0664294597,megatonnes of co2 equivelant
+Industry - Autogeneration - Exported To Grid,Exported To Grid,Industry - Autogeneration,0.2591778351489396,megatonnes of co2 equivelant
+Agriculture - Pig - Fattening Pig < 20 Kg,Fattening Pig < 20 Kg,Agriculture - Pig,0.0029154399056214447,megatonnes of co2 equivelant
+Agriculture - Pig - Fattening Pig > 80 Kg,Fattening Pig > 80 Kg,Agriculture - Pig,0.007738544407468318,megatonnes of co2 equivelant
+Agriculture - Pig - Fattening Pig 20 To 80 Kg,Fattening Pig 20 To 80 Kg,Agriculture - Pig,0.0163610102913912,megatonnes of co2 equivelant
+Industry - Ammonia Production - Feedstock Use Of Gas,Feedstock Use Of Gas,Industry - Ammonia Production,0,megatonnes of co2 equivelant
+Electricity Generation - Power Stations - Fgd,Fgd,Electricity Generation - Power Stations,0,megatonnes of co2 equivelant
+Industry - Iron And Steel - Flaring,Flaring,Industry - Iron And Steel,0,megatonnes of co2 equivelant
+Industry - Upstream Gas Production - Flaring,Flaring,Industry - Upstream Gas Production,0.0323844945595914,megatonnes of co2 equivelant
+Industry - Upstream Oil Production - Flaring,Flaring,Industry - Upstream Oil Production,0.31407764542515787,megatonnes of co2 equivelant
+Industry - Brick Manufacture - Fletton,Fletton,Industry - Brick Manufacture,0,megatonnes of co2 equivelant
+Transport - Railways - Freight,Freight,Transport - Railways,0.022070133740930756,megatonnes of co2 equivelant
+Industry - Upstream Gas Production - Fuel Combustion,Fuel Combustion,Industry - Upstream Gas Production,0.7924116445400933,megatonnes of co2 equivelant
+Industry - Upstream Oil Production - Fuel Combustion,Fuel Combustion,Industry - Upstream Oil Production,0.4756117880415992,megatonnes of co2 equivelant
+Industry - Halocarbons Production - Fugitive,Fugitive,Industry - Halocarbons Production,0,megatonnes of co2 equivelant
+Industry - Upstream Gas Production - Gas Terminal Storage,Gas Terminal Storage,Industry - Upstream Gas Production,0,megatonnes of co2 equivelant
+Agriculture - Poultry - Geese,Geese,Agriculture - Poultry,1.2633463065911846e-4,megatonnes of co2 equivelant
+Industry - Chemical Industry - General,General,Industry - Chemical Industry,0,megatonnes of co2 equivelant
+Industry - Glass - General,General,Industry - Glass,0.0512477105850937,megatonnes of co2 equivelant
+Industry - Primary Aluminium Production - General,General,Industry - Primary Aluminium Production,0.0683478549600001,megatonnes of co2 equivelant
+Agriculture - Pig - Gilt,Gilt,Agriculture - Pig,0.001816082865158771,megatonnes of co2 equivelant
+Agriculture - Poultry - Growing Pullets,Growing Pullets,Agriculture - Poultry,0.0027672545017244617,megatonnes of co2 equivelant
+Residential - Aerosols - Halocarbons,Halocarbons,Residential - Aerosols,0.0442748357508189,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Heifers For Breeding,Heifers For Breeding,Agriculture - Other Cattle,0.03932082542479345,megatonnes of co2 equivelant
+Industry - Electronics - Hfc,Hfc,Industry - Electronics,0.0163084568994442,megatonnes of co2 equivelant
+Industry - Precision Cleaning  - Hfc,Hfc,Industry - Precision Cleaning ,0.0013199656525497202,megatonnes of co2 equivelant
+Transport - Road Transport - Hgv Articulated,Hgv Articulated,Transport - Road Transport,1.0470627411542426,megatonnes of co2 equivelant
+Transport - Road Transport - Hgv Rigid,Hgv Rigid,Transport - Road Transport,0.818621731479497,megatonnes of co2 equivelant
+Residential - Non-Aerosol Products - Household Products,Household Products,Residential - Non-Aerosol Products,0.0019530588783938801,megatonnes of co2 equivelant
+Agriculture - Arable - Indirect Deposition,Indirect Deposition,Agriculture - Arable,0.009364457507708689,megatonnes of co2 equivelant
+Agriculture - Grass - Indirect Deposition,Indirect Deposition,Agriculture - Grass,0.007733413119499283,megatonnes of co2 equivelant
+Agriculture - Arable - Indirect Leach,Indirect Leach,Agriculture - Arable,0.06916928191965152,megatonnes of co2 equivelant
+Agriculture - Grass - Indirect Leach,Indirect Leach,Agriculture - Grass,0.014891221099498054,megatonnes of co2 equivelant
+Agriculture - Deer Fam - Indirect Leaching,Indirect Leaching,Agriculture - Deer Fam,8.585616650216e-6,megatonnes of co2 equivelant
+Agriculture - Deer Prp - Indirect Leaching,Indirect Leaching,Agriculture - Deer Prp,3.3109326739726e-5,megatonnes of co2 equivelant
+Agriculture - Deer Wastes - Indirect Leaching,Indirect Leaching,Agriculture - Deer Wastes,2.94749801320989e-6,megatonnes of co2 equivelant
+Agriculture - Goats Fam - Indirect Leaching,Indirect Leaching,Agriculture - Goats Fam,2.48307503828692e-6,megatonnes of co2 equivelant
+Agriculture - Goats Prp - Indirect Leaching,Indirect Leaching,Agriculture - Goats Prp,3.71262280326811e-5,megatonnes of co2 equivelant
+Agriculture - Goats Wastes - Indirect Leaching,Indirect Leaching,Agriculture - Goats Wastes,8.55326976687545e-7,megatonnes of co2 equivelant
+Agriculture - Horses Fam - Indirect Leaching,Indirect Leaching,Agriculture - Horses Fam,3.68554438460201e-4,megatonnes of co2 equivelant
+Agriculture - Horses Prp - Indirect Leaching,Indirect Leaching,Agriculture - Horses Prp,0.00103263644886244,megatonnes of co2 equivelant
+Agriculture - Horses Wastes - Indirect Leaching,Indirect Leaching,Agriculture - Horses Wastes,1.25984572713253e-4,megatonnes of co2 equivelant
+Agriculture - Sewage Sludge Application - Indirect Leaching,Indirect Leaching,Agriculture - Sewage Sludge Application,0.0023920437318233198,megatonnes of co2 equivelant
+Agriculture - Deer Fam - Indirect Volatilisation,Indirect Volatilisation,Agriculture - Deer Fam,9.934439336694949e-6,megatonnes of co2 equivelant
+Agriculture - Deer Prp - Indirect Volatilisation,Indirect Volatilisation,Agriculture - Deer Prp,1.60931635008802e-5,megatonnes of co2 equivelant
+Agriculture - Deer Wastes - Indirect Volatilisation,Indirect Volatilisation,Agriculture - Deer Wastes,2.16664757327118e-5,megatonnes of co2 equivelant
+Agriculture - Goats Fam - Indirect Volatilisation,Indirect Volatilisation,Agriculture - Goats Fam,3.10746660102322e-6,megatonnes of co2 equivelant
+Agriculture - Goats Prp - Indirect Volatilisation,Indirect Volatilisation,Agriculture - Goats Prp,1.80456238992023e-5,megatonnes of co2 equivelant
+Agriculture - Goats Wastes - Indirect Volatilisation,Indirect Volatilisation,Agriculture - Goats Wastes,6.5849221725784005e-6,megatonnes of co2 equivelant
+Agriculture - Horses Fam - Indirect Volatilisation,Indirect Volatilisation,Agriculture - Horses Fam,3.82181041413606e-4,megatonnes of co2 equivelant
+Agriculture - Horses Prp - Indirect Volatilisation,Indirect Volatilisation,Agriculture - Horses Prp,5.01924649182673e-4,megatonnes of co2 equivelant
+Agriculture - Horses Wastes - Indirect Volatilisation,Indirect Volatilisation,Agriculture - Horses Wastes,8.69853906073855e-4,megatonnes of co2 equivelant
+Agriculture - Sewage Sludge Application - Indirect Volatilisation,Indirect Volatilisation,Agriculture - Sewage Sludge Application,7.21599859100035e-4,megatonnes of co2 equivelant
+Transport - Railways - Intercity,Intercity,Transport - Railways,0.045053580644848976,megatonnes of co2 equivelant
+Transport - Aircraft - International Cruise,International Cruise,Transport - Aircraft,1.417740234156159,megatonnes of co2 equivelant
+Transport - Shipping - International Ipcc Definition,International Ipcc Definition,Transport - Shipping,0.3273483755964801,megatonnes of co2 equivelant
+Transport - Aircraft - International Take Off And Landing,International Take Off And Landing,Transport - Aircraft,0.1443622590859432,megatonnes of co2 equivelant
+Agriculture - Sheep - Lamb,Lamb,Agriculture - Sheep,0.0325468928078,megatonnes of co2 equivelant
+Agriculture - Poultry - Laying Hens,Laying Hens,Agriculture - Poultry,0.023243020474,megatonnes of co2 equivelant
+Transport - Road Transport - Lgvs,Lgvs,Transport - Road Transport,1.8528931284166503,megatonnes of co2 equivelant
+Industry - Chemical Industry - Methanol,Methanol,Industry - Chemical Industry,0,megatonnes of co2 equivelant
+Agriculture - Agriculture - Mobile Machinery,Mobile Machinery,Agriculture - Agriculture,0.7704161430628744,megatonnes of co2 equivelant
+Transport - Road Transport - Mopeds (<50cc 2st),Mopeds (<50cc 2st),Transport - Road Transport,3.5705516235277933e-4,megatonnes of co2 equivelant
+Transport - Road Transport - Motorcycle (>50cc  2st),Motorcycle (>50cc  2st),Transport - Road Transport,2.0299361153254577e-4,megatonnes of co2 equivelant
+Transport - Road Transport - Motorcycle (>50cc  4st),Motorcycle (>50cc  4st),Transport - Road Transport,0.03434321186759739,megatonnes of co2 equivelant
+Transport - Shipping - Naval,Naval,Transport - Shipping,0.03746771891879571,megatonnes of co2 equivelant
+Industry - Electronics - Nf3,Nf3,Industry - Electronics,4.08486065411301e-4,megatonnes of co2 equivelant
+Land Use - Lulucf Indirect N2o - Nitrogen Leaching And Run-Off,Nitrogen Leaching And Run-Off,Land Use - Lulucf Indirect N2o,0.09034372428000001,megatonnes of co2 equivelant
+Industry - Lime Production - Non Decarbonising,Non Decarbonising,Industry - Lime Production,0,megatonnes of co2 equivelant
+Industry - Upstream Oil Production - Offshore Oil Loading,Offshore Oil Loading,Industry - Upstream Oil Production,0,megatonnes of co2 equivelant
+Industry - Upstream Gas Production - Offshore Well Testing,Offshore Well Testing,Industry - Upstream Gas Production,0,megatonnes of co2 equivelant
+Industry - Upstream Oil Production - Offshore Well Testing,Offshore Well Testing,Industry - Upstream Oil Production,0,megatonnes of co2 equivelant
+Industry - Upstream Oil Production - Oil Terminal Storage,Oil Terminal Storage,Industry - Upstream Oil Production,5e-7,megatonnes of co2 equivelant
+Industry - Upstream Oil Production - Onshore Oil Loading,Onshore Oil Loading,Industry - Upstream Oil Production,0.00355196923973821,megatonnes of co2 equivelant
+Agriculture - Poultry - Other,Other,Agriculture - Poultry,3.3704277106844853e-4,megatonnes of co2 equivelant
+Services - Accidental Fires - Other Buildings,Other Buildings,Services - Accidental Fires,2.09254815524616e-4,megatonnes of co2 equivelant
+Industry - Primary Aluminium Production - Pfc Emissions,Pfc Emissions,Industry - Primary Aluminium Production,0.0104688178941849,megatonnes of co2 equivelant
+Industry - Upstream Gas Production - Process Emissions,Process Emissions,Industry - Upstream Gas Production,0.01228536406558068,megatonnes of co2 equivelant
+Industry - Upstream Oil Production - Process Emissions,Process Emissions,Industry - Upstream Oil Production,0.00342568428906063,megatonnes of co2 equivelant
+Agriculture - Sheep - Ram,Ram,Agriculture - Sheep,0.0019929849620000002,megatonnes of co2 equivelant
+Transport - Railways - Regional,Regional,Transport - Railways,0.08572892511316688,megatonnes of co2 equivelant
+Agriculture - Arable - Residue Indirect Leach,Residue Indirect Leach,Agriculture - Arable,0.03627276909202079,megatonnes of co2 equivelant
+Agriculture - Grass - Residue Indirect Leach,Residue Indirect Leach,Agriculture - Grass,9.635478040057135e-4,megatonnes of co2 equivelant
+Waste - Incineration - Sewage Sludge,Sewage Sludge,Waste - Incineration,0.0027833673100500058,megatonnes of co2 equivelant
+Industry - Chemical Industry - Soda Ash,Soda Ash,Industry - Chemical Industry,0,megatonnes of co2 equivelant
+Agriculture - Pig - Sow,Sow,Agriculture - Pig,0.00430500028053003,megatonnes of co2 equivelant
+Agriculture - Agriculture - Stationary Combustion,Stationary Combustion,Agriculture - Agriculture,0.03623926419014007,megatonnes of co2 equivelant
+Transport - Railways - Stationary Combustion,Stationary Combustion,Transport - Railways,0,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Steers,Steers,Agriculture - Other Cattle,0.11589310907408237,megatonnes of co2 equivelant
+Transport - Aircraft - Support Vehicles,Support Vehicles,Transport - Aircraft,0.09306473129955009,megatonnes of co2 equivelant
+Industry - Chemical Industry - Titanium Dioxide,Titanium Dioxide,Industry - Chemical Industry,0,megatonnes of co2 equivelant
+Transport - Aircraft Between Uk And Bermuda - Tol,Tol,Transport - Aircraft Between Uk And Bermuda,0,megatonnes of co2 equivelant
+Transport - Aircraft Between Uk And Cds - Tol,Tol,Transport - Aircraft Between Uk And Cds,6.953365549526131e-4,megatonnes of co2 equivelant
+Transport - Aircraft Between Uk And Gibraltar - Tol,Tol,Transport - Aircraft Between Uk And Gibraltar,0,megatonnes of co2 equivelant
+Transport - Aircraft Between Uk And Other Ots (Excl Gib. And Bermuda) - Tol,Tol,Transport - Aircraft Between Uk And Other Ots (Excl Gib. And Bermuda),0,megatonnes of co2 equivelant
+Agriculture - Poultry - Turkeys,Turkeys,Agriculture - Poultry,9.330312652e-5,megatonnes of co2 equivelant
+Transport - Road Transport - Urea,Urea,Transport - Road Transport,0.00434103826448509,megatonnes of co2 equivelant
+Residential - Accidental Fires - Vehicles,Vehicles,Residential - Accidental Fires,6.706430045718869e-5,megatonnes of co2 equivelant
+Industry - Upstream Gas Production - Venting,Venting,Industry - Upstream Gas Production,0.031777980426214956,megatonnes of co2 equivelant
+Industry - Upstream Oil Production - Venting,Venting,Industry - Upstream Oil Production,0.007521411784507771,megatonnes of co2 equivelant
+Transport - Road Transport - Cars - Cold Start,Cold Start,Transport - Road Transport - Cars,0.010095258701903649,megatonnes of co2 equivelant
+Transport - Road Transport - Lgvs - Cold Start,Cold Start,Transport - Road Transport - Lgvs,0.0033546367487431363,megatonnes of co2 equivelant
+Land Use - Forest Land Converted To Cropland - Biomass Burning - Controlled Burning,Controlled Burning,Land Use - Forest Land Converted To Cropland - Biomass Burning,0,megatonnes of co2 equivelant
+Land Use - Forest Land Converted To Grassland - Biomass Burning - Controlled Burning,Controlled Burning,Land Use - Forest Land Converted To Grassland - Biomass Burning,0.137599520100667,megatonnes of co2 equivelant
+Land Use - Forest Land Converted To Settlements - Biomass Burning - Controlled Burning,Controlled Burning,Land Use - Forest Land Converted To Settlements - Biomass Burning,0.0878076401763334,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Beef Females For Slaughter - Direct,Direct,Agriculture - Other Cattle - Beef Females For Slaughter,0.0778502362740679,megatonnes of co2 equivelant
+Agriculture - Pig - Boar - Direct,Direct,Agriculture - Pig - Boar,1.632372823772308e-4,megatonnes of co2 equivelant
+Agriculture - Poultry - Breeding Flock - Direct,Direct,Agriculture - Poultry - Breeding Flock,0.004592250545044136,megatonnes of co2 equivelant
+Agriculture - Poultry - Broilers - Direct,Direct,Agriculture - Poultry - Broilers,0.0063573654728319995,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Bulls For Breeding - Direct,Direct,Agriculture - Other Cattle - Bulls For Breeding,0.00922634998850777,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Cereal Fed Bull - Direct,Direct,Agriculture - Other Cattle - Cereal Fed Bull,0.025276920352491673,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Cows - Direct,Direct,Agriculture - Other Cattle - Cows,0.12171853528558559,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Dairy Calves Female - Direct,Direct,Agriculture - Other Cattle - Dairy Calves Female,0.01163606020773842,megatonnes of co2 equivelant
+Agriculture - Dairy - Dairy Cows - Direct,Direct,Agriculture - Dairy - Dairy Cows,0.10217911187344707,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Dairy In Calf Heifers - Direct,Direct,Agriculture - Other Cattle - Dairy In Calf Heifers,0.01436795506934878,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Dairy Replacements Female - Direct,Direct,Agriculture - Other Cattle - Dairy Replacements Female,0.005725738744109016,megatonnes of co2 equivelant
+Agriculture - Poultry - Ducks - Direct,Direct,Agriculture - Poultry - Ducks,3.138118662799941e-4,megatonnes of co2 equivelant
+Agriculture - Sheep - Ewe - Direct,Direct,Agriculture - Sheep - Ewe,0.055970072727999996,megatonnes of co2 equivelant
+Agriculture - Pig - Fattening Pig < 20 Kg - Direct,Direct,Agriculture - Pig - Fattening Pig < 20 Kg,0.002404447305467372,megatonnes of co2 equivelant
+Agriculture - Pig - Fattening Pig > 80 Kg - Direct,Direct,Agriculture - Pig - Fattening Pig > 80 Kg,0.006191463313963231,megatonnes of co2 equivelant
+Agriculture - Pig - Fattening Pig 20 To 80 Kg - Direct,Direct,Agriculture - Pig - Fattening Pig 20 To 80 Kg,0.013088213370389939,megatonnes of co2 equivelant
+Agriculture - Poultry - Geese - Direct,Direct,Agriculture - Poultry - Geese,1.0271854617807307e-4,megatonnes of co2 equivelant
+Agriculture - Pig - Gilt - Direct,Direct,Agriculture - Pig - Gilt,0.001527320779417971,megatonnes of co2 equivelant
+Agriculture - Poultry - Growing Pullets - Direct,Direct,Agriculture - Poultry - Growing Pullets,0.0017448366370195266,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Heifers For Breeding - Direct,Direct,Agriculture - Other Cattle - Heifers For Breeding,0.03290004484154713,megatonnes of co2 equivelant
+Agriculture - Sheep - Lamb - Direct,Direct,Agriculture - Sheep - Lamb,0.028065398918,megatonnes of co2 equivelant
+Agriculture - Poultry - Laying Hens - Direct,Direct,Agriculture - Poultry - Laying Hens,0.014143911419999999,megatonnes of co2 equivelant
+Agriculture - Poultry - Other - Direct,Direct,Agriculture - Poultry - Other,2.146641731786611e-4,megatonnes of co2 equivelant
+Agriculture - Sheep - Ram - Direct,Direct,Agriculture - Sheep - Ram,0.001720676734,megatonnes of co2 equivelant
+Agriculture - Pig - Sow - Direct,Direct,Agriculture - Pig - Sow,0.003507826354274096,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Steers - Direct,Direct,Agriculture - Other Cattle - Steers,0.0986390855400238,megatonnes of co2 equivelant
+Agriculture - Poultry - Turkeys - Direct,Direct,Agriculture - Poultry - Turkeys,6.54891058e-5,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Beef Females For Slaughter - Indirect Deposition,Indirect Deposition,Agriculture - Other Cattle - Beef Females For Slaughter,0.008182613492537474,megatonnes of co2 equivelant
+Agriculture - Pig - Boar - Indirect Deposition,Indirect Deposition,Agriculture - Pig - Boar,2.126949476058801e-5,megatonnes of co2 equivelant
+Agriculture - Poultry - Breeding Flock - Indirect Deposition,Indirect Deposition,Agriculture - Poultry - Breeding Flock,0.0017454953453291224,megatonnes of co2 equivelant
+Agriculture - Poultry - Broilers - Indirect Deposition,Indirect Deposition,Agriculture - Poultry - Broilers,7.11446229665603e-4,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Bulls For Breeding - Indirect Deposition,Indirect Deposition,Agriculture - Other Cattle - Bulls For Breeding,0.001301776354281831,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Cereal Fed Bull - Indirect Deposition,Indirect Deposition,Agriculture - Other Cattle - Cereal Fed Bull,0.002850449445785936,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Cows - Indirect Deposition,Indirect Deposition,Agriculture - Other Cattle - Cows,0.01781936053085366,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Dairy Calves Female - Indirect Deposition,Indirect Deposition,Agriculture - Other Cattle - Dairy Calves Female,0.0011493906188005188,megatonnes of co2 equivelant
+Agriculture - Dairy - Dairy Cows - Indirect Deposition,Indirect Deposition,Agriculture - Dairy - Dairy Cows,0.018224155715010522,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Dairy In Calf Heifers - Indirect Deposition,Indirect Deposition,Agriculture - Other Cattle - Dairy In Calf Heifers,0.002184157514831874,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Dairy Replacements Female - Indirect Deposition,Indirect Deposition,Agriculture - Other Cattle - Dairy Replacements Female,8.980717612680849e-4,megatonnes of co2 equivelant
+Agriculture - Poultry - Ducks - Indirect Deposition,Indirect Deposition,Agriculture - Poultry - Ducks,5.125115931258493e-5,megatonnes of co2 equivelant
+Agriculture - Sheep - Ewe - Indirect Deposition,Indirect Deposition,Agriculture - Sheep - Ewe,0.005734899442,megatonnes of co2 equivelant
+Agriculture - Pig - Fattening Pig < 20 Kg - Indirect Deposition,Indirect Deposition,Agriculture - Pig - Fattening Pig < 20 Kg,3.1541137039322643e-4,megatonnes of co2 equivelant
+Agriculture - Pig - Fattening Pig > 80 Kg - Indirect Deposition,Indirect Deposition,Agriculture - Pig - Fattening Pig > 80 Kg,0.001060462160056153,megatonnes of co2 equivelant
+Agriculture - Pig - Fattening Pig 20 To 80 Kg - Indirect Deposition,Indirect Deposition,Agriculture - Pig - Fattening Pig 20 To 80 Kg,0.002240103050135325,megatonnes of co2 equivelant
+Agriculture - Poultry - Geese - Indirect Deposition,Indirect Deposition,Agriculture - Poultry - Geese,1.6775798305320985e-5,megatonnes of co2 equivelant
+Agriculture - Pig - Gilt - Indirect Deposition,Indirect Deposition,Agriculture - Pig - Gilt,2.0254534636473392e-4,megatonnes of co2 equivelant
+Agriculture - Poultry - Growing Pullets - Indirect Deposition,Indirect Deposition,Agriculture - Poultry - Growing Pullets,6.537260156785866e-4,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Heifers For Breeding - Indirect Deposition,Indirect Deposition,Agriculture - Other Cattle - Heifers For Breeding,0.003893812998006142,megatonnes of co2 equivelant
+Agriculture - Sheep - Lamb - Indirect Deposition,Indirect Deposition,Agriculture - Sheep - Lamb,0.0021583137229999995,megatonnes of co2 equivelant
+Agriculture - Poultry - Laying Hens - Indirect Deposition,Indirect Deposition,Agriculture - Poultry - Laying Hens,0.006692254838000001,megatonnes of co2 equivelant
+Agriculture - Poultry - Other - Indirect Deposition,Indirect Deposition,Agriculture - Poultry - Other,7.948686496652986e-5,megatonnes of co2 equivelant
+Agriculture - Sheep - Ram - Indirect Deposition,Indirect Deposition,Agriculture - Sheep - Ram,1.29329318e-4,megatonnes of co2 equivelant
+Agriculture - Pig - Sow - Indirect Deposition,Indirect Deposition,Agriculture - Pig - Sow,5.719435528789073e-4,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Steers - Indirect Deposition,Indirect Deposition,Agriculture - Other Cattle - Steers,0.01031302494481638,megatonnes of co2 equivelant
+Agriculture - Poultry - Turkeys - Indirect Deposition,Indirect Deposition,Agriculture - Poultry - Turkeys,2.7494850800000003e-5,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Beef Females For Slaughter - Indirect Leach,Indirect Leach,Agriculture - Other Cattle - Beef Females For Slaughter,0.005546633020775375,megatonnes of co2 equivelant
+Agriculture - Pig - Boar - Indirect Leach,Indirect Leach,Agriculture - Pig - Boar,8.990443621810573e-6,megatonnes of co2 equivelant
+Agriculture - Poultry - Breeding Flock - Indirect Leach,Indirect Leach,Agriculture - Poultry - Breeding Flock,9.907055314002586e-4,megatonnes of co2 equivelant
+Agriculture - Poultry - Broilers - Indirect Leach,Indirect Leach,Agriculture - Poultry - Broilers,1.2812348841599999e-5,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Bulls For Breeding - Indirect Leach,Indirect Leach,Agriculture - Other Cattle - Bulls For Breeding,7.886714812414589e-4,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Cereal Fed Bull - Indirect Leach,Indirect Leach,Agriculture - Other Cattle - Cereal Fed Bull,0.0014322675619091521,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Cows - Indirect Leach,Indirect Leach,Agriculture - Other Cattle - Cows,0.010595658024487122,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Dairy Calves Female - Indirect Leach,Indirect Leach,Agriculture - Other Cattle - Dairy Calves Female,8.241131638132151e-4,megatonnes of co2 equivelant
+Agriculture - Dairy - Dairy Cows - Indirect Leach,Indirect Leach,Agriculture - Dairy - Dairy Cows,0.00965466273095838,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Dairy In Calf Heifers - Indirect Leach,Indirect Leach,Agriculture - Other Cattle - Dairy In Calf Heifers,0.0013747094514625574,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Dairy Replacements Female - Indirect Leach,Indirect Leach,Agriculture - Other Cattle - Dairy Replacements Female,5.402793060804356e-4,megatonnes of co2 equivelant
+Agriculture - Poultry - Ducks - Indirect Leach,Indirect Leach,Agriculture - Poultry - Ducks,2.0897520949839334e-5,megatonnes of co2 equivelant
+Agriculture - Sheep - Ewe - Indirect Leach,Indirect Leach,Agriculture - Sheep - Ewe,0.00472448753,megatonnes of co2 equivelant
+Agriculture - Pig - Fattening Pig < 20 Kg - Indirect Leach,Indirect Leach,Agriculture - Pig - Fattening Pig < 20 Kg,1.9558122976084632e-4,megatonnes of co2 equivelant
+Agriculture - Pig - Fattening Pig > 80 Kg - Indirect Leach,Indirect Leach,Agriculture - Pig - Fattening Pig > 80 Kg,4.866189334489339e-4,megatonnes of co2 equivelant
+Agriculture - Pig - Fattening Pig 20 To 80 Kg - Indirect Leach,Indirect Leach,Agriculture - Pig - Fattening Pig 20 To 80 Kg,0.0010326938708659368,megatonnes of co2 equivelant
+Agriculture - Poultry - Geese - Indirect Leach,Indirect Leach,Agriculture - Poultry - Geese,6.840286175724397e-6,megatonnes of co2 equivelant
+Agriculture - Pig - Gilt - Indirect Leach,Indirect Leach,Agriculture - Pig - Gilt,8.621673937606618e-5,megatonnes of co2 equivelant
+Agriculture - Poultry - Growing Pullets - Indirect Leach,Indirect Leach,Agriculture - Poultry - Growing Pullets,3.6869184902634845e-4,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Heifers For Breeding - Indirect Leach,Indirect Leach,Agriculture - Other Cattle - Heifers For Breeding,0.0025269675852401807,megatonnes of co2 equivelant
+Agriculture - Sheep - Lamb - Indirect Leach,Indirect Leach,Agriculture - Sheep - Lamb,0.0023231801668,megatonnes of co2 equivelant
+Agriculture - Poultry - Laying Hens - Indirect Leach,Indirect Leach,Agriculture - Poultry - Laying Hens,0.0024068542159999995,megatonnes of co2 equivelant
+Agriculture - Poultry - Other - Indirect Leach,Indirect Leach,Agriculture - Poultry - Other,4.289173292325757e-5,megatonnes of co2 equivelant
+Agriculture - Sheep - Ram - Indirect Leach,Indirect Leach,Agriculture - Sheep - Ram,1.4297890999999998e-4,megatonnes of co2 equivelant
+Agriculture - Pig - Sow - Indirect Leach,Indirect Leach,Agriculture - Pig - Sow,2.252303733770272e-4,megatonnes of co2 equivelant
+Agriculture - Other Cattle - Steers - Indirect Leach,Indirect Leach,Agriculture - Other Cattle - Steers,0.006940998589242181,megatonnes of co2 equivelant
+Agriculture - Poultry - Turkeys - Indirect Leach,Indirect Leach,Agriculture - Poultry - Turkeys,3.1916992e-7,megatonnes of co2 equivelant
+Transport - Road Transport - Buses And Coaches - Motorway Driving,Motorway Driving,Transport - Road Transport - Buses And Coaches,0.031184210365366304,megatonnes of co2 equivelant
+Transport - Road Transport - Cars - Motorway Driving,Motorway Driving,Transport - Road Transport - Cars,0.9751222579586735,megatonnes of co2 equivelant
+Transport - Road Transport - Hgv Articulated - Motorway Driving,Motorway Driving,Transport - Road Transport - Hgv Articulated,0.4828562156946794,megatonnes of co2 equivelant
+Transport - Road Transport - Hgv Rigid - Motorway Driving,Motorway Driving,Transport - Road Transport - Hgv Rigid,0.19038041113688736,megatonnes of co2 equivelant
+Transport - Road Transport - Lgvs - Motorway Driving,Motorway Driving,Transport - Road Transport - Lgvs,0.3421873523289573,megatonnes of co2 equivelant
+Transport - Road Transport - Motorcycle (>50cc  4st) - Motorway Driving,Motorway Driving,Transport - Road Transport - Motorcycle (>50cc  4st),0.003997664518303724,megatonnes of co2 equivelant
+Transport - Road Transport - Buses And Coaches - Rural Driving,Rural Driving,Transport - Road Transport - Buses And Coaches,0.1331248708130534,megatonnes of co2 equivelant
+Transport - Road Transport - Cars - Rural Driving,Rural Driving,Transport - Road Transport - Cars,2.4271430622286716,megatonnes of co2 equivelant
+Transport - Road Transport - Hgv Articulated - Rural Driving,Rural Driving,Transport - Road Transport - Hgv Articulated,0.4539035034696299,megatonnes of co2 equivelant
+Transport - Road Transport - Hgv Rigid - Rural Driving,Rural Driving,Transport - Road Transport - Hgv Rigid,0.4367785201568621,megatonnes of co2 equivelant
+Transport - Road Transport - Lgvs - Rural Driving,Rural Driving,Transport - Road Transport - Lgvs,0.9027450146267169,megatonnes of co2 equivelant
+Transport - Road Transport - Motorcycle (>50cc  2st) - Rural Driving,Rural Driving,Transport - Road Transport - Motorcycle (>50cc  2st),0,megatonnes of co2 equivelant
+Transport - Road Transport - Motorcycle (>50cc  4st) - Rural Driving,Rural Driving,Transport - Road Transport - Motorcycle (>50cc  4st),0.020174879653905978,megatonnes of co2 equivelant
+Transport - Road Transport - Buses And Coaches - Urban Driving,Urban Driving,Transport - Road Transport - Buses And Coaches,0.24924297212779695,megatonnes of co2 equivelant
+Transport - Road Transport - Cars - Urban Driving,Urban Driving,Transport - Road Transport - Cars,2.406289062992832,megatonnes of co2 equivelant
+Transport - Road Transport - Hgv Articulated - Urban Driving,Urban Driving,Transport - Road Transport - Hgv Articulated,0.11030302198993332,megatonnes of co2 equivelant
+Transport - Road Transport - Hgv Rigid - Urban Driving,Urban Driving,Transport - Road Transport - Hgv Rigid,0.19146280018574754,megatonnes of co2 equivelant
+Transport - Road Transport - Lgvs - Urban Driving,Urban Driving,Transport - Road Transport - Lgvs,0.6046061247122331,megatonnes of co2 equivelant
+Transport - Road Transport - Mopeds (<50cc 2st) - Urban Driving,Urban Driving,Transport - Road Transport - Mopeds (<50cc 2st),3.5705516235277933e-4,megatonnes of co2 equivelant
+Transport - Road Transport - Motorcycle (>50cc  2st) - Urban Driving,Urban Driving,Transport - Road Transport - Motorcycle (>50cc  2st),2.0299361153254577e-4,megatonnes of co2 equivelant
+Transport - Road Transport - Motorcycle (>50cc  4st) - Urban Driving,Urban Driving,Transport - Road Transport - Motorcycle (>50cc  4st),0.010170667695387688,megatonnes of co2 equivelant
+Land Use - Cropland Remaining Cropland - Biomass Burning - Wildfires,Wildfires,Land Use - Cropland Remaining Cropland - Biomass Burning,0,megatonnes of co2 equivelant
+Land Use - Forest Land Remaining Forest Land - Biomass Burning - Wildfires,Wildfires,Land Use - Forest Land Remaining Forest Land - Biomass Burning,0.024470702269,megatonnes of co2 equivelant
+Land Use - Grassland Remaining Grassland - Biomass Burning - Wildfires,Wildfires,Land Use - Grassland Remaining Grassland - Biomass Burning,0.006251364800000001,megatonnes of co2 equivelant

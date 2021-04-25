@@ -25,9 +25,34 @@ ghg_true_emissions <- ghg_emissions_clean %>%
 ```
 
 ```{r}
+# need to split by pollutant and year
 ghg_emissions_clean
 ```
 
+```{r}
+n_children <- ghg_emissions_clean %>% 
+  select(source_name) %>% 
+  mutate(n_breaks = str_count(source_name, " - ")) %>% 
+  distinct(n_breaks) %>% 
+  pull()
+
+child_names <- c()
+
+for (i in seq(1:n_children)) {
+  child_name <- paste("child_order_", i, sep = "")
+  child_names <- c(child_names, child_name)
+}
+
+ghg_emissions_clean %>% 
+  separate(source_name, " - ", into = c(child_names))
+```
+
+```{r}
+ghg_true_emissions %>% 
+  distinct(source_name) %>% 
+  mutate(source_name = str_count(source_name, " - ")) %>% 
+  summarise(max(source_name))
+```
 
 
 ```{r}

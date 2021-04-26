@@ -26,32 +26,138 @@ ghg_true_emissions <- ghg_emissions_clean %>%
 
 ```{r}
 # need to split by pollutant and year
-ghg_emissions_clean
+ghg_emissions_clean %>% 
+  select(ccp_mapping, source_name) %>% 
+  filter(str_detect(source_name, paste("^", ccp_mapping, sep = ""))) %>% 
+  unique()
 ```
 
 ```{r}
-n_children <- ghg_emissions_clean %>% 
-  select(source_name) %>% 
-  mutate(n_breaks = str_count(source_name, " - ")) %>% 
-  distinct(n_breaks) %>% 
-  pull()
+# var_names
 
+# get number of separators in source column
+n_breaks <- max(str_count(ghg_emissions_clean$source_name, " - "), na.rm = TRUE)
+
+# number of potential children  = number of breaks + 1
+# since: "one" - "two" - "three"
+n_children <- n_breaks + 1
+
+# create vector and fill with childnames
 child_names <- c()
 
 for (i in seq(1:n_children)) {
   child_name <- paste("child_order_", i, sep = "")
   child_names <- c(child_names, child_name)
 }
+```
 
-ghg_emissions_clean %>% 
-  separate(source_name, " - ", into = c(child_names))
+
+
+```{r}
+# clean source name column and split into child columns
+ghg_wide <- ghg_emissions_clean %>% 
+  mutate(source_name = str_to_title(
+    str_remove(
+      source_name,
+      paste("^", ccp_mapping, " - ", sep = "")
+      ))) %>% 
+  separate(source_name, into = child_names, sep = " - ", fill = "right") %>% 
+  rename(child_order_0 = ccp_mapping)
 ```
 
 ```{r}
-ghg_true_emissions %>% 
-  distinct(source_name) %>% 
-  mutate(source_name = str_count(source_name, " - ")) %>% 
-  summarise(max(source_name))
+ghg_wide_emissions <- ghg_wide %>%
+  filter(!value < 0)
+
+ghg_wide_sinks <- ghg_wide %>% 
+  filter(value < 0)
+```
+
+
+
+```{r}
+ghg_wide_emissions %>% 
+  group_by(child_order_0, pollutant, year) %>% 
+  summarise(value = sum(value), .groups = "drop_last") %>% 
+  # id must be created, parents are null - this is the top level
+  mutate(id = child_order_0, parent = "") %>% 
+  select(id, label = child_order_0, parent, pollutant, year, value)
+
+```
+
+```{r}
+ghg_wide_emissions %>%
+  group_by(child_order_1, child_order_0, pollutant, year) %>% 
+  summarise(value = sum(value), .groups = "drop") %>% 
+  mutate(id = paste(child_order_0, child_order_1, sep = " - "),
+         parent = child_order_0) %>% 
+  select(id, label = child_order_1, parent, pollutant, year, value)
+```
+
+```{r}
+ghg_wide_emissions %>%
+  group_by(child_order_2, child_order_1, child_order_0, pollutant, year) %>% 
+  summarise(value = sum(value), .groups = "drop") %>% 
+  mutate(id = paste(child_order_0, child_order_1, child_order_2, sep = " - "),
+         parent = paste(child_order_0, child_order_1, sep = " - ")) %>% 
+  select(id, label = child_order_2, parent, pollutant, year, value)
+```
+
+```{r}
+ghg_wide_emissions %>%
+  group_by(child_order_3, child_order_2, child_order_1, child_order_0, pollutant, year) %>% 
+  summarise(value = sum(value), .groups = "drop") %>% 
+  mutate(id = paste(child_order_0, child_order_1, child_order_2, child_order_3, sep = " - "),
+         parent = paste(child_order_0, child_order_1, child_order_2, sep = " - ")) %>% 
+  select(id, label = child_order_3, parent, pollutant, year, value)
+```
+
+```{r}
+create_child_table <- function(df, current_child, previous_children, additional_vars) {
+  df %>% 
+}
+```
+
+
+df %>%
+  group_by(current_child, rev(previous_children), additional_vars) %>% 
+  summarise(value = sum(value), .groups = "drop") %>% 
+  mutate(id = paste(previous_children, current_child, sep = " - "),
+         parent = paste(previous_children, sep = " - ")) %>% 
+  select(id, label = current_child, parent, additional_vars, value)
+
+```{r}
+vector <- c("child_1", "child_2")
+
+paste(paste(vector, collapse = " - "),"child_3", sep = " - ")
+```
+
+```{r}
+vector <- c()
+
+paste(paste(vector, sep = " - "),"child_3", sep = " - ")
+```
+
+
+```{r}
+vector <- c()
+
+tibble(
+  parent = c("bean", "curd", "whey", "sprout", ""),
+  people = c("david", "sasha", "john", "smith", "delilah"),
+  shapes = c("triangle", "rectangle", "square", "diamond", "")
+) %>% 
+  unite(c(1,2,3), col = "id", sep = " - ", remove = FALSE)
+```
+
+
+```{r}
+tibble(
+  parent = c("dad", "bean", "", "fava"),
+  child = c("")
+) %>% 
+  select(child) %>% 
+  pull()
 ```
 
 

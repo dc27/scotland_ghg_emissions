@@ -115,6 +115,11 @@ ghg_wide_emissions %>%
 ```{r}
 create_child_table <- function(df, current_child, previous_children, additional_vars) {
   df %>% 
+    group_by(current_child, rev(previous_children), additional_vars) %>% 
+    summarise(value = sum(value), .groups = 'drop') %>% 
+    unite(previous_children, col = "parent", sep = " - ") %>% 
+    unite(c(previous_children, current_child), sep = " - ") %>% 
+    select(id, label = current_child, parent, additional_vars, value)
 }
 ```
 

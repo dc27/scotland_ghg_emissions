@@ -52,7 +52,6 @@ for (i in seq(1:n_children)) {
 ```
 
 
-
 ```{r}
 # clean source name column and split into child columns
 ghg_wide <- ghg_emissions_clean %>% 
@@ -72,6 +71,59 @@ ghg_wide_emissions <- ghg_wide %>%
 ghg_wide_sinks <- ghg_wide %>% 
   filter(value < 0)
 ```
+
+```{r}
+
+get_child_cols <- function(df, additional_vars, standard_vars = c("value", "units")) {
+  temp <- names(df)
+  remove <- c(additional_vars, standard_vars)
+  
+  child_cols <- temp [!temp %in% remove]
+}
+
+
+child_cols <- get_child_cols(ghg_wide_emissions, additional_vars)
+
+child_cols
+```
+
+```{r}
+child_cols <- c("child_order_0", child_names)
+
+previous_children <- NULL
+
+hierarchy_df <- tibble()
+
+for (child in child_cols) {
+  print(child)
+  intermediate_tibble <- create_child_table(ghg_wide_emissions,
+                                            current_child = child,
+                                            previous_children = previous_children,
+                                            additional_vars = c("pollutant", "year"))
+  previous_children <- c(previous_children, child)
+  hierarchy_df %>% 
+    bind_rows(intermediate_tibble)
+}
+
+hierarchy_df
+```
+
+```{r}
+create_child_table(ghg_wide_emissions,
+                   current_child = "child_order_0",
+                   previous_children = NULL,
+                   additional_vars = c("pollutant", "year"))
+```
+
+
+```{r}
+previous_children <- NULL
+
+children <- c(previous_children, "child_order_0")
+
+children
+```
+
 
 
 ```{r}
@@ -133,6 +185,21 @@ create_child_table <- function(df, current_child, previous_children, additional_
   }
 }
 ```
+
+
+```{r}
+names(ghg_wide_emissions) %in% "child_order_[0-9]"
+  
+temp <- names(ghg_wide_emissions)
+remove <- c(additional_vars, "value", "units")
+
+
+temp [!temp %in% remove]
+```
+
+```{r}
+help(magrittr)
+s```
 
 
 ```{r}

@@ -1,4 +1,7 @@
 server <- function(input, output, session) {
+  
+  # ----- Overview -----
+  
   filtered_emissions <- eventReactive(input$update,
                                       ignoreNULL = FALSE,
                                       {
@@ -92,7 +95,6 @@ server <- function(input, output, session) {
         domain = list(column = 0),
         branchvalues = 'total',
         insidetextorientation = 'radial',
-        marker=list(colorscale='Viridis'),
         text = ~units,
         textinfo='label+percent root+value',
         hoverinfo = paste("%{label}: <br>%{value}",'text')
@@ -110,7 +112,6 @@ server <- function(input, output, session) {
         domain = list(column = 1),
         branchvalues = 'total',
         insidetextorientation = 'radial',
-        marker=list(colorscale='Viridis'),
         text = ~units,
         textinfo='label+percent root+value',
         hoverinfo = paste("%{label}: <br>%{value}",'text')
@@ -122,9 +123,74 @@ server <- function(input, output, session) {
     
   })
     
-  
-  
   output$emissions_breakdowns <- renderPlotly({
       emissions_breakdown_plots()
   })
+  
+  # ----- Transport -----
+  
+  filtered_transport <- eventReactive(input$update_transport, {
+    transport_emissions %>% 
+    filter(year == input$year_transport) %>% 
+    group_by(id, label, parent) %>% 
+    summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>%
+    mutate(units = "megatonnes of CO2 equivelant") %>% 
+    data.frame(stringsAsFactors = FALSE)
+    
+  })
+
+  transport_summary <- eventReactive(input$update_transport, {
+    filtered_transport() %>% 
+      plot_ly(
+        ids = ~id,
+        labels = ~label,
+        parents = ~parent,
+        values = ~value,
+        type = "sunburst",
+        branchvalues = "total",
+        insidetextorientation = 'radial',
+        maxdepth = 3,
+        text =  ~units,
+        textinfo = 'label+percent root+value+text'
+      )
+  })
+  
+  output$transport_main <- renderPlotly({
+    transport_summary()
+  })
+  
+  filtered_traffic_data <- eventReactive(input$update_transport, {
+    road_traffic %>% 
+      filter(vehicle_type == input$vehicle_type)
+  })
+  
+  output$road_traffic <- renderPlot({
+    filtered_traffic_data() %>%
+      ggplot() +
+      aes(x = year, y = vehicle_kilometers_millions, group = road_type,
+          colour = road_type, legendShow = FALSE) +
+      geom_point(size = 3) +
+      geom_line(size = 1.2) +
+      theme_bw()
+  })
+  
+  filtered_ulev_data <- eventReactive(input$update_transport, {
+    new_ulevs %>% 
+      filter(body_type == input$body_type)
+  })
+  
+  output$new_ulevs <- renderPlot({
+    filtered_ulev_data() %>% 
+    ggplot() +
+      aes(x = year, y = n_ulevs_registered/n_registered) +
+      geom_point(size = 3) +
+      geom_line(size = 1.5) +
+      scale_x_continuous(breaks = seq(2010,2020,2)) +
+      scale_y_continuous(labels = scales::percent) +
+      labs(x = "Year",
+           y = "% Newly registered vehicles are ULEV",
+           title = "% Newly Registered Vehicles are ULEV by Body Type - Scotland") +
+      theme_bw()
+  })
+  
 }

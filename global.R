@@ -13,3 +13,5 @@ emissions_data <- read_csv("data/clean_data/ghg_emissions.csv")
 years <- unique(emissions_data$year)
 pollutants <- unique(emissions_data$pollutant)
 
+hierarchical_emissions <- read_csv("data/clean_data/hierarchical_data.csv")
+

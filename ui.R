@@ -27,7 +27,20 @@ ui <- dashboardPage(
       ),
       column(
         9,
-        plotlyOutput("emissions_breakdown")
+        tabBox(
+          tabPanel(
+            "Totals",
+            plotlyOutput("totals_plot")
+          ),
+          tabPanel(
+            "Breakdown",
+            plotlyOutput("emissions_breakdowns")
+          ),
+          tabPanel(
+            "Temporal"
+          )
+        )
+        
       )
     )
   )

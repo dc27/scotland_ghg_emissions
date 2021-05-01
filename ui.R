@@ -5,10 +5,11 @@ ui <- dashboardPage(
     tags$style(
       type = "text/css",
       "
-      #totals_plot {height: calc(100vh - 160px) !important;}
-      #emissions_breakdowns {height: calc(100vh - 160px) !important;}
-      #transport_main {height: calc(100vh - 60vh) !important;}
-      #traffic_plot {height: calc(100vh - 60vh) !important;}
+      #totals_plot {height: calc(100vh - 200px) !important;}
+      #emissions_breakdowns {height: calc(100vh - 200px) !important;}
+      #transport_main {height: calc(100vh - 160px) !important;}
+      #new_ulevs {height: calc(100vh - 250px) !important;}
+      #road_traffic {height: calc(100vh - 300px) !important;}
       "
     ),
     tabsetPanel(

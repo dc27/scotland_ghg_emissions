@@ -130,7 +130,7 @@ server <- function(input, output, session) {
   # ----- Transport -----
   
   filtered_transport <- eventReactive(input$update_transport, {
-    transport_emissions %>% 
+    transport_hierarchy %>% 
     filter(year == input$year_transport) %>% 
     group_by(id, label, parent) %>% 
     summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>%

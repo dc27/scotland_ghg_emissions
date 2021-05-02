@@ -171,6 +171,7 @@ server <- function(input, output, session) {
           colour = road_type, legendShow = FALSE) +
       geom_point(size = 3) +
       geom_line(size = 1.2) +
+      scale_x_continuous(breaks = seq(2010,2020,2)) +
       theme_bw()
   })
   

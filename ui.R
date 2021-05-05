@@ -7,9 +7,9 @@ ui <- dashboardPage(
       "
       #totals_plot {height: calc(100vh - 200px) !important;}
       #emissions_breakdowns {height: calc(100vh - 200px) !important;}
-      #transport_main {height: calc(100vh - 160px) !important;}
-      #new_ulevs {height: calc(100vh - 250px) !important;}
-      #road_traffic {height: calc(100vh - 300px) !important;}
+      #transport_main {height: calc(100vh - 50vh) !important;}
+      #new_ulevs {height: calc(100vh - 50vh) !important;}
+      #road_traffic {height: calc(100vh - 50vh) !important;}
       "
     ),
     tabsetPanel(
@@ -95,6 +95,10 @@ ui <- dashboardPage(
                 "Newly Registered ULEVs",
                 plotOutput("new_ulevs")
               ),
+              tabPanel(
+                "Licensed Vehicles",
+                plotOutput("licensend_vehicles")
+                ),
               tabPanel(
                 "Road Transport",
                 plotOutput("road_traffic")

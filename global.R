@@ -8,10 +8,16 @@ library(stringr)
 library(ggplot2)
 library(plotly)
 
+source("list_of_dfs.R")
+
+dfs <- explorable_dfs[1]
+
 emissions_data <- read_csv("data/clean_data/ghg_emissions.csv")
 
-years <- unique(emissions_data$year)
+years <- sort(unique(emissions_data$year))
 pollutants <- unique(emissions_data$pollutant)
+sectors <- sort(unique(emissions_data$ccp_mapping))
+
 
 hierarchical_emissions <- read_csv("data/clean_data/hierarchical_data.csv")
 
@@ -29,3 +35,8 @@ new_ulevs <- read_csv(
   )
 
 body_types <- unique(new_ulevs$body_type)
+
+
+
+
+

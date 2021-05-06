@@ -25,7 +25,7 @@ ui <- dashboardPage(
           selectInput(
           "user_sector",
            label = "Select Sector:",
-           choices = c("All", "Transport"),
+           choices = names(dfs),
            selected = "All"
           ),
           selectInput(

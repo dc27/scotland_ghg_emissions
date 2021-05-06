@@ -15,6 +15,21 @@ library(plotly)
 ghg_emissions_clean <- read_csv("data/clean_data/ghg_emissions.csv")
 ```
 
+```{r}
+emissions_data <- read_csv("data/clean_data/ghg_emissions.csv")
+```
+
+```{r}
+emissions_data %>%
+  group_by(year) %>% 
+  summarise(value = sum(value, na.rm = TRUE)) %>% 
+  ggplot() +
+    aes(x = year,
+        y = value) +
+  geom_line()
+```
+
+
 Only emissions - > emissions that are greater than 0
 
 ```{r}

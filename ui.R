@@ -29,10 +29,17 @@ ui <- dashboardPage(
            selected = "All"
           ),
           selectInput(
-            "dataset", label = "Select Dataset:", choices = NULL
+            "user_dataset", label = "Select Dataset:", choices = NULL
           ),
           tags$hr(),
-          uiOutput("dynamic_dropdowns")
+          uiOutput("dynamic_dropdowns"),
+          tags$hr(),
+          radioButtons(
+            "user_plot", label = "Plot Type:", choices = ""
+          ),
+          actionButton(
+            "update", "Confirm Selection"
+          )
         ),
         # chart
         box(
@@ -41,6 +48,7 @@ ui <- dashboardPage(
           status = "primary",
           title = paste0("Plot : ", "Selected"),
           width = 8,
+          plotOutput("plot")
         )
       ),
       fluidRow(
@@ -49,7 +57,7 @@ ui <- dashboardPage(
           title = "Information and Links",
           solidHeader = TRUE,
           status = "success",
-          width = 12
+          width = 12,
         )
       )
     )

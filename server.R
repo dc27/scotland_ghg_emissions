@@ -1,3 +1,5 @@
+source("R/filter_vars_and_join_functions.R")
+
 server <- function(input, output, session) {
   
   sector <- reactive({
@@ -6,15 +8,50 @@ server <- function(input, output, session) {
   
   observeEvent(sector(), {
     updateSelectInput(
-      input = "dataset",
+      input = "user_dataset",
       choices = names(dfs[[input$user_sector]])
       )
   })
   
+  dataset <- reactive(dfs[[input$user_sector]][[input$user_dataset]]$data)
+  vars <- reactive(dfs[[input$user_sector]][[input$user_dataset]]$explorable_vars)
+  plot_options <- reactive(dfs[[input$user_sector]][[input$user_dataset]]$plot_options)
   
+  # dynamic input options - construct dropdowns
+  output$dynamic_dropdowns <- renderUI(
+    map(vars(), ~ make_dropdown(dataset()[[.x]], .x))
+  )
   
+  observeEvent(dataset(), {
+    updateRadioButtons(
+      input = "user_plot",
+      choices = str_to_title(plot_options())
+    )
+  })
   
+  selected <- reactive({
+    each_var <- map(vars(), ~ filter_var(dataset()[[.x]], input[[.x]]))
+    reduce(each_var, `&`)
+  })
   
+  selected_df <- reactive({
+    dataset()[selected(), ]
+  })
+  
+  plot <- eventReactive(input$update, {
+    selected_df() %>%
+      group_by(year) %>% 
+      summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>% 
+      ggplot() +
+      aes(x = year, y = value) +
+      geom_line() +
+      theme_bw()
+  })
+  
+  output$plot <- renderPlot({
+    plot()
+  })
+
   
   
   # ----- Overview -----

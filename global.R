@@ -6,6 +6,7 @@ library(dplyr)
 library(readxl)
 library(stringr)
 library(ggplot2)
+library(purrr)
 library(plotly)
 
 source("list_of_dfs.R")

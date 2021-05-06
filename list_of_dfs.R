@@ -2,13 +2,12 @@ explorable_dfs <- list(
   "All" = list(
     
     "Historic Emissions" = list(
-      data = read_csv("data/clean_data/ghg_emissions.csv")  
+      data = read_csv("data/clean_data/ghg_emissions.csv"),
+      plot_options = c("line", "bar"),
+      explorable_vars = c("year", "pollutant")
     ),
-    "2018 Emissions Totals" = list(
-      
-    ),
-    "Sector Breakdowns" = list(
-      
+    "Sector Breakdown" = list(
+      data = read_csv("data/clean_data/hierarchical_data.csv")
     )
   ),
   "Agriculture" <- list(

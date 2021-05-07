@@ -29,6 +29,19 @@ server <- function(input, output, session) {
     )
   })
   
+  plot_choice <- reactive({
+    input$user_plot
+  })
+  
+  observe({
+    if (plot_choice() == "Bar") {
+    updateSliderInput(
+      input = "year",
+      value = c(2018)
+    )
+    }
+  })
+  
   selected <- reactive({
     each_var <- map(vars(), ~ filter_var(dataset()[[.x]], input[[.x]]))
     reduce(each_var, `&`)
@@ -45,7 +58,15 @@ server <- function(input, output, session) {
         summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>% 
         ggplot() +
         aes(x = year, y = value) +
-        geom_line()
+        geom_line() +
+        ylim(0, NA)
+    } else if (input$user_plot == "Bar") {
+      selected_df() %>% 
+        group_by(ccp_mapping, pollutant) %>% 
+        summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>% 
+        ggplot() +
+        aes(x = ccp_mapping, y = value, fill = ccp_mapping) +
+        geom_col(position = "stack", show.legend = FALSE)
     }
   })
   

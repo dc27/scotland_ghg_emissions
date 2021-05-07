@@ -10,6 +10,7 @@ ui <- dashboardPage(
       #data_select {height: calc(100vh - 35vh) !important;}
       #plot_box {height: calc(100vh - 35vh) !important;}
       div.box.box-solid.box-primary {text-align: right;}
+      #plot {height: 100% !important;}
       #extra_info {height: 15vh !important;}
       "
     ),

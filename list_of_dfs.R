@@ -7,7 +7,9 @@ explorable_dfs <- list(
       explorable_vars = c("year", "pollutant")
     ),
     "Sector Breakdown" = list(
-      data = read_csv("data/clean_data/hierarchical_data.csv")
+      data = read_csv("data/clean_data/hierarchical_data.csv"),
+      plot_options = c("sunburst", "treemap"),
+      explorable_vars = c("year", "pollutant")
     )
   ),
   "Agriculture" <- list(

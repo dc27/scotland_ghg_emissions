@@ -26,7 +26,8 @@ emissions_data %>%
   ggplot() +
     aes(x = year,
         y = value) +
-  geom_line()
+  geom_line() +
+  ylim(0, NA)
 ```
 
 

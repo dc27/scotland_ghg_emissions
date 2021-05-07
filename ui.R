@@ -37,8 +37,8 @@ ui <- dashboardPage(
           radioButtons(
             "user_plot", label = "Plot Type:", choices = ""
           ),
-          actionButton(
-            "update", "Confirm Selection"
+          tags$div(style = "text-align:center;",
+                   actionButton("update", "Confirm Selection")
           )
         ),
         # chart
@@ -46,7 +46,7 @@ ui <- dashboardPage(
           id = "plot_box",
           solidHeader = TRUE,
           status = "primary",
-          title = paste0("Plot : ", "Selected"),
+          title = textOutput("title"),
           width = 8,
           plotOutput("plot")
         )

@@ -39,20 +39,27 @@ server <- function(input, output, session) {
   })
   
   plot <- eventReactive(input$update, {
-    selected_df() %>%
-      group_by(year) %>% 
-      summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>% 
-      ggplot() +
-      aes(x = year, y = value) +
-      geom_line() +
-      theme_bw()
+    if (input$user_plot == "Line") {
+      selected_df() %>%
+        group_by(year) %>% 
+        summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>% 
+        ggplot() +
+        aes(x = year, y = value) +
+        geom_line()
+    }
   })
   
   output$plot <- renderPlot({
-    plot()
+    plot() + theme_bw()
+  })
+  
+  title_text <- eventReactive(input$update, {
+    paste0("Selected: ", input$user_dataset)
   })
 
-  
+  output$title <- renderText(
+    title_text()
+  )
   
   # ----- Overview -----
   # filtered_emissions <- eventReactive(input$update,

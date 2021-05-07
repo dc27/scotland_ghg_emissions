@@ -14,7 +14,7 @@ make_dropdown <- function(df, var) {
   } else if (is.character(df)) {
     pickerInput(var,
                 paste0(varname, "(s):"), 
-                choices = unique(df),
+                choices = sort(unique(df)),
                 selected = unique(df),
                 options = list(`actions-box` = TRUE),
                 multiple = TRUE)

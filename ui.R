@@ -49,7 +49,7 @@ ui <- dashboardPage(
           status = "primary",
           title = textOutput("title"),
           width = 8,
-          plotOutput("plot")
+          plotlyOutput("plot")
         )
       ),
       fluidRow(

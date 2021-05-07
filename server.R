@@ -2,6 +2,72 @@ source("R/filter_vars_and_join_functions.R")
 
 server <- function(input, output, session) {
   
+  create_hierarchical_plot <- function(df = selected_df(), plot_type = "Sunburst") {
+    p_type <- str_to_lower(plot_type)
+    
+    # 0. create empty list to store dfs to be plotted side by side
+    plot_dfs <- list()
+    
+    # 1. separate emissions and (usually carbon) sinks
+    plot_dfs$emissions <- 
+        df %>%
+        filter(!value < 0) %>%
+        group_by(id, label, parent) %>%
+        summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>%
+        mutate(units = "megatonnes of CO2 equivelant")
+
+    plot_dfs$sinks <- df %>%
+      filter(value < 0) %>%
+      mutate(value = value * -1) %>%
+      group_by(id, label, parent) %>%
+      summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>%
+      mutate(units = "megatonnes of CO2 equivelant")
+    
+      fig <- plot_ly()
+
+      fig <- fig %>%
+        add_trace(
+          name = "Emissions",
+          ids = plot_dfs$emissions$id,
+          labels = plot_dfs$emissions$label,
+          parents = plot_dfs$emissions$parent,
+          values = plot_dfs$emissions$value,
+          text = plot_dfs$emissions$units,
+          type = p_type,
+          maxdepth = 2,
+          domain = list(column = 0),
+          branchvalues = 'total',
+          insidetextorientation = 'radial',
+          text = ~units,
+          textinfo='label+percent root+value',
+          hoverinfo = paste("%{label}: <br>%{value}",'text')
+        )
+      fig <- fig %>%
+        add_trace(
+          name = "Sinks",
+          ids = plot_dfs$sinks$id,
+          labels = plot_dfs$sinks$label,
+          parents = plot_dfs$sinks$parent,
+          values = plot_dfs$sinks$value,
+          text = plot_dfs$sinks$units,
+          type = p_type,
+          maxdepth = 2,
+          domain = list(column = 1),
+          branchvalues = 'total',
+          insidetextorientation = 'radial',
+          text = ~units,
+          textinfo='label+percent root+value',
+          hoverinfo = paste("%{label}: <br>%{value}",'text')
+        )
+      fig <- fig %>%
+        layout(
+          grid = list(columns =2, rows = 1),
+          margin = list(l = 0, r = 0, b = 0, t = 0))
+      
+    return(fig)
+  }
+  
+  
   sector <- reactive({
     input$user_sector
   })
@@ -34,7 +100,7 @@ server <- function(input, output, session) {
   })
   
   observe({
-    if (plot_choice() == "Bar") {
+    if (plot_choice() != "Line") {
     updateSliderInput(
       input = "year",
       value = c(2018)
@@ -42,12 +108,12 @@ server <- function(input, output, session) {
     }
   })
   
-  selected <- reactive({
+  selected <- eventReactive(input$update, {
     each_var <- map(vars(), ~ filter_var(dataset()[[.x]], input[[.x]]))
     reduce(each_var, `&`)
   })
   
-  selected_df <- reactive({
+  selected_df <- eventReactive(input$update, {
     dataset()[selected(), ]
   })
   
@@ -59,6 +125,7 @@ server <- function(input, output, session) {
         ggplot() +
         aes(x = year, y = value) +
         geom_line() +
+        geom_point() +
         ylim(0, NA)
     } else if (input$user_plot == "Bar") {
       selected_df() %>% 
@@ -67,11 +134,18 @@ server <- function(input, output, session) {
         ggplot() +
         aes(x = ccp_mapping, y = value, fill = ccp_mapping) +
         geom_col(position = "stack", show.legend = FALSE)
+    } else if(input$user_plot == "Sunburst") {
+      create_hierarchical_plot(selected_df(), "Sunburst")
+    } else if(input$user_plot == "Treemap") {
+      create_hierarchical_plot(selected_df(), "Treemap")
     }
+    
   })
   
-  output$plot <- renderPlot({
-    plot() + theme_bw()
+  
+  
+  output$plot <- renderPlotly({
+    plot()
   })
   
   title_text <- eventReactive(input$update, {

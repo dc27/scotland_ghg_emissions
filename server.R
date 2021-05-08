@@ -61,16 +61,13 @@ server <- function(input, output, session) {
   selected_df <- eventReactive(input$update, {
     selected_df <- dataset()[selected(), ]
     
-    # summary plots require grouping
-    if (input$user_sector == "All") {
       if(input$user_plot == "Bar") {
         selected_df <- selected_df %>% 
-          group_and_summarise(ccp_mapping, pollutant)
+          group_and_summarise_excluding(c("year", "value", "units"))
       } else if (input$user_plot == "Line") {
         selected_df <- selected_df %>% 
-          group_and_summarise(year)
+          group_and_summarise_including("year")
       }
-    }
     return(selected_df)
   })
   

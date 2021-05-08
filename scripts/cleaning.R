@@ -22,6 +22,13 @@ ghg_emissions_clean <- ghg_emissions_data %>%
 ghg_emissions_clean %>% 
   write_csv("data/clean_data/ghg_emissions.csv")
 
+# summary info
+ghg_emissions_clean %>% 
+  group_by(ccp_mapping, pollutant, year) %>% 
+  summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>% 
+  mutate(units = ghg_emissions_clean$units[1]) %>% 
+  write_csv("data/clean_data/ghg_emissions_summary.csv")
+
 # get number of separators in source column
 n_breaks <- max(str_count(ghg_emissions_clean$source_name, " - "), na.rm = TRUE)
 

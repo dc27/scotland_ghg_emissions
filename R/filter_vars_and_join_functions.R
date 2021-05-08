@@ -76,10 +76,23 @@ filter_var <- function(x, val) {
   }
 }
 
-group_and_summarise <- function(.data, ...) {
-# auto grouping function
-    
-  .data %>%
-    group_by(...) %>%
-    summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last')
+group_and_summarise_excluding<- function(df, exclude_cols) {
+  # group and summarise data by columns given columns to exclude
+  temp <- names(df)
+  
+  remaining_cols <- temp [!temp %in% exclude_cols]
+  
+  df %>% 
+    dplyr::group_by_at(remaining_cols) %>% 
+    summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>% 
+    mutate(units = df$units[1])
+}
+
+group_and_summarise_including <- function(df, include_cols) {
+  # group and summarise data by columns given columns to include
+  
+  df %>% 
+    dplyr::group_by_at(include_cols) %>% 
+    summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>% 
+    mutate(units = df$units[1])
 }

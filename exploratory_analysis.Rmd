@@ -12,11 +12,32 @@ library(tidyverse)
 library(readxl)
 library(plotly)
 
-ghg_emissions_clean <- read_csv("data/clean_data/ghg_emissions.csv")
+ghg_emissions_clean <- read_csv("data/clean_data/ghg_emissions_summary.csv")
 ```
 
 ```{r}
 
+
+summarised <- group_and_summarise_exclude(ghg_emissions_clean, c("year", "value", "units"))
+
+
+summarised %>% 
+  ggplot() +
+  aes(x = .data[["ccp_mapping"]], y = value, fill = .data[["ccp_mapping"]]) +
+  geom_col()
+```
+
+
+```{r}
+remove <- c("year", "value", "units")
+temp <- names(ghg_emissions_clean)
+
+remaining_cols <- temp [!temp %in% remove]
+
+ghg_emissions_clean %>%
+  dplyr::group_by_at(remaining_cols) %>% 
+  summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>% 
+  
 ```
 
 ```{r}
@@ -31,6 +52,8 @@ create_bar_plot <-function(df = summarised_data) {
 
 }
 ```
+
+
 
 
 
@@ -227,16 +250,31 @@ road_traffic %>%
 
 
 ```{r}
-
-
 road_traffic %>% 
-  filter(road_type == "Major roads (M and A)") %>% 
-  filter(vehicle_type == "Cars") %>% 
+  filter(road_type == "Major roads (M and A)") %>%
+  filter(!str_detect(vehicle_type, "^All")) %>% 
+  filter(year == 2018) %>% 
   ggplot() +
-  aes(x = .data[["year"]], y = value) +
-  geom_line() +
-  xlim(min(year), max(.x)) +
+  aes(x = .data[["vehicle_type"]], y = value, fill = .data[["vehicle_type"]]) +
+  geom_col() +
   ylim(0, NA)
+```
+
+
+```{r}
+road_traffic %>% 
+  filter(!str_detect(road_type, "^All")) %>% 
+  filter(!str_detect(vehicle_type, "^All")) %>%
+  # write_csv()
+  group_by(year) %>% 
+  summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>% 
+  ggplot() +
+  aes(x = year, y = value) +
+  geom_line()
+```
+
+```{r}
+
 ```
 
 

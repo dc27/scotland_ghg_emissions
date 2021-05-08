@@ -1,7 +1,7 @@
 explorable_dfs <- list(
   "All" = list(
     "Historic Emissions" = list(
-      data = read_csv("data/clean_data/ghg_emissions.csv"),
+      data = read_csv("data/clean_data/ghg_emissions_summary.csv"),
       plot_options = c("line", "bar"),
       explorable_vars = c("year", "pollutant")
     ),
@@ -32,12 +32,12 @@ explorable_dfs <- list(
   "Transport" = list(
     "Newly Registered ULEVs" = list(
       data = read_csv("data/clean_data/transport/newly_registered_vehicles_and_ulevs.csv"),
-      plot_options = c("line", "bar"),
+      plot_options = c("line"),
       explorable_vars = c("year", "body_type", "statistic")
     ),
     "Road Traffic" = list(
       data = read_csv("data/clean_data/transport/road_traffic.csv"),
-      plot_options = c("line", "bar"),
+      plot_options = c("line"),
       explorable_vars = c("year", "vehicle_type", "road_type")
     )
   ),

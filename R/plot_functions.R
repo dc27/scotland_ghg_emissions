@@ -8,6 +8,8 @@ create_bar_plot <-function(df = selected_df(), facet_var = NULL) {
     aes(x = .data[[x_name]], y = value, fill = .data[[x_name]]) +
     geom_col(position = "stack", show.legend = FALSE)
   
+  
+  # facet if required
   if (!is.null(facet_var)) {
     p <- p +
       facet_wrap(~.data[[facet_var]])
@@ -17,7 +19,7 @@ create_bar_plot <-function(df = selected_df(), facet_var = NULL) {
 }
 
 create_line_plot <- function(df = selected_df(), facet_var = NULL ) {
-  
+  # to clean up output for x-axis
   min_year = min(df[["year"]])
   max_year = max(df[["year"]])
   
@@ -34,7 +36,7 @@ create_line_plot <- function(df = selected_df(), facet_var = NULL ) {
                        breaks = seq(min_year, max_year, sep)) +
     ylim(0, NA)
   
-  
+  # facet if required
   if (!is.null(facet_var)) {
     p <- p +
       facet_wrap(~.data[[facet_var]])
@@ -42,7 +44,6 @@ create_line_plot <- function(df = selected_df(), facet_var = NULL ) {
   
   return(p)
 }
-
 
 create_hierarchical_plot <- function(df = selected_df(), plot_type = "Sunburst") {
   p_type <- str_to_lower(plot_type)
@@ -65,8 +66,10 @@ create_hierarchical_plot <- function(df = selected_df(), plot_type = "Sunburst")
     summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>%
     mutate(units = "megatonnes of CO2 equivelant")
   
+  # 2. create plot
   fig <- plot_ly()
   
+  # 2.1 add trace for emissions
   fig <- fig %>%
     add_trace(
       name = "Emissions",
@@ -84,6 +87,7 @@ create_hierarchical_plot <- function(df = selected_df(), plot_type = "Sunburst")
       textinfo='label+percent root+value',
       hoverinfo = paste("%{label}: <br>%{value}",'text')
     )
+  # 2.2 add trace for sinks
   fig <- fig %>%
     add_trace(
       name = "Sinks",
@@ -101,6 +105,7 @@ create_hierarchical_plot <- function(df = selected_df(), plot_type = "Sunburst")
       textinfo='label+percent root+value',
       hoverinfo = paste("%{label}: <br>%{value}",'text')
     )
+  # 2.3. plot emissions and sinks, side by side
   fig <- fig %>%
     layout(
       grid = list(columns =2, rows = 1),

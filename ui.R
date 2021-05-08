@@ -53,6 +53,8 @@ ui <- dashboardPage(
         )
       ),
       fluidRow(
+        # TODO::
+        # additional information, links
         box(
           id = "extra_info",
           title = "Information and Links",

@@ -1,4 +1,5 @@
 build_slider_input <- function(df, var, varname) {
+# makes a slider input
   rng <- range(df, na.rm = TRUE)
   
   sliderInput(var,
@@ -13,6 +14,7 @@ build_slider_input <- function(df, var, varname) {
 }
 
 build_picker_input <- function(df, var, varname) {
+# makes a picker input
   pickerInput(var,
               paste0(varname, "(s):"), 
               choices = sort(unique(df)),
@@ -23,6 +25,7 @@ build_picker_input <- function(df, var, varname) {
 }
 
 build_select_input <- function(df, var, varname) {
+# makes a select input
   selectInput(var,
               paste0(varname, ":"), 
               choices = sort(unique(df)),
@@ -31,6 +34,7 @@ build_select_input <- function(df, var, varname) {
 }
 
 build_multi_select_input <- function(df, var, varname) {
+# makes a select input ~ allowing multiple selecitons
   selectInput(var,
               paste0(varname, "(s):"),
               choices = sort(unique(df)),
@@ -40,6 +44,10 @@ build_multi_select_input <- function(df, var, varname) {
 }
 
 make_dropdown <- function(df, var) {
+# automatically create dropdown depending on variable type
+# looks up dropdown lookup where each user-filterable variable is
+# listed with a dropdown instruction
+  
   # convert snakecase variable name to title for ui
   varname <- str_to_title(str_replace_all(var, "_", " "))
   input_type = dropdown_lookup[[var]]
@@ -57,6 +65,7 @@ make_dropdown <- function(df, var) {
 }
 
 filter_var <- function(x, val) {
+# auto filter df function
   if (is.numeric(x)) {
     !is.na(x) & x >= val[1] & x <= val[2]
   } else if (is.character(x)) {
@@ -68,7 +77,8 @@ filter_var <- function(x, val) {
 }
 
 group_and_summarise <- function(.data, ...) {
-  
+# auto grouping function
+    
   .data %>%
     group_by(...) %>%
     summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last')

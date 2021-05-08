@@ -1,6 +1,5 @@
 explorable_dfs <- list(
   "All" = list(
-    
     "Historic Emissions" = list(
       data = read_csv("data/clean_data/ghg_emissions.csv"),
       plot_options = c("line", "bar"),
@@ -12,28 +11,57 @@ explorable_dfs <- list(
       explorable_vars = c("year", "pollutant")
     )
   ),
-  "Agriculture" <- list(
+  "Agriculture" = list(
 
   ),
-  "Electricity Generation" <- list(
+  "Electricity Generation" = list(
 
   ),
-  "Industry" <- list(
+  "Industry" = list(
 
   ),
-  "Land Use" <- list(
+  "Land Use" = list(
 
   ),
-  "Residential" <- list(
+  "Residential" = list(
 
   ),
-  "Services" <- list(
+  "Services" = list(
 
   ),
-  "Transport" <- list(
-
+  "Transport" = list(
+    "Newly Registered ULEVs" = list(
+      data = read_csv("data/clean_data/transport/newly_registered_vehicles_and_ulevs.csv"),
+      plot_options = c("line", "bar"),
+      explorable_vars = c("year", "body_type", "statistic")
+    ),
+    "Road Traffic" = list(
+      data = read_csv("data/clean_data/transport/road_traffic.csv"),
+      plot_options = c("line", "bar"),
+      explorable_vars = c("year", "vehicle_type", "road_type")
+    )
   ),
-  "Waste" <- list(
+  "Waste" = list(
 
   )
 )
+
+# automatically add in Sector Breakdown for each Sector
+for (category in names(explorable_dfs)[2:length(names(explorable_dfs))]) {
+  pattern <- paste0("^", category)
+  
+  sector_breakdown = list("Sector Breakdown" = list(
+    # filter for specific sector each time
+    data = read_csv("data/clean_data/hierarchical_data.csv") %>%
+      filter(str_detect(id, pattern)),
+    plot_options = c("sunburst", "treemap"),
+    explorable_vars = c("year", "pollutant")
+  ))
+  
+  
+  explorable_dfs[[category]] = c(
+    sector_breakdown,
+    explorable_dfs[[category]]
+    )
+}
+

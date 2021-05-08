@@ -82,3 +82,27 @@ new_ulevs %>%
   write_csv("data/clean_data/transport/newly_registered_vehicles_and_ulevs.csv")
 ```
 
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+new_ulevs %>% 
+  mutate(p_new_ulevs = n_ulevs_registered/n_registered) %>%
+  pivot_longer(cols = c(n_registered, n_ulevs_registered, p_new_ulevs), names_to = "statistic", values_to = "value") %>% 
+  mutate(statistic = recode(statistic,
+    "n_registered" = "Vehicle Registrations",
+    "n_ulevs_registered" = "ULE Vehicle Registrations",
+    "Proportion of New Vehicle Registrations that are ULEV (%%)" = "Proportion of New Vehicle Registrations that are ULEV"
+  )) %>% 
+  mutate(units = statistic) %>% 
+  write_csv("data/clean_data/transport/newly_registered_vehicles_and_ulevs.csv")
+  filter(statistic == "Proportion of New Vehicle Registrations that are ULEV") %>% 
+  ggplot() +
+  aes(x = year, y = value) +
+  geom_line() +
+  facet_wrap(~body_type)
+```
+

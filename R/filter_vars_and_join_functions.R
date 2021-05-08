@@ -1,26 +1,59 @@
+build_slider_input <- function(df, var, varname) {
+  rng <- range(df, na.rm = TRUE)
+  
+  sliderInput(var,
+              paste0(varname, " Range:"),
+              min = rng[1],
+              max = rng[2],
+              value = rng,
+              sep = "",
+              step = 1,
+              ticks = FALSE
+              )
+}
+
+build_picker_input <- function(df, var, varname) {
+  pickerInput(var,
+              paste0(varname, "(s):"), 
+              choices = sort(unique(df)),
+              selected = unique(df),
+              options = list(`actions-box` = TRUE),
+              multiple = TRUE
+              )
+}
+
+build_select_input <- function(df, var, varname) {
+  selectInput(var,
+              paste0(varname, ":"), 
+              choices = sort(unique(df)),
+              selected = unique(df)
+              )
+}
+
+build_multi_select_input <- function(df, var, varname) {
+  selectInput(var,
+              paste0(varname, "(s):"),
+              choices = sort(unique(df)),
+              selected = unique(df),
+              multiple = TRUE
+              )
+}
+
 make_dropdown <- function(df, var) {
   # convert snakecase variable name to title for ui
   varname <- str_to_title(str_replace_all(var, "_", " "))
-  if (is.numeric(df)) {
-    rng <- range(df, na.rm = TRUE)
-    sliderInput(var,
-                paste0(varname, " Range:"),
-                min = rng[1],
-                max = rng[2],
-                value = rng,
-                sep = "",
-                step = 1,
-                ticks = FALSE)
-  } else if (is.character(df)) {
-    pickerInput(var,
-                paste0(varname, "(s):"), 
-                choices = sort(unique(df)),
-                selected = unique(df),
-                options = list(`actions-box` = TRUE),
-                multiple = TRUE)
-  } else {
-    NULL
+  input_type = dropdown_lookup[[var]]
+  
+  if (input_type == "selectInput") {
+    build_select_input(df, var, varname)
+  } else if (input_type == "multiSelectInput") {
+    build_multi_select_input(df, var, varname)
+  } else if (input_type == "pickerInput") {
+    build_picker_input(df, var, varname)
+  } else if (input_type == "sliderInput") {
+    build_slider_input(df, var, varname)
   }
+  
 }
 
 filter_var <- function(x, val) {
@@ -32,4 +65,11 @@ filter_var <- function(x, val) {
     # No control, so don't filter
     TRUE
   }
+}
+
+group_and_summarise <- function(.data, ...) {
+  
+  .data %>%
+    group_by(...) %>%
+    summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last')
 }

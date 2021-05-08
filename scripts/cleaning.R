@@ -44,6 +44,7 @@ ghg_wide <- ghg_emissions_clean %>%
       source_name,
       paste("^", ccp_mapping, " - ", sep = "")
     ))) %>% 
+  mutate(ccp_mapping = str_to_title(ccp_mapping)) %>% 
   separate(source_name, into = child_names, sep = " - ", fill = "right") %>% 
   rename(child_order_0 = ccp_mapping)
 
@@ -131,5 +132,3 @@ ghg_hierchary <- bind_rows(list(ghg_long_emissions, ghg_long_sinks)) %>%
 
 ghg_hierchary %>% 
   write_csv("data/clean_data/hierarchical_data.csv")
-
-

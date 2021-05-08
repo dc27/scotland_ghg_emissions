@@ -10,8 +10,14 @@ library(purrr)
 library(plotly)
 
 source("list_of_dfs.R")
+source("dropdown_lookup.R")
 
-dfs <- explorable_dfs[1]
+dfs <- explorable_dfs
+
+dropdown_lookup <- dropdown_lookup
+
+theme_set(theme_bw())
+
 
 emissions_data <- read_csv("data/clean_data/ghg_emissions.csv")
 

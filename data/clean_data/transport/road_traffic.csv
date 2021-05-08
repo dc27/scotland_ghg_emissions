@@ -1,265 +1,265 @@
-road_type,vehicle_type,year,vehicle_kilometers_millions
-Major roads (M and A),Cars,2009,22496
-Major roads (M and A),Cars,2010,21998
-Major roads (M and A),Cars,2011,21986
-Major roads (M and A),Cars,2012,22170
-Major roads (M and A),Cars,2013,22217
-Major roads (M and A),Cars,2014,22418
-Major roads (M and A),Cars,2015,22573
-Major roads (M and A),Cars,2016,23220
-Major roads (M and A),Cars,2017,23453
-Major roads (M and A),Cars,2018,23470
-Major roads (M and A),Cars,2019,24119
-Major roads (M and A),Two wheeled motor vehicles,2009,196
-Major roads (M and A),Two wheeled motor vehicles,2010,181
-Major roads (M and A),Two wheeled motor vehicles,2011,181
-Major roads (M and A),Two wheeled motor vehicles,2012,171
-Major roads (M and A),Two wheeled motor vehicles,2013,176
-Major roads (M and A),Two wheeled motor vehicles,2014,184
-Major roads (M and A),Two wheeled motor vehicles,2015,181
-Major roads (M and A),Two wheeled motor vehicles,2016,180
-Major roads (M and A),Two wheeled motor vehicles,2017,181
-Major roads (M and A),Two wheeled motor vehicles,2018,182
-Major roads (M and A),Two wheeled motor vehicles,2019,186
-Major roads (M and A),Buses,2009,329
-Major roads (M and A),Buses,2010,353
-Major roads (M and A),Buses,2011,352
-Major roads (M and A),Buses,2012,363
-Major roads (M and A),Buses,2013,365
-Major roads (M and A),Buses,2014,366
-Major roads (M and A),Buses,2015,369
-Major roads (M and A),Buses,2016,351
-Major roads (M and A),Buses,2017,337
-Major roads (M and A),Buses,2018,316
-Major roads (M and A),Buses,2019,308
-Major roads (M and A),Light goods vehicles,2009,3684
-Major roads (M and A),Light goods vehicles,2010,3701
-Major roads (M and A),Light goods vehicles,2011,3816
-Major roads (M and A),Light goods vehicles,2012,3906
-Major roads (M and A),Light goods vehicles,2013,4032
-Major roads (M and A),Light goods vehicles,2014,4242
-Major roads (M and A),Light goods vehicles,2015,4481
-Major roads (M and A),Light goods vehicles,2016,4765
-Major roads (M and A),Light goods vehicles,2017,5032
-Major roads (M and A),Light goods vehicles,2018,5165
-Major roads (M and A),Light goods vehicles,2019,5178
-Major roads (M and A),Heavy goods vehicles,2009,2210
-Major roads (M and A),Heavy goods vehicles,2010,2217
-Major roads (M and A),Heavy goods vehicles,2011,2184
-Major roads (M and A),Heavy goods vehicles,2012,2198
-Major roads (M and A),Heavy goods vehicles,2013,2210
-Major roads (M and A),Heavy goods vehicles,2014,2193
-Major roads (M and A),Heavy goods vehicles,2015,2228
-Major roads (M and A),Heavy goods vehicles,2016,2290
-Major roads (M and A),Heavy goods vehicles,2017,2362
-Major roads (M and A),Heavy goods vehicles,2018,2365
-Major roads (M and A),Heavy goods vehicles,2019,2368
-Major roads (M and A),All motor vehicle traffic,2009,28917
-Major roads (M and A),All motor vehicle traffic,2010,28450
-Major roads (M and A),All motor vehicle traffic,2011,28519
-Major roads (M and A),All motor vehicle traffic,2012,28807
-Major roads (M and A),All motor vehicle traffic,2013,29001
-Major roads (M and A),All motor vehicle traffic,2014,29404
-Major roads (M and A),All motor vehicle traffic,2015,29831
-Major roads (M and A),All motor vehicle traffic,2016,30807
-Major roads (M and A),All motor vehicle traffic,2017,31366
-Major roads (M and A),All motor vehicle traffic,2018,31499
-Major roads (M and A),All motor vehicle traffic,2019,32160
-Major roads (M and A),Pedal cycles,2009,45
-Major roads (M and A),Pedal cycles,2010,46
-Major roads (M and A),Pedal cycles,2011,47
-Major roads (M and A),Pedal cycles,2012,45
-Major roads (M and A),Pedal cycles,2013,47
-Major roads (M and A),Pedal cycles,2014,42
-Major roads (M and A),Pedal cycles,2015,41
-Major roads (M and A),Pedal cycles,2016,41
-Major roads (M and A),Pedal cycles,2017,40
-Major roads (M and A),Pedal cycles,2018,44
-Major roads (M and A),Pedal cycles,2019,51
-Major roads (M and A),All traffic on major roads,2009,28961
-Major roads (M and A),All traffic on major roads,2010,28496
-Major roads (M and A),All traffic on major roads,2011,28565
-Major roads (M and A),All traffic on major roads,2012,28853
-Major roads (M and A),All traffic on major roads,2013,29048
-Major roads (M and A),All traffic on major roads,2014,29446
-Major roads (M and A),All traffic on major roads,2015,29872
-Major roads (M and A),All traffic on major roads,2016,30847
-Major roads (M and A),All traffic on major roads,2017,31406
-Major roads (M and A),All traffic on major roads,2018,31542
-Major roads (M and A),All traffic on major roads,2019,32211
-"Minor roads (B, C and unclassified)",Cars,2009,11895
-"Minor roads (B, C and unclassified)",Cars,2010,11595
-"Minor roads (B, C and unclassified)",Cars,2011,11597
-"Minor roads (B, C and unclassified)",Cars,2012,11616
-"Minor roads (B, C and unclassified)",Cars,2013,11632
-"Minor roads (B, C and unclassified)",Cars,2014,12073
-"Minor roads (B, C and unclassified)",Cars,2015,12214
-"Minor roads (B, C and unclassified)",Cars,2016,12264
-"Minor roads (B, C and unclassified)",Cars,2017,12721
-"Minor roads (B, C and unclassified)",Cars,2018,12910
-"Minor roads (B, C and unclassified)",Cars,2019,12628
-"Minor roads (B, C and unclassified)",Two wheeled motor vehicles,2009,125
-"Minor roads (B, C and unclassified)",Two wheeled motor vehicles,2010,109
-"Minor roads (B, C and unclassified)",Two wheeled motor vehicles,2011,115
-"Minor roads (B, C and unclassified)",Two wheeled motor vehicles,2012,121
-"Minor roads (B, C and unclassified)",Two wheeled motor vehicles,2013,112
-"Minor roads (B, C and unclassified)",Two wheeled motor vehicles,2014,115
-"Minor roads (B, C and unclassified)",Two wheeled motor vehicles,2015,114
-"Minor roads (B, C and unclassified)",Two wheeled motor vehicles,2016,111
-"Minor roads (B, C and unclassified)",Two wheeled motor vehicles,2017,128
-"Minor roads (B, C and unclassified)",Two wheeled motor vehicles,2018,131
-"Minor roads (B, C and unclassified)",Two wheeled motor vehicles,2019,138
-"Minor roads (B, C and unclassified)",Buses,2009,306
-"Minor roads (B, C and unclassified)",Buses,2010,297
-"Minor roads (B, C and unclassified)",Buses,2011,254
-"Minor roads (B, C and unclassified)",Buses,2012,219
-"Minor roads (B, C and unclassified)",Buses,2013,238
-"Minor roads (B, C and unclassified)",Buses,2014,239
-"Minor roads (B, C and unclassified)",Buses,2015,214
-"Minor roads (B, C and unclassified)",Buses,2016,204
-"Minor roads (B, C and unclassified)",Buses,2017,234
-"Minor roads (B, C and unclassified)",Buses,2018,184
-"Minor roads (B, C and unclassified)",Buses,2019,256
-"Minor roads (B, C and unclassified)",Light goods vehicles,2009,2343
-"Minor roads (B, C and unclassified)",Light goods vehicles,2010,2412
-"Minor roads (B, C and unclassified)",Light goods vehicles,2011,2316
-"Minor roads (B, C and unclassified)",Light goods vehicles,2012,2229
-"Minor roads (B, C and unclassified)",Light goods vehicles,2013,2315
-"Minor roads (B, C and unclassified)",Light goods vehicles,2014,2477
-"Minor roads (B, C and unclassified)",Light goods vehicles,2015,2556
-"Minor roads (B, C and unclassified)",Light goods vehicles,2016,2761
-"Minor roads (B, C and unclassified)",Light goods vehicles,2017,3055
-"Minor roads (B, C and unclassified)",Light goods vehicles,2018,2899
-"Minor roads (B, C and unclassified)",Light goods vehicles,2019,2948
-"Minor roads (B, C and unclassified)",Heavy goods vehicles,2009,347
-"Minor roads (B, C and unclassified)",Heavy goods vehicles,2010,334
-"Minor roads (B, C and unclassified)",Heavy goods vehicles,2011,300
-"Minor roads (B, C and unclassified)",Heavy goods vehicles,2012,271
-"Minor roads (B, C and unclassified)",Heavy goods vehicles,2013,282
-"Minor roads (B, C and unclassified)",Heavy goods vehicles,2014,286
-"Minor roads (B, C and unclassified)",Heavy goods vehicles,2015,284
-"Minor roads (B, C and unclassified)",Heavy goods vehicles,2016,260
-"Minor roads (B, C and unclassified)",Heavy goods vehicles,2017,241
-"Minor roads (B, C and unclassified)",Heavy goods vehicles,2018,239
-"Minor roads (B, C and unclassified)",Heavy goods vehicles,2019,218
-"Minor roads (B, C and unclassified)",All motor vehicle traffic,2009,15016
-"Minor roads (B, C and unclassified)",All motor vehicle traffic,2010,14748
-"Minor roads (B, C and unclassified)",All motor vehicle traffic,2011,14582
-"Minor roads (B, C and unclassified)",All motor vehicle traffic,2012,14456
-"Minor roads (B, C and unclassified)",All motor vehicle traffic,2013,14579
-"Minor roads (B, C and unclassified)",All motor vehicle traffic,2014,15189
-"Minor roads (B, C and unclassified)",All motor vehicle traffic,2015,15382
-"Minor roads (B, C and unclassified)",All motor vehicle traffic,2016,15601
-"Minor roads (B, C and unclassified)",All motor vehicle traffic,2017,16378
-"Minor roads (B, C and unclassified)",All motor vehicle traffic,2018,16363
-"Minor roads (B, C and unclassified)",All motor vehicle traffic,2019,16187
-"Minor roads (B, C and unclassified)",Pedal cycles,2009,243
-"Minor roads (B, C and unclassified)",Pedal cycles,2010,253
-"Minor roads (B, C and unclassified)",Pedal cycles,2011,258
-"Minor roads (B, C and unclassified)",Pedal cycles,2012,264
-"Minor roads (B, C and unclassified)",Pedal cycles,2013,282
-"Minor roads (B, C and unclassified)",Pedal cycles,2014,327
-"Minor roads (B, C and unclassified)",Pedal cycles,2015,300
-"Minor roads (B, C and unclassified)",Pedal cycles,2016,247
-"Minor roads (B, C and unclassified)",Pedal cycles,2017,252
-"Minor roads (B, C and unclassified)",Pedal cycles,2018,269
-"Minor roads (B, C and unclassified)",Pedal cycles,2019,316
-"Minor roads (B, C and unclassified)",All traffic on minor roads,2009,15258
-"Minor roads (B, C and unclassified)",All traffic on minor roads,2010,15000
-"Minor roads (B, C and unclassified)",All traffic on minor roads,2011,14841
-"Minor roads (B, C and unclassified)",All traffic on minor roads,2012,14720
-"Minor roads (B, C and unclassified)",All traffic on minor roads,2013,14861
-"Minor roads (B, C and unclassified)",All traffic on minor roads,2014,15517
-"Minor roads (B, C and unclassified)",All traffic on minor roads,2015,15683
-"Minor roads (B, C and unclassified)",All traffic on minor roads,2016,15848
-"Minor roads (B, C and unclassified)",All traffic on minor roads,2017,16630
-"Minor roads (B, C and unclassified)",All traffic on minor roads,2018,16632
-"Minor roads (B, C and unclassified)",All traffic on minor roads,2019,16503
-All roads,Cars,2009,34392
-All roads,Cars,2010,33593
-All roads,Cars,2011,33583
-All roads,Cars,2012,33786
-All roads,Cars,2013,33849
-All roads,Cars,2014,34491
-All roads,Cars,2015,34786
-All roads,Cars,2016,35484
-All roads,Cars,2017,36174
-All roads,Cars,2018,36381
-All roads,Cars,2019,36747
-All roads,Two wheeled motor vehicles,2009,322
-All roads,Two wheeled motor vehicles,2010,290
-All roads,Two wheeled motor vehicles,2011,296
-All roads,Two wheeled motor vehicles,2012,292
-All roads,Two wheeled motor vehicles,2013,288
-All roads,Two wheeled motor vehicles,2014,299
-All roads,Two wheeled motor vehicles,2015,295
-All roads,Two wheeled motor vehicles,2016,292
-All roads,Two wheeled motor vehicles,2017,309
-All roads,Two wheeled motor vehicles,2018,314
-All roads,Two wheeled motor vehicles,2019,324
-All roads,Buses,2009,635
-All roads,Buses,2010,649
-All roads,Buses,2011,606
-All roads,Buses,2012,582
-All roads,Buses,2013,604
-All roads,Buses,2014,605
-All roads,Buses,2015,583
-All roads,Buses,2016,555
-All roads,Buses,2017,571
-All roads,Buses,2018,500
-All roads,Buses,2019,563
-All roads,Light goods vehicles,2009,6027
-All roads,Light goods vehicles,2010,6113
-All roads,Light goods vehicles,2011,6132
-All roads,Light goods vehicles,2012,6135
-All roads,Light goods vehicles,2013,6348
-All roads,Light goods vehicles,2014,6719
-All roads,Light goods vehicles,2015,7036
-All roads,Light goods vehicles,2016,7527
-All roads,Light goods vehicles,2017,8087
-All roads,Light goods vehicles,2018,8064
-All roads,Light goods vehicles,2019,8126
-All roads,Heavy goods vehicles,2009,2557
-All roads,Heavy goods vehicles,2010,2551
-All roads,Heavy goods vehicles,2011,2484
-All roads,Heavy goods vehicles,2012,2469
-All roads,Heavy goods vehicles,2013,2492
-All roads,Heavy goods vehicles,2014,2479
-All roads,Heavy goods vehicles,2015,2512
-All roads,Heavy goods vehicles,2016,2550
-All roads,Heavy goods vehicles,2017,2602
-All roads,Heavy goods vehicles,2018,2604
-All roads,Heavy goods vehicles,2019,2586
-All roads,All motor vehicle traffic,2009,43932
-All roads,All motor vehicle traffic,2010,43197
-All roads,All motor vehicle traffic,2011,43101
-All roads,All motor vehicle traffic,2012,43263
-All roads,All motor vehicle traffic,2013,43580
-All roads,All motor vehicle traffic,2014,44593
-All roads,All motor vehicle traffic,2015,45213
-All roads,All motor vehicle traffic,2016,46407
-All roads,All motor vehicle traffic,2017,47744
-All roads,All motor vehicle traffic,2018,47862
-All roads,All motor vehicle traffic,2019,48347
-All roads,Pedal cycles,2009,287
-All roads,Pedal cycles,2010,298
-All roads,Pedal cycles,2011,305
-All roads,Pedal cycles,2012,310
-All roads,Pedal cycles,2013,329
-All roads,Pedal cycles,2014,369
-All roads,Pedal cycles,2015,342
-All roads,Pedal cycles,2016,288
-All roads,Pedal cycles,2017,292
-All roads,Pedal cycles,2018,313
-All roads,Pedal cycles,2019,367
-All roads,All traffic on all roads,2009,44219
-All roads,All traffic on all roads,2010,43496
-All roads,All traffic on all roads,2011,43406
-All roads,All traffic on all roads,2012,43573
-All roads,All traffic on all roads,2013,43909
-All roads,All traffic on all roads,2014,44963
-All roads,All traffic on all roads,2015,45555
-All roads,All traffic on all roads,2016,46696
-All roads,All traffic on all roads,2017,48036
-All roads,All traffic on all roads,2018,48175
-All roads,All traffic on all roads,2019,48714
+road_type,vehicle_type,year,value,units
+Major roads (M and A),Cars,2009,22496,Vehicle Kilometers (Millions)
+Major roads (M and A),Cars,2010,21998,Vehicle Kilometers (Millions)
+Major roads (M and A),Cars,2011,21986,Vehicle Kilometers (Millions)
+Major roads (M and A),Cars,2012,22170,Vehicle Kilometers (Millions)
+Major roads (M and A),Cars,2013,22217,Vehicle Kilometers (Millions)
+Major roads (M and A),Cars,2014,22418,Vehicle Kilometers (Millions)
+Major roads (M and A),Cars,2015,22573,Vehicle Kilometers (Millions)
+Major roads (M and A),Cars,2016,23220,Vehicle Kilometers (Millions)
+Major roads (M and A),Cars,2017,23453,Vehicle Kilometers (Millions)
+Major roads (M and A),Cars,2018,23470,Vehicle Kilometers (Millions)
+Major roads (M and A),Cars,2019,24119,Vehicle Kilometers (Millions)
+Major roads (M and A),Two Wheeled Motor Vehicles,2009,196,Vehicle Kilometers (Millions)
+Major roads (M and A),Two Wheeled Motor Vehicles,2010,181,Vehicle Kilometers (Millions)
+Major roads (M and A),Two Wheeled Motor Vehicles,2011,181,Vehicle Kilometers (Millions)
+Major roads (M and A),Two Wheeled Motor Vehicles,2012,171,Vehicle Kilometers (Millions)
+Major roads (M and A),Two Wheeled Motor Vehicles,2013,176,Vehicle Kilometers (Millions)
+Major roads (M and A),Two Wheeled Motor Vehicles,2014,184,Vehicle Kilometers (Millions)
+Major roads (M and A),Two Wheeled Motor Vehicles,2015,181,Vehicle Kilometers (Millions)
+Major roads (M and A),Two Wheeled Motor Vehicles,2016,180,Vehicle Kilometers (Millions)
+Major roads (M and A),Two Wheeled Motor Vehicles,2017,181,Vehicle Kilometers (Millions)
+Major roads (M and A),Two Wheeled Motor Vehicles,2018,182,Vehicle Kilometers (Millions)
+Major roads (M and A),Two Wheeled Motor Vehicles,2019,186,Vehicle Kilometers (Millions)
+Major roads (M and A),Buses,2009,329,Vehicle Kilometers (Millions)
+Major roads (M and A),Buses,2010,353,Vehicle Kilometers (Millions)
+Major roads (M and A),Buses,2011,352,Vehicle Kilometers (Millions)
+Major roads (M and A),Buses,2012,363,Vehicle Kilometers (Millions)
+Major roads (M and A),Buses,2013,365,Vehicle Kilometers (Millions)
+Major roads (M and A),Buses,2014,366,Vehicle Kilometers (Millions)
+Major roads (M and A),Buses,2015,369,Vehicle Kilometers (Millions)
+Major roads (M and A),Buses,2016,351,Vehicle Kilometers (Millions)
+Major roads (M and A),Buses,2017,337,Vehicle Kilometers (Millions)
+Major roads (M and A),Buses,2018,316,Vehicle Kilometers (Millions)
+Major roads (M and A),Buses,2019,308,Vehicle Kilometers (Millions)
+Major roads (M and A),Light Goods Vehicles,2009,3684,Vehicle Kilometers (Millions)
+Major roads (M and A),Light Goods Vehicles,2010,3701,Vehicle Kilometers (Millions)
+Major roads (M and A),Light Goods Vehicles,2011,3816,Vehicle Kilometers (Millions)
+Major roads (M and A),Light Goods Vehicles,2012,3906,Vehicle Kilometers (Millions)
+Major roads (M and A),Light Goods Vehicles,2013,4032,Vehicle Kilometers (Millions)
+Major roads (M and A),Light Goods Vehicles,2014,4242,Vehicle Kilometers (Millions)
+Major roads (M and A),Light Goods Vehicles,2015,4481,Vehicle Kilometers (Millions)
+Major roads (M and A),Light Goods Vehicles,2016,4765,Vehicle Kilometers (Millions)
+Major roads (M and A),Light Goods Vehicles,2017,5032,Vehicle Kilometers (Millions)
+Major roads (M and A),Light Goods Vehicles,2018,5165,Vehicle Kilometers (Millions)
+Major roads (M and A),Light Goods Vehicles,2019,5178,Vehicle Kilometers (Millions)
+Major roads (M and A),Heavy Goods Vehicles,2009,2210,Vehicle Kilometers (Millions)
+Major roads (M and A),Heavy Goods Vehicles,2010,2217,Vehicle Kilometers (Millions)
+Major roads (M and A),Heavy Goods Vehicles,2011,2184,Vehicle Kilometers (Millions)
+Major roads (M and A),Heavy Goods Vehicles,2012,2198,Vehicle Kilometers (Millions)
+Major roads (M and A),Heavy Goods Vehicles,2013,2210,Vehicle Kilometers (Millions)
+Major roads (M and A),Heavy Goods Vehicles,2014,2193,Vehicle Kilometers (Millions)
+Major roads (M and A),Heavy Goods Vehicles,2015,2228,Vehicle Kilometers (Millions)
+Major roads (M and A),Heavy Goods Vehicles,2016,2290,Vehicle Kilometers (Millions)
+Major roads (M and A),Heavy Goods Vehicles,2017,2362,Vehicle Kilometers (Millions)
+Major roads (M and A),Heavy Goods Vehicles,2018,2365,Vehicle Kilometers (Millions)
+Major roads (M and A),Heavy Goods Vehicles,2019,2368,Vehicle Kilometers (Millions)
+Major roads (M and A),All Motor Vehicle Traffic,2009,28917,Vehicle Kilometers (Millions)
+Major roads (M and A),All Motor Vehicle Traffic,2010,28450,Vehicle Kilometers (Millions)
+Major roads (M and A),All Motor Vehicle Traffic,2011,28519,Vehicle Kilometers (Millions)
+Major roads (M and A),All Motor Vehicle Traffic,2012,28807,Vehicle Kilometers (Millions)
+Major roads (M and A),All Motor Vehicle Traffic,2013,29001,Vehicle Kilometers (Millions)
+Major roads (M and A),All Motor Vehicle Traffic,2014,29404,Vehicle Kilometers (Millions)
+Major roads (M and A),All Motor Vehicle Traffic,2015,29831,Vehicle Kilometers (Millions)
+Major roads (M and A),All Motor Vehicle Traffic,2016,30807,Vehicle Kilometers (Millions)
+Major roads (M and A),All Motor Vehicle Traffic,2017,31366,Vehicle Kilometers (Millions)
+Major roads (M and A),All Motor Vehicle Traffic,2018,31499,Vehicle Kilometers (Millions)
+Major roads (M and A),All Motor Vehicle Traffic,2019,32160,Vehicle Kilometers (Millions)
+Major roads (M and A),Pedal Cycles,2009,45,Vehicle Kilometers (Millions)
+Major roads (M and A),Pedal Cycles,2010,46,Vehicle Kilometers (Millions)
+Major roads (M and A),Pedal Cycles,2011,47,Vehicle Kilometers (Millions)
+Major roads (M and A),Pedal Cycles,2012,45,Vehicle Kilometers (Millions)
+Major roads (M and A),Pedal Cycles,2013,47,Vehicle Kilometers (Millions)
+Major roads (M and A),Pedal Cycles,2014,42,Vehicle Kilometers (Millions)
+Major roads (M and A),Pedal Cycles,2015,41,Vehicle Kilometers (Millions)
+Major roads (M and A),Pedal Cycles,2016,41,Vehicle Kilometers (Millions)
+Major roads (M and A),Pedal Cycles,2017,40,Vehicle Kilometers (Millions)
+Major roads (M and A),Pedal Cycles,2018,44,Vehicle Kilometers (Millions)
+Major roads (M and A),Pedal Cycles,2019,51,Vehicle Kilometers (Millions)
+Major roads (M and A),All Traffic,2009,28961,Vehicle Kilometers (Millions)
+Major roads (M and A),All Traffic,2010,28496,Vehicle Kilometers (Millions)
+Major roads (M and A),All Traffic,2011,28565,Vehicle Kilometers (Millions)
+Major roads (M and A),All Traffic,2012,28853,Vehicle Kilometers (Millions)
+Major roads (M and A),All Traffic,2013,29048,Vehicle Kilometers (Millions)
+Major roads (M and A),All Traffic,2014,29446,Vehicle Kilometers (Millions)
+Major roads (M and A),All Traffic,2015,29872,Vehicle Kilometers (Millions)
+Major roads (M and A),All Traffic,2016,30847,Vehicle Kilometers (Millions)
+Major roads (M and A),All Traffic,2017,31406,Vehicle Kilometers (Millions)
+Major roads (M and A),All Traffic,2018,31542,Vehicle Kilometers (Millions)
+Major roads (M and A),All Traffic,2019,32211,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Cars,2009,11895,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Cars,2010,11595,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Cars,2011,11597,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Cars,2012,11616,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Cars,2013,11632,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Cars,2014,12073,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Cars,2015,12214,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Cars,2016,12264,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Cars,2017,12721,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Cars,2018,12910,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Cars,2019,12628,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Two Wheeled Motor Vehicles,2009,125,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Two Wheeled Motor Vehicles,2010,109,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Two Wheeled Motor Vehicles,2011,115,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Two Wheeled Motor Vehicles,2012,121,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Two Wheeled Motor Vehicles,2013,112,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Two Wheeled Motor Vehicles,2014,115,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Two Wheeled Motor Vehicles,2015,114,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Two Wheeled Motor Vehicles,2016,111,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Two Wheeled Motor Vehicles,2017,128,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Two Wheeled Motor Vehicles,2018,131,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Two Wheeled Motor Vehicles,2019,138,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Buses,2009,306,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Buses,2010,297,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Buses,2011,254,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Buses,2012,219,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Buses,2013,238,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Buses,2014,239,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Buses,2015,214,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Buses,2016,204,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Buses,2017,234,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Buses,2018,184,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Buses,2019,256,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Light Goods Vehicles,2009,2343,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Light Goods Vehicles,2010,2412,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Light Goods Vehicles,2011,2316,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Light Goods Vehicles,2012,2229,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Light Goods Vehicles,2013,2315,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Light Goods Vehicles,2014,2477,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Light Goods Vehicles,2015,2556,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Light Goods Vehicles,2016,2761,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Light Goods Vehicles,2017,3055,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Light Goods Vehicles,2018,2899,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Light Goods Vehicles,2019,2948,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Heavy Goods Vehicles,2009,347,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Heavy Goods Vehicles,2010,334,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Heavy Goods Vehicles,2011,300,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Heavy Goods Vehicles,2012,271,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Heavy Goods Vehicles,2013,282,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Heavy Goods Vehicles,2014,286,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Heavy Goods Vehicles,2015,284,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Heavy Goods Vehicles,2016,260,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Heavy Goods Vehicles,2017,241,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Heavy Goods Vehicles,2018,239,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Heavy Goods Vehicles,2019,218,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Motor Vehicle Traffic,2009,15016,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Motor Vehicle Traffic,2010,14748,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Motor Vehicle Traffic,2011,14582,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Motor Vehicle Traffic,2012,14456,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Motor Vehicle Traffic,2013,14579,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Motor Vehicle Traffic,2014,15189,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Motor Vehicle Traffic,2015,15382,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Motor Vehicle Traffic,2016,15601,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Motor Vehicle Traffic,2017,16378,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Motor Vehicle Traffic,2018,16363,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Motor Vehicle Traffic,2019,16187,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Pedal Cycles,2009,243,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Pedal Cycles,2010,253,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Pedal Cycles,2011,258,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Pedal Cycles,2012,264,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Pedal Cycles,2013,282,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Pedal Cycles,2014,327,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Pedal Cycles,2015,300,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Pedal Cycles,2016,247,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Pedal Cycles,2017,252,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Pedal Cycles,2018,269,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",Pedal Cycles,2019,316,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Traffic,2009,15258,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Traffic,2010,15000,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Traffic,2011,14841,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Traffic,2012,14720,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Traffic,2013,14861,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Traffic,2014,15517,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Traffic,2015,15683,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Traffic,2016,15848,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Traffic,2017,16630,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Traffic,2018,16632,Vehicle Kilometers (Millions)
+"Minor roads (B, C and unclassified)",All Traffic,2019,16503,Vehicle Kilometers (Millions)
+All roads,Cars,2009,34392,Vehicle Kilometers (Millions)
+All roads,Cars,2010,33593,Vehicle Kilometers (Millions)
+All roads,Cars,2011,33583,Vehicle Kilometers (Millions)
+All roads,Cars,2012,33786,Vehicle Kilometers (Millions)
+All roads,Cars,2013,33849,Vehicle Kilometers (Millions)
+All roads,Cars,2014,34491,Vehicle Kilometers (Millions)
+All roads,Cars,2015,34786,Vehicle Kilometers (Millions)
+All roads,Cars,2016,35484,Vehicle Kilometers (Millions)
+All roads,Cars,2017,36174,Vehicle Kilometers (Millions)
+All roads,Cars,2018,36381,Vehicle Kilometers (Millions)
+All roads,Cars,2019,36747,Vehicle Kilometers (Millions)
+All roads,Two Wheeled Motor Vehicles,2009,322,Vehicle Kilometers (Millions)
+All roads,Two Wheeled Motor Vehicles,2010,290,Vehicle Kilometers (Millions)
+All roads,Two Wheeled Motor Vehicles,2011,296,Vehicle Kilometers (Millions)
+All roads,Two Wheeled Motor Vehicles,2012,292,Vehicle Kilometers (Millions)
+All roads,Two Wheeled Motor Vehicles,2013,288,Vehicle Kilometers (Millions)
+All roads,Two Wheeled Motor Vehicles,2014,299,Vehicle Kilometers (Millions)
+All roads,Two Wheeled Motor Vehicles,2015,295,Vehicle Kilometers (Millions)
+All roads,Two Wheeled Motor Vehicles,2016,292,Vehicle Kilometers (Millions)
+All roads,Two Wheeled Motor Vehicles,2017,309,Vehicle Kilometers (Millions)
+All roads,Two Wheeled Motor Vehicles,2018,314,Vehicle Kilometers (Millions)
+All roads,Two Wheeled Motor Vehicles,2019,324,Vehicle Kilometers (Millions)
+All roads,Buses,2009,635,Vehicle Kilometers (Millions)
+All roads,Buses,2010,649,Vehicle Kilometers (Millions)
+All roads,Buses,2011,606,Vehicle Kilometers (Millions)
+All roads,Buses,2012,582,Vehicle Kilometers (Millions)
+All roads,Buses,2013,604,Vehicle Kilometers (Millions)
+All roads,Buses,2014,605,Vehicle Kilometers (Millions)
+All roads,Buses,2015,583,Vehicle Kilometers (Millions)
+All roads,Buses,2016,555,Vehicle Kilometers (Millions)
+All roads,Buses,2017,571,Vehicle Kilometers (Millions)
+All roads,Buses,2018,500,Vehicle Kilometers (Millions)
+All roads,Buses,2019,563,Vehicle Kilometers (Millions)
+All roads,Light Goods Vehicles,2009,6027,Vehicle Kilometers (Millions)
+All roads,Light Goods Vehicles,2010,6113,Vehicle Kilometers (Millions)
+All roads,Light Goods Vehicles,2011,6132,Vehicle Kilometers (Millions)
+All roads,Light Goods Vehicles,2012,6135,Vehicle Kilometers (Millions)
+All roads,Light Goods Vehicles,2013,6348,Vehicle Kilometers (Millions)
+All roads,Light Goods Vehicles,2014,6719,Vehicle Kilometers (Millions)
+All roads,Light Goods Vehicles,2015,7036,Vehicle Kilometers (Millions)
+All roads,Light Goods Vehicles,2016,7527,Vehicle Kilometers (Millions)
+All roads,Light Goods Vehicles,2017,8087,Vehicle Kilometers (Millions)
+All roads,Light Goods Vehicles,2018,8064,Vehicle Kilometers (Millions)
+All roads,Light Goods Vehicles,2019,8126,Vehicle Kilometers (Millions)
+All roads,Heavy Goods Vehicles,2009,2557,Vehicle Kilometers (Millions)
+All roads,Heavy Goods Vehicles,2010,2551,Vehicle Kilometers (Millions)
+All roads,Heavy Goods Vehicles,2011,2484,Vehicle Kilometers (Millions)
+All roads,Heavy Goods Vehicles,2012,2469,Vehicle Kilometers (Millions)
+All roads,Heavy Goods Vehicles,2013,2492,Vehicle Kilometers (Millions)
+All roads,Heavy Goods Vehicles,2014,2479,Vehicle Kilometers (Millions)
+All roads,Heavy Goods Vehicles,2015,2512,Vehicle Kilometers (Millions)
+All roads,Heavy Goods Vehicles,2016,2550,Vehicle Kilometers (Millions)
+All roads,Heavy Goods Vehicles,2017,2602,Vehicle Kilometers (Millions)
+All roads,Heavy Goods Vehicles,2018,2604,Vehicle Kilometers (Millions)
+All roads,Heavy Goods Vehicles,2019,2586,Vehicle Kilometers (Millions)
+All roads,All Motor Vehicle Traffic,2009,43932,Vehicle Kilometers (Millions)
+All roads,All Motor Vehicle Traffic,2010,43197,Vehicle Kilometers (Millions)
+All roads,All Motor Vehicle Traffic,2011,43101,Vehicle Kilometers (Millions)
+All roads,All Motor Vehicle Traffic,2012,43263,Vehicle Kilometers (Millions)
+All roads,All Motor Vehicle Traffic,2013,43580,Vehicle Kilometers (Millions)
+All roads,All Motor Vehicle Traffic,2014,44593,Vehicle Kilometers (Millions)
+All roads,All Motor Vehicle Traffic,2015,45213,Vehicle Kilometers (Millions)
+All roads,All Motor Vehicle Traffic,2016,46407,Vehicle Kilometers (Millions)
+All roads,All Motor Vehicle Traffic,2017,47744,Vehicle Kilometers (Millions)
+All roads,All Motor Vehicle Traffic,2018,47862,Vehicle Kilometers (Millions)
+All roads,All Motor Vehicle Traffic,2019,48347,Vehicle Kilometers (Millions)
+All roads,Pedal Cycles,2009,287,Vehicle Kilometers (Millions)
+All roads,Pedal Cycles,2010,298,Vehicle Kilometers (Millions)
+All roads,Pedal Cycles,2011,305,Vehicle Kilometers (Millions)
+All roads,Pedal Cycles,2012,310,Vehicle Kilometers (Millions)
+All roads,Pedal Cycles,2013,329,Vehicle Kilometers (Millions)
+All roads,Pedal Cycles,2014,369,Vehicle Kilometers (Millions)
+All roads,Pedal Cycles,2015,342,Vehicle Kilometers (Millions)
+All roads,Pedal Cycles,2016,288,Vehicle Kilometers (Millions)
+All roads,Pedal Cycles,2017,292,Vehicle Kilometers (Millions)
+All roads,Pedal Cycles,2018,313,Vehicle Kilometers (Millions)
+All roads,Pedal Cycles,2019,367,Vehicle Kilometers (Millions)
+All roads,All Traffic,2009,44219,Vehicle Kilometers (Millions)
+All roads,All Traffic,2010,43496,Vehicle Kilometers (Millions)
+All roads,All Traffic,2011,43406,Vehicle Kilometers (Millions)
+All roads,All Traffic,2012,43573,Vehicle Kilometers (Millions)
+All roads,All Traffic,2013,43909,Vehicle Kilometers (Millions)
+All roads,All Traffic,2014,44963,Vehicle Kilometers (Millions)
+All roads,All Traffic,2015,45555,Vehicle Kilometers (Millions)
+All roads,All Traffic,2016,46696,Vehicle Kilometers (Millions)
+All roads,All Traffic,2017,48036,Vehicle Kilometers (Millions)
+All roads,All Traffic,2018,48175,Vehicle Kilometers (Millions)
+All roads,All Traffic,2019,48714,Vehicle Kilometers (Millions)

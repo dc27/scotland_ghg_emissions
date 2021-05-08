@@ -16,6 +16,97 @@ ghg_emissions_clean <- read_csv("data/clean_data/ghg_emissions.csv")
 ```
 
 ```{r}
+
+```
+
+```{r}
+summarised_data <- emissions_data %>% 
+  group_and_summarise(ccp_mapping, pollutant)
+```
+
+```{r}
+create_bar_plot <-function(df = summarised_data) {
+  x_name <- names(df)[1]
+  
+
+}
+```
+
+
+
+```{r}
+test_function <- function(df, var) {
+  # convert snakecase variable name to title for ui
+  varname <- str_to_title(str_replace_all(var, "_", " "))
+  
+}
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+build_slider_input <- function(df, varname) {
+  rng <- range(df, na.rm = TRUE)
+  
+  sliderInput(var,
+              paste0(varname, " Range:"),
+              min = rng[1],
+              max = rng[2],
+              value = rng,
+              sep = "",
+              step = 1,
+              ticks = FALSE)
+}
+  
+```
+
+```{r}
+test_function(df = emissions_data, var = "pollutant")
+```
+
+
+
+```{r}
+substr("jewel", 2, nchar("jewel"))
+```
+
+
+```{r}
+test <- "ccp_mapping\",\"pollutant"
+
+eval(parse(text=gsub("\\", "", deparse(test), fixed=TRUE)))
+```
+```{r}
+paste0(c("first", "second"), collapse = ",")
+```
+
+
+```{r}
+emissions_data %>% 
+  group_by_("ccp_mapping", "pollutant") %>% 
+  summarise(value = sum(value, na.rm = TRUE))
+```
+
+
+
+```{r}
+emissions_data %>% 
+  group_by(ccp_mapping, pollutant) %>% 
+  summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>% 
+  ggplot() +
+  aes(x = names()[1], y = value) +
+  geom_col()
+```
+```{r}
+
+```
+
+
+```{r}
 emissions_data <- read_csv("data/clean_data/ghg_emissions.csv")
 ```
 
@@ -122,12 +213,32 @@ children
 
 ```
 ```{r}
-
+road_traffic <- read_csv("data/clean_data/transport/road_traffic.csv")
 ```
 
 ```{r}
-
+road_traffic %>%
+  mutate(vehicle_type = ifelse(str_detect(vehicle_type, "^All traffic"), "All Traffic", str_to_title(vehicle_type))) %>% 
+  mutate(units = "Vehicle Kilometers (Millions)") %>% 
+  rename(value = vehicle_kilometers_millions) %>% 
+  write_csv("data/clean_data/transport/road_traffic.csv")
+  
 ```
+
+
+```{r}
+
+
+road_traffic %>% 
+  filter(road_type == "Major roads (M and A)") %>% 
+  filter(vehicle_type == "Cars") %>% 
+  ggplot() +
+  aes(x = .data[["year"]], y = value) +
+  geom_line() +
+  xlim(min(year), max(.x)) +
+  ylim(0, NA)
+```
+
 
 
 ```{r}

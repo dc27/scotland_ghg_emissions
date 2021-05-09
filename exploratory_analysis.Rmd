@@ -29,6 +29,20 @@ summarised %>%
 
 
 ```{r}
+new_ulevs %>% 
+  filter(!statistic == "Proportion of New Vehicle Registrations that are ULEV") %>% 
+  write_csv("data/clean_data/transport/newly_registered_vehicles_and_ulevs.csv")
+  group_by(year, statistic) %>%
+  summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>% 
+  summarise(value = lag(value)/value) %>% 
+  drop_na() %>% 
+  ggplot() +
+  aes(x = year, y = value) +
+  geom_line()
+```
+
+
+```{r}
 remove <- c("year", "value", "units")
 temp <- names(ghg_emissions_clean)
 

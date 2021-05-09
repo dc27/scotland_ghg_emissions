@@ -6,7 +6,8 @@ create_bar_plot <-function(df = selected_df(), facet_var = NULL) {
   p <- df %>% 
     ggplot() +
     aes(x = .data[[x_name]], y = value, fill = .data[[x_name]]) +
-    geom_col(position = "stack", show.legend = FALSE)
+    geom_col(position = "stack", show.legend = FALSE) +
+    scale_y_continuous(labels = scales::comma)
   
   
   # facet if required
@@ -34,7 +35,7 @@ create_line_plot <- function(df = selected_df(), facet_var = NULL ) {
     geom_point() +
     scale_x_continuous(limits = c(min_year, max_year),
                        breaks = seq(min_year, max_year, sep)) +
-    ylim(0, NA)
+    scale_y_continuous(labels = scales::comma, limits = c(0, NA))
   
   # facet if required
   if (!is.null(facet_var)) {

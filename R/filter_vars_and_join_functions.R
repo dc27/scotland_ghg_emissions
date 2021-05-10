@@ -60,7 +60,7 @@ make_dropdown <- function(df, var) {
     build_picker_input(df, var, varname)
   } else if (input_type == "sliderInput") {
     build_slider_input(df, var, varname)
-  }
+  } 
   
 }
 

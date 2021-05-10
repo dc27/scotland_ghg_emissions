@@ -31,14 +31,66 @@ summarised %>%
 ```{r}
 new_ulevs %>% 
   filter(!statistic == "Proportion of New Vehicle Registrations that are ULEV") %>% 
-  write_csv("data/clean_data/transport/newly_registered_vehicles_and_ulevs.csv")
+  # write_csv("data/clean_data/transport/newly_registered_vehicles_and_ulevs.csv")
   group_by(year, statistic) %>%
   summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>% 
-  summarise(value = lag(value)/value) %>% 
+  summarise(value = lag(value)/value, .groups = 'drop_last') %>% 
   drop_na() %>% 
   ggplot() +
   aes(x = year, y = value) +
-  geom_line()
+  geom_line() +
+  geom_point(aes(x = 2032, y = 0.1))
+```
+
+
+```{r}
+target_x = 2030
+base_var = "year"
+base_value = 2018
+base_modifier = 0.8
+
+
+road_traffic %>% 
+  filter(vehicle_type == "Cars") %>% 
+  group_by(year) %>% 
+  summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>%
+  ggplot() +
+  aes(x = year, y = value) +
+  geom_line() +
+  geom_point() +
+  geom_point(aes(x = target_x, y = (.data[["value"]][.data[[base_var]] == base_value])*base_modifier),
+             colour = "darkgreen", shape = 13, size = 5) +
+  ylim(0, NA)
+```
+
+```{r}
+road_traffic %>% 
+  filter(.data[["year"]] == 2018,
+         .data[["vehicle_type"]] == "Cars") %>%
+  summarise(value = sum(.data[["value"]]))
+```
+```{r}
+road_traffic[road_traffic[["year"]] == 2018 & "vehicle_type" == "Cars", ]["value"]
+```
+
+
+```{r}
+sales <- data.frame(
+  year = c(2005, 2006, 2007, 2008),
+  profit = c(340, 500, 600, 550)
+)
+
+sales %>% 
+  ggplot() +
+  aes(x = year, y = profit) +
+  geom_line() +
+  geom_point(aes(x = 2010, y = (.data[[]][.data[["year"]] == 2008]*1.1)))
+
+pull(sales[sales[["year"]] == 2008, ]["profit"])*1.1
+```
+
+```{r}
+
 ```
 
 

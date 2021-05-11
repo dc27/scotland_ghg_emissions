@@ -33,7 +33,7 @@ explorable_dfs <- list(
     "Newly Registered ULEVs" = list(
       data = read_csv("data/clean_data/transport/newly_registered_vehicles_and_ulevs.csv"),
       plot_options = c("line"),
-      explorable_vars = c("year", "body_type", "statistic"),
+      explorable_vars = c("year", "body_type", "statistic")
     ),
     "Road Traffic" = list(
       data = read_csv("data/clean_data/transport/road_traffic.csv"),

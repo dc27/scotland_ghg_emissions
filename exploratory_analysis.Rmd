@@ -29,6 +29,9 @@ summarised %>%
 
 
 ```{r}
+target_x
+target_y
+
 new_ulevs %>% 
   filter(!statistic == "Proportion of New Vehicle Registrations that are ULEV") %>% 
   # write_csv("data/clean_data/transport/newly_registered_vehicles_and_ulevs.csv")
@@ -58,7 +61,8 @@ road_traffic %>%
   aes(x = year, y = value) +
   geom_line() +
   geom_point() +
-  geom_point(aes(x = target_x, y = (.data[["value"]][.data[[base_var]] == base_value])*base_modifier),
+  geom_point(aes(x = target_x,
+                 y = (.data[["value"]][.data[[base_var]] == base_value])*base_modifier),
              colour = "darkgreen", shape = 13, size = 5) +
   ylim(0, NA)
 ```

@@ -7,11 +7,7 @@ ui <- dashboardPage(
     tags$style(
       type = "text/css",
       "
-      #data_select {height: calc(100vh - 35vh) !important;}
-      #plot_box {height: calc(100vh - 35vh) !important;}
-      div.box.box-solid.box-primary {text-align: right;}
-      #plot {height: 100% !important;}
-      #extra_info {height: 15vh !important;}
+      
       "
     ),
     fluidPage(
@@ -23,6 +19,7 @@ ui <- dashboardPage(
           solidHeader = TRUE,
           status = "success",
           width = 4,
+          height = "70vh",
           selectInput(
           "user_sector",
            label = "Select Sector:",
@@ -43,13 +40,18 @@ ui <- dashboardPage(
           )
         ),
         # chart
-        box(
-          id = "plot_box",
-          solidHeader = TRUE,
-          status = "primary",
-          title = textOutput("title"),
+        tabBox(
+          id = "vis_box",
           width = 8,
-          plotlyOutput("plot")
+          title = textOutput("title"),
+          height = "70vh",
+          tabPanel(
+            "Chart",
+            plotlyOutput("plot", height = "62vh")
+          ),
+          tabPanel(
+            "Sector Targets"
+          )
         )
       ),
       fluidRow(
@@ -61,6 +63,7 @@ ui <- dashboardPage(
           solidHeader = TRUE,
           status = "success",
           width = 12,
+          height = "20vh"
         )
       )
     )

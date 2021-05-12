@@ -1,0 +1,75 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+library(tidyverse)
+```
+
+|Outcome|	Indicator|	On-Track Assessment (Milestones/ Targets)|
+|-|---|---|
+|1|	% reduction in car kilometres a	|Progress to target [20% reduction by 2030]|
+|2|	% of new car registrations that are ULEV b	|Year-to-year change|
+|2|	% of new van registrations that are ULEV b	|Year-to-year change|
+|3|	% of new HGV registrations that are ULEV b	|Year-to-year change|
+|4|	% of new bus registrations that are ULEV b	|Progress to target [>50% by 2024]|
+
+|5|	% reduction in emissions from scheduled flights within Scotland c	|Year-to-ye
+ar change|
+|6|	% of ferries that are low emissions d	|Progress to target [30% by 2032]|
+|8|	% of single track kilometres electrified e	|Progress to target [70% by 2034]|
+|8|	% of trains powered by alternative traction e	|Year-to-year change|
+
+```{r}
+targets <- tibble(
+  target = c("Newly registered vehicles registered that are ULEV", "Reduction in car Kilometers"),
+  goal = c(100, 0.8*500),
+  current_value = c(2, -100)
+)
+
+targets %>% 
+  ggplot() +
+  aes(x = target, y = (current_value/goal)*100) +
+  geom_col(fill = "green") +
+  geom_col(aes(x = .data[["target"]], y = 100), fill = "white", colour = "black", alpha = 0.5) +
+  coord_flip() +
+  ylim(0,100) +
+  theme_void() +
+  geom_text(aes(x = .data[["target"]], y = 50, label = .data[["target"]]), size = 6)
+```
+
+
+```{r}
+transport_targets <- tibble() 
+
+outcome_id <- 1:8
+
+outcome <- c("To address our overreliance on cars, we will reduce car kilometres by 20% by 2030.",
+             "We will phase out the need for new petrol and diesel cars and vans by 2030",
+             "To reduce emissions in the freight sector, we will work with the industry to understand the most efficient methods and remove the need for new petrol and diesel heavy vehicles by 2035.",
+             "We will work with the newly formed Bus Decarbonisation Taskforce, comprised of leaders from the bus, energy and finance sectors, to ensure that the majority of new buses purchased from 2024 are zero-emission, and to bring this date forward if possible.",
+             "We will work to decarbonise scheduled flights within Scotland by 2040.",
+             "Proportion of ferries in Scottish Government ownership which are low emission has increased to 30% by 2032.",
+             "By 2032 low emission solutions have been widely adopted at Scottish ports",
+             "Scotland’s passenger rail services will be decarbonised by 2035.")
+
+target <- c("")
+
+transport <- tibble(
+  outcome_id,
+  outcome,
+  target,
+)
+
+transport
+```
+
+
+reduce car kms by 20% - 2030
+reduce new petrol and diesel cars by - 2030
+reduce new petrol and diesel heavy vehicles - 2035
+51% new buses purchased from 2024 are zero emissions
+decarbonise scottish flights - 2040
+SG owned ferries which are low emission = 30% - 2032

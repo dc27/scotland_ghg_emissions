@@ -2,6 +2,57 @@ source("R/filter_vars_and_join_functions.R")
 source("R/plot_functions.R")
 
 server <- function(input, output, session) {
+  
+  # navigation
+  
+  observeEvent(input$goto_emissions_explorer, {
+    updateTabsetPanel(session, "inTabset",
+                      selected = "emissions")
+  })
+  
+  
+  observeEvent(input$goto_targets_explorer, {
+    updateTabsetPanel(session, "inTabset",
+                      selected = "targets")
+  })
+  
+  
+  observeEvent(input$goto_choices_explorer, {
+    updateTabsetPanel(session, "inTabset",
+                      selected = "choices")
+  })
+  
+  observeEvent(input$return_home_1, {
+    updateTabsetPanel(session, "inTabset",
+                      selected = "home")
+  })
+  
+  observeEvent(input$return_home_2, {
+    updateTabsetPanel(session, "inTabset",
+                      selected = "home")
+  })
+  
+  observeEvent(input$return_home_3, {
+    updateTabsetPanel(session, "inTabset",
+                      selected = "home")
+  })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   # get user's sector
   sector <- reactive({
     input$user_sector

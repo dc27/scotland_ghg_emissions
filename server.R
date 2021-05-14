@@ -96,6 +96,9 @@ server <- function(input, output, session) {
     }
   })
   
+  
+  
+  # ---- filter data -----
   # get df of TRUES and FALSES to filter
   selected <- eventReactive(input$update, {
     each_var <- map(vars(), ~ filter_var(dataset()[[.x]], input[[.x]]))
@@ -109,7 +112,7 @@ server <- function(input, output, session) {
     # TODO:: percentages need a bit of work
     if (input$user_dataset == "Newly Registered ULEVs" & input$p_new_ulevs) {
       selected_df <- dataset() %>% 
-        filter(body_type %in% input$body_type) %>% 
+        filter(vehicle_type %in% input$vehicle_type) %>% 
         filter(year >= input$year[1] & year <= input$year[2]) %>% 
         group_and_summarise_including(c("year", "statistic")) %>% 
         mutate(perc_new_ulevs = lag(value)/value *100) %>% 
@@ -132,7 +135,8 @@ server <- function(input, output, session) {
   })
   
   
-  # create plot - see plot_functions.R
+  # ----- create plot ------
+  # see plot_functions.R
   plot <- eventReactive(input$update, {
     if (input$user_plot == "Line") {
       selected_df() %>% 

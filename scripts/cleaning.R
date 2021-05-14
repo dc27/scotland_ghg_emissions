@@ -243,4 +243,4 @@ new_vehicles_scot %>%
                             "n_ulevs_registered" = "ULE Vehicle Registrations",
   )) %>% 
   mutate(units = statistic) %>% 
-  write_csv("data/clean_data/newly_registered_vehicles_and_ulevs.csv")
+  write_csv("data/clean_data/transport/newly_registered_vehicles_and_ulevs.csv")

@@ -143,6 +143,27 @@ ghg_hierchary <- bind_rows(list(ghg_long_emissions, ghg_long_sinks)) %>%
 ghg_hierchary %>% 
   write_csv("data/clean_data/hierarchical_data.csv")
 
+# ----- road traffic ------
+road_traffic <- read_xlsx(
+  "data/raw_data/transport/road_traffic.xlsx"
+  )
+
+road_traffic_clean <- road_traffic[-1,] %>% 
+  rename(vehicle_type = 2) %>% 
+  rename(road_type = 1) %>% 
+  fill(1, .direction = "down") %>% 
+  drop_na() %>%
+  mutate(`2019` = as.numeric(`2019`)) %>% 
+  pivot_longer(-c(1,2), names_to = "year",
+               values_to = "vehicle_kilometers_millions") %>% 
+  filter(!str_detect(road_type, "^All")) %>% 
+  filter(!str_detect(vehicle_type, "^All")) %>% 
+  mutate(units = "Vehicle Kilometers (Millions)") %>% 
+  rename(value = vehicle_kilometers_millions) %>% 
+  write_csv("data/clean_data/transport/road_traffic.csv")
+
+road_traffic_clean %>% 
+  write_csv("dataset_exploration/data/road_traffic.csv")
 
 # ----- new ulevs -----
 

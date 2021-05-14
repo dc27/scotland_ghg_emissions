@@ -380,8 +380,7 @@ road_traffic %>%
 
 ```{r}
 road_traffic %>% 
-  filter(!str_detect(road_type, "^All")) %>% 
-  filter(!str_detect(vehicle_type, "^All")) %>%
+   %>%
   # write_csv()
   group_by(year) %>% 
   summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>% 

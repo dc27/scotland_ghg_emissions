@@ -3,7 +3,7 @@ source("R/plot_functions.R")
 
 server <- function(input, output, session) {
   
-  # navigation
+  # ----- navigation -----
   
   observeEvent(input$goto_emissions_explorer, {
     updateTabsetPanel(session, "inTabset",
@@ -37,21 +37,7 @@ server <- function(input, output, session) {
                       selected = "home")
   })
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  # ----- dynamic ui -----
   
   # get user's sector
   sector <- reactive({
@@ -85,6 +71,14 @@ server <- function(input, output, session) {
     )
   })
   
+  observe({
+    if(input$user_dataset == "Newly Registered ULEVs"){
+      show("p_new_ulevs")
+    }else{
+      hide("p_new_ulevs")
+    }
+  })
+  
   # get user's plot choice
   plot_choice <- reactive({
     input$user_plot
@@ -93,7 +87,7 @@ server <- function(input, output, session) {
   # if plot choice is not line, set year to max year by default.
   # user can always change this.
   observe({
-    if (plot_choice() != "Line") {
+    if (!plot_choice() %in% c("Line", "Area")) {
     updateSliderInput(
       input = "year",
       # cheat to set to max year
@@ -112,24 +106,43 @@ server <- function(input, output, session) {
   selected_df <- eventReactive(input$update, {
     selected_df <- dataset()[selected(), ]
     
-      if(input$user_plot == "Bar") {
+    # TODO:: percentages need a bit of work
+    if (input$user_dataset == "Newly Registered ULEVs" & input$p_new_ulevs) {
+      selected_df <- dataset() %>% 
+        filter(body_type %in% input$body_type) %>% 
+        filter(year >= input$year[1] & year <= input$year[2]) %>% 
+        group_and_summarise_including(c("year", "statistic")) %>% 
+        mutate(perc_new_ulevs = lag(value)/value *100) %>% 
+        mutate(units = "% newly registered vehicles are ULEV") %>% 
+        select(- c(statistic, value)) %>% 
+        drop_na() %>% 
+        select(year, value = perc_new_ulevs, units)
+    } else if(input$user_plot == "Bar") {
         selected_df <- selected_df %>% 
-          group_and_summarise_excluding(c("year", "value", "units"))
-      } else if (input$user_plot == "Line") {
+          group_and_summarise_excluding(c("pollutant", "year", "value", "units"))
+    } else if (input$user_plot == "Line") {
         selected_df <- selected_df %>% 
           group_and_summarise_including("year")
-      }
+    } else if (input$user_plot == "Area") {
+        selected_df <- selected_df %>% 
+          group_and_summarise_excluding(c("pollutant", "value", "units"))
+    }
+    
     return(selected_df)
   })
+  
   
   # create plot - see plot_functions.R
   plot <- eventReactive(input$update, {
     if (input$user_plot == "Line") {
       selected_df() %>% 
-      create_line_plot()
+        create_line_plot() + labs(y = selected_df()$units[1])
     } else if (input$user_plot == "Bar") {
       selected_df() %>% 
-        create_bar_plot()
+        create_bar_plot() + labs(y = selected_df()$units[1])
+    } else if (input$user_plot == "Area") {
+      selected_df() %>% 
+        create_area_plot() + labs(y = selected_df()$units[1])
     } else if(input$user_plot == "Sunburst") {
       selected_df() %>% 
         create_hierarchical_plot("Sunburst")

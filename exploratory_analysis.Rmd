@@ -18,7 +18,7 @@ ghg_emissions_clean <- read_csv("data/clean_data/ghg_emissions_summary.csv")
 ```{r}
 
 
-summarised <- group_and_summarise_exclude(ghg_emissions_clean, c("year", "value", "units"))
+summarised <- group_and_summarise_excluding(ghg_emissions_clean, c("year", "value", "units"))
 
 
 summarised %>% 
@@ -26,6 +26,53 @@ summarised %>%
   aes(x = .data[["ccp_mapping"]], y = value, fill = .data[["ccp_mapping"]]) +
   geom_col()
 ```
+```{r}
+
+```
+
+
+
+```{r}
+emissions_data %>% 
+  group_by(ccp_mapping, year) %>% 
+  summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>%
+  mutate(ccp_mapping = factor(ccp_mapping, levels = order)) %>% 
+  ggplot() +
+  aes(x = year, y = value, fill = ccp_mapping, group = ccp_mapping) +
+  geom_area(alpha = 0.8)
+```
+
+
+```{r}
+order <- emissions_data %>%
+  group_by(ccp_mapping, year) %>% 
+  summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>% 
+  filter(year == min(year) |
+           year == max(year)) %>% 
+  group_by(ccp_mapping) %>% 
+  summarise(diff = value - lag(value), .groups = 'drop_last') %>% 
+  tidyr::drop_na() %>% 
+  arrange(diff) %>% 
+  select(ccp_mapping) %>% 
+  pull()
+  
+```
+
+
+```{r}
+# do this when asked...
+
+p_new_ulevs <- new_ulevs %>% 
+  filter(body_type == "Cars") %>% 
+  filter(year > 2013) %>% 
+  group_and_summarise_excluding(c("value", "units")) %>% 
+  mutate(perc_new_ulevs = lag(value)/value *100) %>% 
+  mutate(units = "% newly registered vehicles are ULEV") %>% 
+  select(- c(statistic, value)) %>% 
+  drop_na() %>% 
+  select(year, body_type, value = perc_new_ulevs, units)
+```
+
 
 
 ```{r}
@@ -1142,6 +1189,7 @@ make_sankey_dfs <- function(data, userYear, userGas) {
 ```{r}
 make_sankey_dfs(emissions_sankey, userYear = 2005, userGas = "CH4", userResolution = 50)
 ```
+
 ```{r}
 
 ```

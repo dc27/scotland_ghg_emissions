@@ -96,3 +96,5 @@ group_and_summarise_including <- function(df, include_cols) {
     summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>% 
     mutate(units = df$units[1])
 }
+
+

@@ -2,7 +2,7 @@ explorable_dfs <- list(
   "All" = list(
     "Historic Emissions" = list(
       data = read_csv("data/clean_data/ghg_emissions_summary.csv"),
-      plot_options = c("line", "bar"),
+      plot_options = c("line", "bar", "area"),
       explorable_vars = c("year", "pollutant")
     ),
     "Sector Breakdown" = list(
@@ -58,8 +58,16 @@ for (category in names(explorable_dfs)[2:length(names(explorable_dfs))]) {
     explorable_vars = c("year", "pollutant")
   ))
   
+  historic_emissions = list("Historic Emissions" = list(
+    data = read_csv("data/clean_data/ghg_emissions_summary.csv") %>% 
+      filter(str_detect(ccp_mapping, pattern)),
+    plot_options = c("line"),
+    explorable_vars = c("year", "pollutant")
+  ))
+  
   
   explorable_dfs[[category]] = c(
+    historic_emissions,
     sector_breakdown,
     explorable_dfs[[category]]
     )

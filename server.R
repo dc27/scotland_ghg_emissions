@@ -175,8 +175,14 @@ server <- function(input, output, session) {
     filter(year == 2018)
 
   emissions_plot <- create_hierarchical_plot(df = hierarchy_emissions_2018)
+  sinks_plot <- create_hierarchical_plot(df = hierarchy_emissions_2018,
+                                         sinks = TRUE)
   
   output$emissions_plot <- renderPlotly(
     emissions_plot
+  )
+  
+  output$sinks_plot <- renderPlotly(
+    sinks_plot
   )
 }

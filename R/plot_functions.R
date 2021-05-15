@@ -88,69 +88,67 @@ create_area_plot <- function(df = selected_df()) {
   return(p)
 }
 
-create_hierarchical_plot <- function(df = selected_df(), plot_type = "Sunburst") {
+create_hierarchical_plot <- function(df = selected_df(), plot_type = "Sunburst",
+                                     sinks = FALSE) {
   p_type <- str_to_lower(plot_type)
   
   # 0. create empty list to store dfs to be plotted side by side
   plot_dfs <- list()
   
   # 1. separate emissions and (usually carbon) sinks
-  plot_dfs$emissions <- 
-    df %>%
-    filter(!value < 0) %>%
-    group_by(id, label, parent) %>%
-    summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>%
-    mutate(units = "megatonnes of CO2 equivelant")
-  
-  plot_dfs$sinks <- df %>%
-    filter(value < 0) %>%
-    mutate(value = value * -1) %>%
-    group_by(id, label, parent) %>%
-    summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>%
-    mutate(units = "megatonnes of CO2 equivelant")
+  if (sinks == FALSE) {
+    plot_dfs$emissions <- 
+      df %>%
+      filter(!value < 0) %>%
+      group_by(id, label, parent) %>%
+      summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>%
+      mutate(units = "megatonnes of CO2 equivelant")
+  } else {
+    plot_dfs$sinks <- df %>%
+      filter(value < 0) %>%
+      mutate(value = value * -1) %>%
+      group_by(id, label, parent) %>%
+      summarise(value = sum(value, na.rm = TRUE), .groups = 'drop_last') %>%
+      mutate(units = "megatonnes of CO2 equivelant")
+  }
   
   # 2. create plot
   fig <- plot_ly()
   
   # 2.1 add trace for emissions
-  fig <- fig %>%
-    add_trace(
-      name = "Emissions",
-      ids = plot_dfs$emissions$id,
-      labels = plot_dfs$emissions$label,
-      parents = plot_dfs$emissions$parent,
-      values = plot_dfs$emissions$value,
-      text = plot_dfs$emissions$units,
-      type = p_type,
-      domain = list(column = 0),
-      branchvalues = 'total',
-      insidetextorientation = 'radial',
-      text = ~units,
-      textinfo='label+percent root+value',
-      hoverinfo = paste("%{label}: <br>%{value}",'text')
-    )
+  if (sinks == FALSE) {
+    fig <- fig %>%
+      add_trace(
+        name = "Emissions",
+        ids = plot_dfs$emissions$id,
+        labels = plot_dfs$emissions$label,
+        parents = plot_dfs$emissions$parent,
+        values = plot_dfs$emissions$value,
+        type = p_type,
+        domain = list(column = 0),
+        branchvalues = 'total',
+        insidetextorientation = 'radial',
+        text = ~paste0(round(plot_dfs$emissions$value, 1)),
+        textinfo='label+percent root+text',
+        hovertemplate = paste("%{label}: <br>%{value:.3f}","Mt CO2 or equivelant")
+      )
+  } else {
   # 2.2 add trace for sinks
-  fig <- fig %>%
-    add_trace(
-      name = "Sinks",
-      ids = plot_dfs$sinks$id,
-      labels = plot_dfs$sinks$label,
-      parents = plot_dfs$sinks$parent,
-      values = plot_dfs$sinks$value,
-      text = plot_dfs$sinks$units,
-      type = p_type,
-      domain = list(column = 1),
-      branchvalues = 'total',
-      insidetextorientation = 'radial',
-      text = ~units,
-      textinfo='label+percent root+value',
-      hoverinfo = paste("%{label}: <br>%{value}",'text')
+    fig <- fig %>%
+      add_trace(
+        name = "Sinks",
+        ids = plot_dfs$sinks$id,
+        labels = plot_dfs$sinks$label,
+        parents = plot_dfs$sinks$parent,
+        values = plot_dfs$sinks$value,
+        type = p_type,
+        domain = list(column = 1),
+        branchvalues = 'total',
+        insidetextorientation = 'radial',
+        text = ~paste0(round(plot_dfs$sinks$value, 1)),
+        textinfo='label+percent root+text',
+        hovertemplate = paste("%{label}: <br>%{value:.3f}","Mt CO2 or equivelant")
     )
-  # 2.3. plot emissions and sinks, side by side
-  fig <- fig %>%
-    layout(
-      grid = list(columns =2, rows = 1),
-      margin = list(l = 0, r = 0, b = 0, t = 0))
-  
+  }
   return(fig)
 }

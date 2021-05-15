@@ -25,6 +25,7 @@ ui <- dashboardPage(
           margin:1vh;
           }
           .bttn-bordered {
+          background-color: white;
           width:100%;
           height:10vh;
           }
@@ -32,7 +33,7 @@ ui <- dashboardPage(
           background-color: lightblue;
           margin:1vh;
           }
-          h1{
+          h2{
           text-align: center;
           }
           .verti-hori-center {
@@ -59,7 +60,9 @@ ui <- dashboardPage(
           text-align:right;
           }
           #emissions_plot
-          {height: calc(100vh - 160px) !important;}
+          {height: calc(100vh - 25vh) !important;}
+          #sinks_plot
+          {height: calc(100vh - 25vh) !important;}
           '
         )
       )
@@ -198,7 +201,7 @@ ui <- dashboardPage(
                 width = "100%",
                 height = "10vh",
                 background = "light-blue",
-                tags$h2("Greenhouse Gas Emissions in Scotland - Path to Net Zero")
+                tags$h2("Path to Net Zero - Emissions Hub")
               )
             )
           )
@@ -208,7 +211,17 @@ ui <- dashboardPage(
           "Emissions Hub",
           tabPanel(
             "Sector Breakdowns",
-            plotlyOutput("emissions_plot")
+            tabBox(
+              width = 12,
+              tabPanel(
+                "Emissions",
+                plotlyOutput("emissions_plot")
+              ),
+              tabPanel(
+                "Sinks",
+                plotlyOutput("sinks_plot")
+              )
+            )
           ),
           tabPanel(
             "Historical Emissions"

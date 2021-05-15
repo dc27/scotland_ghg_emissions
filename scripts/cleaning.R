@@ -68,11 +68,17 @@ ghg_wide_sinks <- ghg_wide %>%
 
 # emissions
 
+parent <- ghg_wide_emissions %>% 
+  group_by(pollutant, year) %>% 
+  summarise(value = sum(value), .groups = 'drop_last') %>% 
+  mutate(id = "Greenhouse Gas Emissions", parent = "") %>% 
+  select(id = id, label = id, parent, pollutant, year, value)
+
 child_order_0 <- ghg_wide_emissions %>% 
   group_by(child_order_0, pollutant, year) %>% 
   summarise(value = sum(value), .groups = "drop_last") %>% 
   # id must be created, parents are null - this is the top level
-  mutate(id = child_order_0, parent = "") %>% 
+  mutate(id = child_order_0, parent = "Greenhouse Gas Emissions") %>% 
   select(id, label = child_order_0, parent, pollutant, year, value)
 
 child_order_1 <- ghg_wide_emissions %>%
@@ -98,15 +104,21 @@ child_order_3 <- ghg_wide_emissions %>%
          parent = paste(child_order_0, child_order_1, child_order_2, sep = " - ")) %>% 
   select(id, label = child_order_3, parent, pollutant, year, value)
 
-ghg_long_emissions <- bind_rows(list(child_order_0, child_order_1, child_order_2, child_order_3))
+ghg_long_emissions <- bind_rows(list(parent, child_order_0, child_order_1, child_order_2, child_order_3))
 
 # sinks
+
+parent <- ghg_wide_sinks %>% 
+  group_by(pollutant, year) %>% 
+  summarise(value = sum(value), .groups = 'drop_last') %>% 
+  mutate(id = "Greenhouse Gas Sinks", parent = "") %>% 
+  select(id = id, label = id, parent, pollutant, year, value)
 
 child_order_0 <- ghg_wide_sinks %>% 
   group_by(child_order_0, pollutant, year) %>% 
   summarise(value = sum(value), .groups = "drop_last") %>% 
   # id must be created, parents are null - this is the top level
-  mutate(id = child_order_0, parent = "") %>% 
+  mutate(id = child_order_0, parent = "Greenhouse Gas Sinks") %>% 
   select(id, label = child_order_0, parent, pollutant, year, value)
 
 child_order_1 <- ghg_wide_sinks %>%
@@ -133,7 +145,7 @@ child_order_3 <- ghg_wide_sinks %>%
          parent = paste(child_order_0, child_order_1, child_order_2, sep = " - ")) %>%
   select(id, label = child_order_3, parent, pollutant, year, value)
 
-ghg_long_sinks <- bind_rows(list(child_order_0, child_order_1, child_order_2))
+ghg_long_sinks <- bind_rows(list(parent, child_order_0, child_order_1, child_order_2))
 
 
 # all together

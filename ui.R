@@ -28,7 +28,9 @@ ui <- dashboardPage(
           background-color: lightblue;
           margin:1vh;
           }
-          h1{text-align: center;}
+          h1{
+          text-align: center;
+          }
           .verti-hori-center {
             margin: 0;
             position: absolute;
@@ -36,6 +38,10 @@ ui <- dashboardPage(
             left: 50%;
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
+          }
+          .box-header {
+            height:0;
+            padding:0;
           }
           .info-box{
           height:14vh;
@@ -48,6 +54,8 @@ ui <- dashboardPage(
           .info-box-content{
           text-align:right;
           }
+          #emissions_plot
+          {height: calc(100vh - 160px) !important;}
           '
         )
       )
@@ -90,11 +98,11 @@ ui <- dashboardPage(
               label = 'Target Tracker'
             ),
            tags$br(),
-           # actionBttn(
-           #   style = "material-flat", color = "success",
-           #   inputId = 'goto_choices_explorer',
-           #   label = 'Explore Choices'
-           #  )
+           actionBttn(
+             style = "material-flat", color = "success",
+             inputId = 'goto_choices_explorer',
+             label = 'Big Emissions'
+            )
           )
         )
       ),
@@ -168,7 +176,36 @@ ui <- dashboardPage(
       tabPanel(
         title = "Impact of Green Choices",
         value = "choices",
-        actionButton('return_home_3', 'Home')
+        fluidRow(
+          column(
+            1,
+            actionButton('return_home_3', 'Home')
+          ),
+          column(
+            11,
+            tags$div(
+              class = "header_box",
+              box(
+                title = "",
+                width = "100%",
+                height = "10vh",
+                background = "light-blue",
+                tags$h2("Greenhouse Gas Emissions in Scotland - Path to Net Zero")
+              )
+            )
+          )
+        ),
+        navlistPanel(
+          widths = c(3,9),
+          "Emissions Hub",
+          tabPanel(
+            "Sector Breakdowns",
+            plotlyOutput("emissions_plot")
+          ),
+          tabPanel(
+            "Historical Emissions"
+          )
+        )
       )
     )
   )

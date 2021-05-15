@@ -170,5 +170,13 @@ server <- function(input, output, session) {
   output$title <- renderText(
     title_text()
   )
+  
+  hierarchy_emissions_2018 <-  dfs$All$`Sector Breakdown`$data %>% 
+    filter(year == 2018)
 
+  emissions_plot <- create_hierarchical_plot(df = hierarchy_emissions_2018)
+  
+  output$emissions_plot <- renderPlotly(
+    emissions_plot
+  )
 }

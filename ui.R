@@ -24,6 +24,10 @@ ui <- dashboardPage(
           height:10vh;
           margin:1vh;
           }
+          .bttn-bordered {
+          width:100%;
+          height:10vh;
+          }
           .box-solid.bg-blue {
           background-color: lightblue;
           margin:1vh;
@@ -178,11 +182,15 @@ ui <- dashboardPage(
         value = "choices",
         fluidRow(
           column(
-            1,
-            actionButton('return_home_3', 'Home')
+            2,
+            actionBttn(
+              style = "bordered", color = "success", icon = icon("home"),
+              inputId = 'return_home_3',
+              label = 'Home'
+            )
           ),
           column(
-            11,
+            10,
             tags$div(
               class = "header_box",
               box(

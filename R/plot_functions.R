@@ -128,10 +128,13 @@ create_hierarchical_plot <- function(df = selected_df(), plot_type = "Sunburst",
         domain = list(column = 0),
         branchvalues = 'total',
         insidetextorientation = 'radial',
-        text = ~paste0(round(plot_dfs$emissions$value, 1)),
-        textinfo='label+percent root+text',
+        leaf = list(opacity = 0.6),
+        text = ~replace(plot_dfs$emissions$label,
+                          nchar(plot_dfs$emissions$label) > 14 & plot_dfs$emissions$label != "Greenhouse Gas Emissions", NA),
+        textinfo='text+percent root',
         hovertemplate = paste("%{label}: <br>%{value:.3f}","Mt CO2 or equivelant")
-      )
+      ) %>% 
+      layout(colorway = c(rev(scales::viridis_pal()(10))[1:9]))
   } else {
   # 2.2 add trace for sinks
     fig <- fig %>%
@@ -152,3 +155,5 @@ create_hierarchical_plot <- function(df = selected_df(), plot_type = "Sunburst",
   }
   return(fig)
 }
+
+# paste0(round(plot_dfs$emissions$value, 1))

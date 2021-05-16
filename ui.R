@@ -60,9 +60,9 @@ ui <- dashboardPage(
           text-align:right;
           }
           #emissions_plot
-          {height: calc(100vh - 25vh) !important;}
+          {height: calc(100vh - 23vh) !important;}
           #sinks_plot
-          {height: calc(100vh - 25vh) !important;}
+          {height: calc(100vh - 23vh) !important;}
           '
         )
       )
@@ -207,7 +207,7 @@ ui <- dashboardPage(
           )
         ),
         navlistPanel(
-          widths = c(3,9),
+          widths = c(2,10),
           "Emissions Hub",
           tabPanel(
             "Sector Breakdowns",

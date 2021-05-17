@@ -19,10 +19,15 @@ ui <- dashboardPage(
           .navbar{
           display:none;
           }
+          .no_padding_col {
+          padding: 0;
+          }
           .bttn-material-flat {
           width:100%;
           height:10vh;
-          margin:1vh;
+          }
+          #goto_emissions_explorer {
+          margin-bottom: 1vh;
           }
           .bttn-bordered {
           background-color: white;
@@ -94,27 +99,72 @@ ui <- dashboardPage(
             4,
             id = "nav",
             actionBttn(
-              style = "material-flat", color = "success", 
+              style = "material-flat", color = "success",
               inputId = 'goto_emissions_explorer',
               label = 'Emissions Explorer'
             ),
-            tags$br(),
-            actionBttn(
-              style = "material-flat", color = "success",
-              inputId = 'goto_targets_explorer',
-              label = 'Target Tracker'
-            ),
            tags$br(),
-           actionBttn(
-             style = "material-flat", color = "success",
-             inputId = 'goto_choices_explorer',
-             label = 'Big Emissions'
-            ),
-           actionBttn(
-             style = "material-flat", color = "success",
-             inputId = 'goto_choices_explorer',
-             label = 'Big Emissions'
-           )
+           column(
+             6,
+             class = "no_padding_col",
+             actionBttn(
+               style = "material-flat", color = "success",
+               icon = icon("tractor"),
+               inputId = 'goto_agriculture',
+               label = 'Agriculture'
+             ),
+             actionBttn(
+               style = "material-flat", color = "success",
+               inputId = 'goto_transport',
+               icon = icon("car"),
+               label = 'Transport'
+             ),
+             actionBttn(
+               style = "material-flat", color = "success",
+               inputId = 'goto_industry',
+               icon = icon("industry"),
+               label = 'Industry'
+             ),
+             actionBttn(
+               style = "material-flat", color = "success",
+               inputId = 'goto_landuse',
+               icon = icon("sync"),
+               label = 'Land Use'
+             )
+           ),
+           column(
+             6,
+             class = "no_padding_col",
+             actionBttn(
+               style = "material-flat", color = "success",
+               inputId = 'goto_electricity',
+               icon = icon("bolt"),
+               label = 'Electricity Generation'
+             ),
+             actionBttn(
+               style = "material-flat", color = "success",
+               inputId = 'goto_services',
+               icon = icon("asterisk"),
+               label = 'Services'
+             ),
+             actionBttn(
+               style = "material-flat", color = "success",
+               inputId = 'goto_waste',
+               icon = icon("trash"),
+               label = 'Waste'
+             ),
+             actionBttn(
+               style = "material-flat", color = "success",
+               inputId = 'goto_residential',
+               icon = icon("building"),
+               label = 'Residential'
+             )
+           ),
+           # actionBttn(
+           #   style = "material-flat", color = "success",
+           #   inputId = 'goto_targets',
+           #   label = 'Targets Tracker'
+           #  ),
           )
         )
       ),

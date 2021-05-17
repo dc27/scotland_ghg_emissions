@@ -109,14 +109,75 @@ ui <- dashboardPage(
              style = "material-flat", color = "success",
              inputId = 'goto_choices_explorer',
              label = 'Big Emissions'
-            )
+            ),
+           actionBttn(
+             style = "material-flat", color = "success",
+             inputId = 'goto_choices_explorer',
+             label = 'Big Emissions'
+           )
           )
         )
       ),
       # ------ Emissions Exploration Page -----
       tabPanel(
         title = "Emissions Explorer", value = "emissions", 
-        actionButton('return_home_1', 'Home'),
+        fluidRow(
+          column(
+            2,
+            actionBttn(
+              style = "bordered", color = "success", icon = icon("home"),
+              inputId = 'return_home_1',
+              label = 'Home'
+            )
+          ),
+          column(
+            10,
+            tags$div(
+              class = "header_box",
+              box(
+                title = "",
+                width = "100%",
+                height = "10vh",
+                background = "light-blue",
+                tags$h2("Path to Net Zero - Emissions Hub")
+              )
+            )
+          )
+        ),
+        navlistPanel(
+          widths = c(2,10),
+          "Emissions Hub",
+          tabPanel(
+            "Sector Breakdowns",
+            tabBox(
+              width = 12,
+              tabPanel(
+                "Emissions",
+                plotlyOutput("emissions_plot")
+              ),
+              tabPanel(
+                "Sinks",
+                plotlyOutput("sinks_plot")
+              )
+            )
+          ),
+          tabPanel(
+            "Historical Emissions"
+          )
+        ),
+        tags$footer()
+      ),
+      # ----- Scottish Government Targets Exploration Page -----
+      tabPanel(
+        title = "Scottish Government Targets and Progress",
+        value = "targets", 
+        actionButton('return_home_2', 'Home')
+      ),
+      # ------ Impact of green choices page ----- 
+      tabPanel(
+        title = "Impact of Green Choices",
+        value = "choices",
+        actionButton('return_home_3', 'Home'),
         fluidRow(
           # main ui select
           box(
@@ -170,61 +231,6 @@ ui <- dashboardPage(
             status = "success",
             width = 12,
             height = "20vh"
-          )
-        )
-      ),
-      # ----- Scottish Government Targets Exploration Page -----
-      tabPanel(
-        title = "Scottish Government Targets and Progress",
-        value = "targets", 
-        actionButton('return_home_2', 'Home')
-      ),
-      # ------ Impact of green choices page ----- 
-      tabPanel(
-        title = "Impact of Green Choices",
-        value = "choices",
-        fluidRow(
-          column(
-            2,
-            actionBttn(
-              style = "bordered", color = "success", icon = icon("home"),
-              inputId = 'return_home_3',
-              label = 'Home'
-            )
-          ),
-          column(
-            10,
-            tags$div(
-              class = "header_box",
-              box(
-                title = "",
-                width = "100%",
-                height = "10vh",
-                background = "light-blue",
-                tags$h2("Path to Net Zero - Emissions Hub")
-              )
-            )
-          )
-        ),
-        navlistPanel(
-          widths = c(2,10),
-          "Emissions Hub",
-          tabPanel(
-            "Sector Breakdowns",
-            tabBox(
-              width = 12,
-              tabPanel(
-                "Emissions",
-                plotlyOutput("emissions_plot")
-              ),
-              tabPanel(
-                "Sinks",
-                plotlyOutput("sinks_plot")
-              )
-            )
-          ),
-          tabPanel(
-            "Historical Emissions"
           )
         )
       )

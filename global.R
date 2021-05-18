@@ -20,6 +20,7 @@ dropdown_lookup <- dropdown_lookup
 
 theme_set(theme_bw())
 
+myImgResources <- paste0("imgResources/", "sunburst_emissions", ".png")
 
-
-
+# Add directory of static resources to Shiny's web server
+addResourcePath(prefix = "imgResources", directoryPath = "images")

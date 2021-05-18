@@ -22,12 +22,20 @@ ui <- dashboardPage(
           .no_padding_col {
           padding: 0;
           }
-          .bttn-material-flat {
+          .bttn-simple {
           width:100%;
           height:10vh;
+          border-radius: 0;
           }
           #goto_emissions_explorer {
           margin-bottom: 1vh;
+          height:20vh;
+          width:100%;
+          background-color: white;
+          color:black;
+          font-size: 20px;
+          font-family: inherit;
+          padding: 5px 12px;
           }
           .bttn-bordered {
           background-color: white;
@@ -98,35 +106,42 @@ ui <- dashboardPage(
           column(
             4,
             id = "nav",
-            actionBttn(
-              style = "material-flat", color = "success",
-              inputId = 'goto_emissions_explorer',
-              label = 'Emissions Explorer'
+            tags$button(
+              id = "goto_emissions_explorer",
+              class = "btn action-button",
+              tags$img(src = myImgResources, height = "100%"),"Emissions Explorer"
+              
             ),
+            # actionBttn(
+            #   style = "simple", color = "success",
+            #   inputId = 'goto_emissions_explorer',
+            #   label = 'Emissions Explorer',
+            #   icon = icon("images/sunburst_emissions.png")
+            # ),
            tags$br(),
            column(
              6,
              class = "no_padding_col",
              actionBttn(
-               style = "material-flat", color = "success",
+               style = "simple", color = "success",
                icon = icon("tractor"),
                inputId = 'goto_agriculture',
                label = 'Agriculture'
              ),
              actionBttn(
-               style = "material-flat", color = "success",
+               style = "simple", color = "success",
                inputId = 'goto_transport',
                icon = icon("car"),
                label = 'Transport'
              ),
              actionBttn(
-               style = "material-flat", color = "success",
+               style = "simple", color = "success",
                inputId = 'goto_industry',
                icon = icon("industry"),
                label = 'Industry'
              ),
              actionBttn(
-               style = "material-flat", color = "success",
+               style = "simple", color = "success",
                inputId = 'goto_landuse',
                icon = icon("sync"),
                label = 'Land Use'
@@ -136,32 +151,32 @@ ui <- dashboardPage(
              6,
              class = "no_padding_col",
              actionBttn(
-               style = "material-flat", color = "success",
+               style = "simple", color = "success",
                inputId = 'goto_electricity',
                icon = icon("bolt"),
                label = 'Electricity Generation'
              ),
              actionBttn(
-               style = "material-flat", color = "success",
+               style = "simple", color = "success",
                inputId = 'goto_services',
                icon = icon("asterisk"),
                label = 'Services'
              ),
              actionBttn(
-               style = "material-flat", color = "success",
+               style = "simple", color = "success",
                inputId = 'goto_waste',
                icon = icon("trash"),
                label = 'Waste'
              ),
              actionBttn(
-               style = "material-flat", color = "success",
+               style = "simple", color = "success",
                inputId = 'goto_residential',
                icon = icon("building"),
                label = 'Residential'
              )
-           ),
+           )
            # actionBttn(
-           #   style = "material-flat", color = "success",
+           #   style = "simple", color = "success",
            #   inputId = 'goto_targets',
            #   label = 'Targets Tracker'
            #  ),

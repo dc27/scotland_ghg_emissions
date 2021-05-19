@@ -95,6 +95,7 @@ ui <- tagList(
           fluidRow(
             column(
               12,
+              class = "no_padding_col",
               box(
                 title = "",
                 width = 12,
@@ -190,6 +191,7 @@ ui <- tagList(
           fluidRow(
             column(
               2,
+              class = "no_padding_col",
               actionBttn(
                 style = "bordered", color = "success", icon = icon("home"),
                 inputId = 'return_home_1',
@@ -228,7 +230,15 @@ ui <- tagList(
               )
             ),
             tabPanel(
-              "Historical Emissions"
+              "Historical Emissions",
+              box(
+                width = 12,
+                # plot options
+                dropdown(
+                  
+                ),
+                plotlyOutput("historical_emissions_plt")
+              )
             )
           )
         ),
@@ -302,13 +312,13 @@ ui <- tagList(
       )
     )
   ),
-  tags$footer("My footer", align = "center", style = "
-                position:absolute;
+  # footer - visible on all pages
+  tags$footer("STA logo", align = "left", style = " 
                 bottom:0;
                 width:100%;
-                height:50px;   /* Height of the footer */
+                height:25vh;
                 color: white;
                 padding: 10px;
-                background-color: black;
+                background-color: grey;
                 z-index: 1000;")
 )

@@ -171,6 +171,10 @@ server <- function(input, output, session) {
     title_text()
   )
   
+  
+  # ----- emissions exploration -----
+  
+  # sunburst plots
   hierarchy_emissions_2018 <-  dfs$All$`Sector Breakdown`$data %>% 
     filter(year == 2018)
 
@@ -185,4 +189,13 @@ server <- function(input, output, session) {
   output$sinks_plot <- renderPlotly(
     sinks_plot
   )
+  
+  historical_emissions_data <- group_and_summarise_including(dfs$All$`Historic Emissions`$data, "year")
+  
+  line_plot <- create_line_plot(historical_emissions_data)
+  
+  output$historical_emissions_plt <- renderPlotly(
+    line_plot
+  )
+  
 }

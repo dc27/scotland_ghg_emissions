@@ -79,6 +79,8 @@ ui <- tagList(
             {height: calc(100vh - 23vh) !important;}
             #sinks_plot
             {height: calc(100vh - 23vh) !important;}
+            #historical_emissions_plt
+            {height: calc(100vh - 23vh) !important;}
             footer {
             background-color: grey
             margin-bottom:0;

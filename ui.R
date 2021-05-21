@@ -235,7 +235,8 @@ ui <- tagList(
                 width = 12,
                 # plot options
                 dropdown(
-                  
+                  radioButtons("plt_choice", "Plot Type", c("Line", "Bar", "Area")),
+                  sliderInput("year", "Year", min = 1990, max = 2018, value = c(1990, 2018)),
                 ),
                 plotlyOutput("historical_emissions_plt")
               )

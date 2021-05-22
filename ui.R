@@ -79,6 +79,8 @@ ui <- tagList(
             {height: calc(100vh - 23vh) !important;}
             #sinks_plot
             {height: calc(100vh - 23vh) !important;}
+            #historical_emissions_plt
+            {height: calc(100vh - 23vh) !important;}
             footer {
             background-color: grey
             margin-bottom:0;
@@ -231,11 +233,19 @@ ui <- tagList(
             ),
             tabPanel(
               "Historical Emissions",
-              box(
+              tabBox(
                 width = 12,
                 # plot options
+                tabPanel(
+                  "Line"
+                ),
+                tabPanel(
+                  "Bar"
+                ),
+                tabPanel(
+                  "Area"
+                ),
                 dropdown(
-                  radioButtons("plt_choice", "Plot Type", c("Line", "Bar", "Area")),
                   sliderInput("year", "Year", min = 1990, max = 2018, value = c(1990, 2018)),
                 ),
                 plotlyOutput("historical_emissions_plt")

@@ -79,8 +79,8 @@ ui <- tagList(
             {height: calc(100vh - 23vh) !important;}
             #sinks_plot
             {height: calc(100vh - 23vh) !important;}
-            #historical_emissions_plt
-            {height: calc(100vh - 23vh) !important;}
+            .plotly.html-widget
+            {height: calc(100vh - 30vh) !important;}
             footer {
             background-color: grey
             margin-bottom:0;
@@ -237,18 +237,35 @@ ui <- tagList(
                 width = 12,
                 # plot options
                 tabPanel(
-                  "Line"
+                  "Line",
+                  dropdown(
+                    width = "20vw",
+                    sliderInput(width = "100%", "year_line", "Year", min = 1990, max = 2018,
+                                value = c(1990, 2018)),
+                    actionButton("update_historical_plt", "Update Plot"),
+                  ),
+                  plotlyOutput("historical_emissions_plt_line")
                 ),
                 tabPanel(
-                  "Bar"
+                  "Bar",
+                  dropdown(
+                    width = "20vw",
+                    sliderInput(width = "100%", "year_bar", "Year", min = 1990, max = 2018,
+                                value = c(1990, 2018)),
+                    actionButton("update_historical_plt_bar", "Update Plot"),
+                  ),
+                  plotlyOutput("historical_emissions_plt_bar")
                 ),
                 tabPanel(
-                  "Area"
-                ),
-                dropdown(
-                  sliderInput("year", "Year", min = 1990, max = 2018, value = c(1990, 2018)),
-                ),
-                plotlyOutput("historical_emissions_plt")
+                  "Area",
+                  dropdown(
+                    width = "20vw",
+                    sliderInput(width = "100%", "year_area", "Year", min = 1990, max = 2018,
+                                value = c(1990, 2018)),
+                    actionButton("update_historical_plt_area", "Update Plot"),
+                  ),
+                  plotlyOutput("historical_emissions_plt_area")
+                )
               )
             )
           )

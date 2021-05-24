@@ -190,7 +190,9 @@ server <- function(input, output, session) {
     sinks_plot
   )
   
-  historical_emissions_data <- group_and_summarise_including(dfs$All$`Historic Emissions`$data, "year")
+  historical_emissions_data <- group_and_summarise_including(
+    dfs$All$`Historic Emissions`$data, "year"
+    )
   
   line_plot <- create_line_plot(historical_emissions_data)
   

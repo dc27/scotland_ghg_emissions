@@ -233,16 +233,26 @@ ui <- tagList(
             ),
             tabPanel(
               "Historical Emissions",
+              absolutePanel(
+                id = "controls", fixed = TRUE, class = "panel panel-default",
+                draggable = TRUE, top = 60, left = "auto", right = 20, bottom = "auto",
+                width = "20vw", height = "auto",
+                box(
+                  title = "Plot Options",
+                  width = 12,
+                  collapsible = TRUE,
+                  sliderInput(width = "100%", "year_line", "Year", min = 1990, max = 2018,
+                              value = c(1990, 2018)),
+                  actionButton("update_historical_plt", "Update Plot")
+                )
+              ),
               tabBox(
                 width = 12,
                 # plot options
+
                 tabPanel(
                   "Line",
                   dropdown(
-                    width = "20vw",
-                    sliderInput(width = "100%", "year_line", "Year", min = 1990, max = 2018,
-                                value = c(1990, 2018)),
-                    actionButton("update_historical_plt", "Update Plot"),
                   ),
                   plotlyOutput("historical_emissions_plt_line")
                 ),

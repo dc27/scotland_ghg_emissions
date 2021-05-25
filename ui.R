@@ -48,6 +48,7 @@ ui <- tagList(
             .box-solid.bg-blue {
             background-color: lightblue;
             margin:1vh;
+            text-align:center;
             }
             h2{
             text-align: center;
@@ -60,10 +61,6 @@ ui <- tagList(
               -ms-transform: translate(-50%, -50%);
               transform: translate(-50%, -50%);
             }
-            .box-header {
-              height:0;
-              padding:0;
-            }
             .info-box{
             height:14vh;
             margin:1vh;
@@ -74,6 +71,16 @@ ui <- tagList(
             }
             .info-box-content{
             text-align:right;
+            }
+            .panel.panel-default {
+            z-index: 1000;
+            }
+            .box-warning {
+            margin-top: 1vh;
+            box-shadow: none;
+            }
+            h3.box-title {
+            margin: 0.5vh;
             }
             #emissions_plot
             {height: calc(100vh - 23vh) !important;}
@@ -209,7 +216,12 @@ ui <- tagList(
                   width = 12,
                   height = "10vh",
                   background = "light-blue",
-                  tags$h2("Path to Net Zero - Emissions Hub")
+                  tags$div(
+                    class = "verti-hori-center",
+                    tags$h2(
+                      "Emissions Hub - Path to Net Zero"
+                    )
+                  )
                 )
               )
             )
@@ -235,15 +247,22 @@ ui <- tagList(
               "Historical Emissions",
               absolutePanel(
                 id = "controls", fixed = TRUE, class = "panel panel-default",
-                draggable = TRUE, top = 60, left = "auto", right = 20, bottom = "auto",
-                width = "20vw", height = "auto",
+                draggable = TRUE, top = 60, left = "auto", right = 20,
+                bottom = "auto",
+                width = "20vw", padding = "1vh",
+                
+                # plot options are the same for all historical plots - year/
+                # pollutant input and update button
                 box(
                   title = "Plot Options",
+                  status = "warning",
                   width = 12,
                   collapsible = TRUE,
-                  sliderInput(width = "100%", "year_line", "Year", min = 1990, max = 2018,
-                              value = c(1990, 2018)),
+                  sliderInput(
+                    width = "100%", "year_line", "Year",min = 1990, max = 2018,
+                    value = c(1990, 2018)),
                   actionButton("update_historical_plt", "Update Plot")
+                  
                 )
               ),
               tabBox(
@@ -262,7 +281,7 @@ ui <- tagList(
                     width = "20vw",
                     sliderInput(width = "100%", "year_bar", "Year", min = 1990, max = 2018,
                                 value = c(1990, 2018)),
-                    actionButton("update_historical_plt_bar", "Update Plot"),
+                    actionButton("update_historical_plt_bar", "Update Plot")
                   ),
                   plotlyOutput("historical_emissions_plt_bar")
                 ),
@@ -272,7 +291,7 @@ ui <- tagList(
                     width = "20vw",
                     sliderInput(width = "100%", "year_area", "Year", min = 1990, max = 2018,
                                 value = c(1990, 2018)),
-                    actionButton("update_historical_plt_area", "Update Plot"),
+                    actionButton("update_historical_plt_area", "Update Plot")
                   ),
                   plotlyOutput("historical_emissions_plt_area")
                 )

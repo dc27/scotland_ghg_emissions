@@ -196,8 +196,16 @@ server <- function(input, output, session) {
   
   line_plot <- create_line_plot(historical_emissions_data)
   
-  output$historical_emissions_plt <- renderPlotly(
+  output$historical_emissions_plt_line <- renderPlotly(
     line_plot
   )
   
+  bar_plot_data <- group_and_summarise_excluding(df = dfs$All$`Historic Emissions`$data,
+                                                 c("pollutant", "year", "value", "units"))
+  
+  bar_plot <- create_bar_plot(bar_plot_data)
+  
+  output$historical_emissions_plt_bar <- renderPlotly(
+    bar_plot
+  )
 }

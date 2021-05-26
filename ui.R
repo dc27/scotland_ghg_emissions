@@ -268,31 +268,16 @@ ui <- tagList(
               tabBox(
                 width = 12,
                 # plot options
-
                 tabPanel(
                   "Line",
-                  dropdown(
-                  ),
                   plotlyOutput("historical_emissions_plt_line")
                 ),
                 tabPanel(
                   "Bar",
-                  dropdown(
-                    width = "20vw",
-                    sliderInput(width = "100%", "year_bar", "Year", min = 1990, max = 2018,
-                                value = c(1990, 2018)),
-                    actionButton("update_historical_plt_bar", "Update Plot")
-                  ),
                   plotlyOutput("historical_emissions_plt_bar")
                 ),
                 tabPanel(
                   "Area",
-                  dropdown(
-                    width = "20vw",
-                    sliderInput(width = "100%", "year_area", "Year", min = 1990, max = 2018,
-                                value = c(1990, 2018)),
-                    actionButton("update_historical_plt_area", "Update Plot")
-                  ),
                   plotlyOutput("historical_emissions_plt_area")
                 )
               )

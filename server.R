@@ -206,6 +206,14 @@ server <- function(input, output, session) {
   bar_plot <- create_bar_plot(bar_plot_data)
   
   output$historical_emissions_plt_bar <- renderPlotly(
-    bar_plot
+    bar_plot + labs(y = selected_df()$units[1])
+  )
+  
+  area_plot_data <- bar_plot_data
+  
+  area_plot <- create_area_plot(area_plot_data)
+  
+  output$historical_emissions_plt_area <-renderPlotly(
+    area_plot + labs(y = selected_df()$units[1])
   )
 }

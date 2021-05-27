@@ -190,12 +190,15 @@ server <- function(input, output, session) {
     sinks_plot
   )
   
+  # historical emissions
+  
   # static
   historical_emissions_data <- dfs$All$`Historic Emissions`$data
   
-  filtered_data <- eventReactive(input$update_historical_plt, {
+  filtered_data <- eventReactive(input$update_historical_plt, ignoreNULL = FALSE, {
     historical_emissions_data %>%
-      filter(year >= input$year_historic[1] & year <= input$year_historic[2])
+      filter(year >= input$year_historic[1] & year <= input$year_historic[2]) %>%
+      filter(pollutant %in% input$pollutant_historic)
   })
   
   historical_data_line <- eventReactive(input$update_historical_plt, {

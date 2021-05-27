@@ -259,8 +259,16 @@ ui <- tagList(
                   width = 12,
                   collapsible = TRUE,
                   sliderInput(
-                    width = "100%", "year_historic", "Year",min = 1990, max = 2018,
+                    width = "100%", "year_historic", "Year(s) :",min = 1990, max = 2018,
                     value = c(1990, 2018)),
+                  pickerInput("pollutant_historic",
+                              "Pollutant(s) :", 
+                              # select all as default
+                              choices = sort(unique(dfs$All$`Historic Emissions`$data$pollutant)),
+                              selected = sort(unique(dfs$All$`Historic Emissions`$data$pollutant)),
+                              options = list(`actions-box` = TRUE),
+                              multiple = TRUE
+                  ),
                   actionButton("update_historical_plt", "Update Plot")
                   
                 )

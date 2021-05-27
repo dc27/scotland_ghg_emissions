@@ -259,7 +259,7 @@ ui <- tagList(
                   width = 12,
                   collapsible = TRUE,
                   sliderInput(
-                    width = "100%", "year_line", "Year",min = 1990, max = 2018,
+                    width = "100%", "year_historic", "Year",min = 1990, max = 2018,
                     value = c(1990, 2018)),
                   actionButton("update_historical_plt", "Update Plot")
                   

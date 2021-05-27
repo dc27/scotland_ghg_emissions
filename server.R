@@ -190,14 +190,28 @@ server <- function(input, output, session) {
     sinks_plot
   )
   
-  historical_emissions_data <- group_and_summarise_including(
-    dfs$All$`Historic Emissions`$data, "year"
-    )
+  # static
+  historical_emissions_data <- dfs$All$`Historic Emissions`$data
   
-  line_plot <- create_line_plot(historical_emissions_data)
+  filtered_data <- eventReactive(input$update_historical_plt, {
+    historical_emissions_data %>%
+      filter(year >= input$year_historic[1] & year <= input$year_historic[2])
+  })
+  
+  historical_data_line <- eventReactive(input$update_historical_plt, {
+    group_and_summarise_including(
+    filtered_data(), "year"
+    )
+  })
+  
+  line_plot <- eventReactive(input$update_historical_plt, {
+    historical_data_line() %>% 
+      group_and_summarise_including("year") %>%
+      create_line_plot()
+  })
   
   output$historical_emissions_plt_line <- renderPlotly(
-    line_plot
+    line_plot()
   )
   
   bar_plot_data <- group_and_summarise_excluding(df = dfs$All$`Historic Emissions`$data,

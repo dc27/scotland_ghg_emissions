@@ -121,7 +121,7 @@ ui <- tagList(
           ),
           fluidRow(
             column(
-              4,
+              3,
               id = "nav",
               tags$button(
                 id = "goto_emissions_explorer",
@@ -191,6 +191,12 @@ ui <- tagList(
              #   inputId = 'goto_targets',
              #   label = 'Targets Tracker'
              #  ),
+            ),
+            column(
+              9,
+              infoBox(
+                
+              )
             )
           )
         ),

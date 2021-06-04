@@ -172,6 +172,20 @@ server <- function(input, output, session) {
   )
   
   
+  # ----- homepage rendering -----
+  # static
+  #TODO::rename these variables
+  historical_emissions_data <- dfs$All$`Historic Emissions`$data
+  
+  home_line_plot <- historical_emissions_data %>% 
+      group_and_summarise_including("year") %>% 
+      create_line_plot()
+  
+  output$headline_plot <- renderPlotly(
+    home_line_plot
+  )
+    
+  
   # ----- emissions exploration -----
   
   # sunburst plots
@@ -191,9 +205,6 @@ server <- function(input, output, session) {
   )
   
   # historical emissions
-  
-  # static
-  historical_emissions_data <- dfs$All$`Historic Emissions`$data
   
   filtered_data <- eventReactive(input$update_historical_plt, ignoreNULL = FALSE, {
     historical_emissions_data %>%
@@ -217,8 +228,10 @@ server <- function(input, output, session) {
     line_plot()
   )
   
-  bar_plot_data <- group_and_summarise_excluding(df = dfs$All$`Historic Emissions`$data,
-                                                 c("pollutant", "year", "value", "units"))
+  bar_plot_data <- group_and_summarise_excluding(
+    df = dfs$All$`Historic Emissions`$data,
+    c("pollutant", "year", "value", "units")
+    )
   
   bar_plot <- create_bar_plot(bar_plot_data)
   
@@ -226,8 +239,10 @@ server <- function(input, output, session) {
     bar_plot 
   )
   
-  area_plot_data <- group_and_summarise_excluding(df = dfs$All$`Historic Emissions`$data,
-                                                  c("pollutant", "value", "units"))
+  area_plot_data <- group_and_summarise_excluding(
+    df = dfs$All$`Historic Emissions`$data,
+    c("pollutant", "value", "units")
+    )
   
   area_plot <- create_area_plot(area_plot_data)
   

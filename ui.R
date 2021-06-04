@@ -194,8 +194,9 @@ ui <- tagList(
             ),
             column(
               9,
-              infoBox(
-                
+              box(
+                "Headline Statistics",
+                plotlyOutput("headline_plot")
               )
             )
           )

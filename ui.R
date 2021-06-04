@@ -82,6 +82,11 @@ ui <- tagList(
             h3.box-title {
             margin: 0.5vh;
             }
+            .box-primary
+            {height: 60vh;}
+            #headline_plot {
+            height: inherit;
+            }
             #emissions_plot
             {height: calc(100vh - 23vh) !important;}
             #sinks_plot
@@ -193,9 +198,11 @@ ui <- tagList(
              #  ),
             ),
             column(
-              9,
+              6,
               box(
                 "Headline Statistics",
+                width = 12,
+                status = "primary",
                 plotlyOutput("headline_plot")
               )
             )

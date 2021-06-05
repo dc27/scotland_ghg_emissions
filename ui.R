@@ -87,12 +87,12 @@ ui <- tagList(
             #headline_plot {
             height: inherit;
             }
+            #headline_plot
+            {height: inherit;}
             #emissions_plot
             {height: calc(100vh - 23vh) !important;}
             #sinks_plot
             {height: calc(100vh - 23vh) !important;}
-            .plotly.html-widget
-            {height: calc(100vh - 30vh) !important;}
             footer {
             background-color: grey
             margin-bottom:0;
@@ -106,6 +106,7 @@ ui <- tagList(
         # ----- Home Page -----
         tabPanel(
           title = "Home", value = "home",
+          # header
           fluidRow(
             column(
               12,
@@ -131,7 +132,8 @@ ui <- tagList(
               tags$button(
                 id = "goto_emissions_explorer",
                 class = "btn action-button",
-                tags$img(src = myImgResources, height = "100%"),"Emissions Explorer"
+                tags$img(src = myImgResources, height = "100%"),
+                "Emissions Explorer"
                 
               ),
              tags$br(),
@@ -203,7 +205,7 @@ ui <- tagList(
                 "Headline Statistics",
                 width = 12,
                 status = "primary",
-                plotlyOutput("headline_plot")
+                plotlyOutput("headline_plot", width = "70%", height = "100%")
               )
             )
           )

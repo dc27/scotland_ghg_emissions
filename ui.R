@@ -204,7 +204,7 @@ ui <- tagList(
                 status = "primary",
                 plotlyOutput("headline_plot", height = "100%"),
               fluidRow(
-                infoBox("New Orders", 10 * 2, icon = icon("credit-card"), fill = FALSE),
+                infoBoxOutput("base_level"),
                 infoBox("New Orders", 10 * 2, icon = icon("credit-card"), fill = FALSE),
                 infoBox("New Orders", 10 * 2, icon = icon("credit-card"), fill = FALSE)
               ),
@@ -213,6 +213,10 @@ ui <- tagList(
                 infoBox("New Orders", 10 * 2, icon = icon("credit-card"), fill = FALSE),
                 infoBox("New Orders", 10 * 2, icon = icon("credit-card"), fill = FALSE)
               )
+            ),
+            column(
+              3,
+              
             )
           )
         ),

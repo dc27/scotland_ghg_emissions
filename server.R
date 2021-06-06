@@ -184,6 +184,21 @@ server <- function(input, output, session) {
   output$headline_plot <- renderPlotly(
     home_line_plot
   )
+  
+  #infoboxes
+  #base level
+  base_level <- historical_emissions_data %>% 
+    group_and_summarise_including("year") %>% 
+    filter(year == min(historical_emissions_data$year)) %>% 
+    pull(value) %>% 
+    round(6)
+  
+  output$base_level <- renderInfoBox({
+      infoBox(
+        "Base Level", base_level, icon = icon("calendar-alt"),
+        color = "yellow"
+      )
+    })
     
   
   # ----- emissions exploration -----

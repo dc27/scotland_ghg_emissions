@@ -62,12 +62,12 @@ ui <- tagList(
               transform: translate(-50%, -50%);
             }
             .info-box{
-            height:14vh;
-            margin:1vh;
+            height:10vh;
+            margin-top: 1vh;
             }
             .info-box-icon{
-            height:14vh;
-            width:14vh;
+            height:10vh;
+            width:10vh;
             }
             .info-box-content{
             text-align:right;
@@ -201,11 +201,17 @@ ui <- tagList(
             ),
             column(
               6,
-              box(
-                "Headline Statistics",
-                width = 12,
                 status = "primary",
-                plotlyOutput("headline_plot", width = "70%", height = "100%")
+                plotlyOutput("headline_plot", height = "100%"),
+              fluidRow(
+                infoBox("New Orders", 10 * 2, icon = icon("credit-card"), fill = FALSE),
+                infoBox("New Orders", 10 * 2, icon = icon("credit-card"), fill = FALSE),
+                infoBox("New Orders", 10 * 2, icon = icon("credit-card"), fill = FALSE)
+              ),
+              fluidRow(
+                infoBox("New Orders", 10 * 2, icon = icon("credit-card"), fill = FALSE),
+                infoBox("New Orders", 10 * 2, icon = icon("credit-card"), fill = FALSE),
+                infoBox("New Orders", 10 * 2, icon = icon("credit-card"), fill = FALSE)
               )
             )
           )

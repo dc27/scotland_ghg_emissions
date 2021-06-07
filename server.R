@@ -186,19 +186,41 @@ server <- function(input, output, session) {
   )
   
   #infoboxes
-  #base level
-  base_level <- historical_emissions_data %>% 
+  #emissions at min and max year
+  end_values <- historical_emissions_data %>% 
     group_and_summarise_including("year") %>% 
-    filter(year == min(historical_emissions_data$year)) %>% 
+    filter(year == min(historical_emissions_data$year) |
+             year == max(historical_emissions_data$year)) %>% 
     pull(value) %>% 
     round(6)
   
+  #progress to net zero
+  progress_percent <- ((end_values[1] - end_values[2]) / end_values[1]) * 100
+  
   output$base_level <- renderInfoBox({
       infoBox(
-        "Base Level", base_level, icon = icon("calendar-alt"),
+        paste0("Base Level (", min(historical_emissions_data$year), ") :"),
+        end_values[1], icon = icon("calendar-alt"),
         color = "yellow"
       )
     })
+  
+  output$current_emissions_level <- renderInfoBox({
+    infoBox(
+      paste0("Most Recent Year (", max(historical_emissions_data$year), ") :"),
+      end_values[2], icon = icon("calendar-o"),
+      color = "green"
+    )
+  })
+  
+  output$net_zero_progress <- renderInfoBox({
+    infoBox(
+      "Progress to Net Zero",
+      paste0(round(progress_percent, 2), "%"), icon = icon("percent"),
+      color = "teal"
+      
+    )
+  })
     
   
   # ----- emissions exploration -----

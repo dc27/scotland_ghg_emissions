@@ -205,8 +205,8 @@ ui <- tagList(
                 plotlyOutput("headline_plot", height = "100%"),
               fluidRow(
                 infoBoxOutput("base_level"),
-                infoBox("New Orders", 10 * 2, icon = icon("credit-card"), fill = FALSE),
-                infoBox("New Orders", 10 * 2, icon = icon("credit-card"), fill = FALSE)
+                infoBoxOutput("current_emissions_level"),
+                infoBoxOutput("net_zero_progress")
               ),
               fluidRow(
                 infoBox("New Orders", 10 * 2, icon = icon("credit-card"), fill = FALSE),

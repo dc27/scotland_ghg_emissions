@@ -200,7 +200,7 @@ server <- function(input, output, session) {
   output$base_level <- renderInfoBox({
       infoBox(
         paste0("Base Level (", min(historical_emissions_data$year), ") :"),
-        end_values[1], icon = icon("calendar-alt"),
+        end_values[1], icon = icon("step-backward"),
         color = "yellow"
       )
     })
@@ -243,20 +243,16 @@ server <- function(input, output, session) {
   
   # historical emissions
   
+  
+  # react to plot options
   filtered_data <- eventReactive(input$update_historical_plt, ignoreNULL = FALSE, {
     historical_emissions_data %>%
       filter(year >= input$year_historic[1] & year <= input$year_historic[2]) %>%
       filter(pollutant %in% input$pollutant_historic)
   })
   
-  historical_data_line <- eventReactive(input$update_historical_plt, {
-    group_and_summarise_including(
-    filtered_data(), "year"
-    )
-  })
-  
-  line_plot <- eventReactive(input$update_historical_plt, {
-    historical_data_line() %>% 
+  line_plot <- eventReactive(input$update_historical_plt, ignoreNULL = FALSE, {
+    filtered_data() %>% 
       group_and_summarise_including("year") %>%
       create_line_plot()
   })
@@ -270,10 +266,14 @@ server <- function(input, output, session) {
     c("pollutant", "year", "value", "units")
     )
   
-  bar_plot <- create_bar_plot(bar_plot_data)
+  bar_plot <- eventReactive(input$update_historical_plt, ignoreNULL = FALSE, {
+    filtered_data() %>% 
+      group_and_summarise_excluding(c("pollutant", "year", "value", "units")) %>% 
+      create_bar_plot()
+  })
   
   output$historical_emissions_plt_bar <- renderPlotly(
-    bar_plot 
+    bar_plot() 
   )
   
   area_plot_data <- group_and_summarise_excluding(
@@ -281,9 +281,13 @@ server <- function(input, output, session) {
     c("pollutant", "value", "units")
     )
   
-  area_plot <- create_area_plot(area_plot_data)
+  area_plot <- eventReactive(input$update_historical_plt, ignoreNULL = FALSE{
+    filtered_data() %>% 
+      group_and_summarise_excluding(c("pollutant", "value", "units")) %>% 
+      create_area_plot()
+  })
   
   output$historical_emissions_plt_area <-renderPlotly(
-    area_plot
+    area_plot()
   )
 }

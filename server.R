@@ -221,6 +221,21 @@ server <- function(input, output, session) {
       
     )
   })
+  
+  highest_emissions_cat <- historical_emissions_data %>% 
+    filter(year == max(historical_emissions_data$year)) %>% 
+    group_and_summarise_excluding(c("pollutant", "year", "value", "units")) %>%
+    slice_max(value)
+  
+  output$highest_emissions_sector <- renderInfoBox({
+    infoBox(
+      HTML(paste0("Sector with Highest Emissions (","<br>", max(historical_emissions_data$year), ") :")),
+      paste0(highest_emissions_cat["ccp_mapping"], ":", round(highest_emissions_cat["value"], 6)),
+      #TODO: make icon change depending on industry
+      icon = icon("car"),
+      color = "red"
+    )
+  })
     
   
   # ----- emissions exploration -----
@@ -261,11 +276,6 @@ server <- function(input, output, session) {
     line_plot()
   )
   
-  bar_plot_data <- group_and_summarise_excluding(
-    df = dfs$All$`Historic Emissions`$data,
-    c("pollutant", "year", "value", "units")
-    )
-  
   bar_plot <- eventReactive(input$update_historical_plt, ignoreNULL = FALSE, {
     filtered_data() %>% 
       group_and_summarise_excluding(c("pollutant", "year", "value", "units")) %>% 
@@ -276,12 +286,7 @@ server <- function(input, output, session) {
     bar_plot() 
   )
   
-  area_plot_data <- group_and_summarise_excluding(
-    df = dfs$All$`Historic Emissions`$data,
-    c("pollutant", "value", "units")
-    )
-  
-  area_plot <- eventReactive(input$update_historical_plt, ignoreNULL = FALSE{
+  area_plot <- eventReactive(input$update_historical_plt, ignoreNULL = FALSE, {
     filtered_data() %>% 
       group_and_summarise_excluding(c("pollutant", "value", "units")) %>% 
       create_area_plot()

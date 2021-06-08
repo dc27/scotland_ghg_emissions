@@ -209,9 +209,9 @@ ui <- tagList(
                 infoBoxOutput("net_zero_progress")
               ),
               fluidRow(
-                infoBox("New Orders", 10 * 2, icon = icon("credit-card"), fill = FALSE),
-                infoBox("New Orders", 10 * 2, icon = icon("credit-card"), fill = FALSE),
-                infoBox("New Orders", 10 * 2, icon = icon("credit-card"), fill = FALSE)
+                infoBoxOutput("previous_year_emission"),
+                infoBoxOutput("highest_emissions_sector"),
+                infoBoxOutput("targets_met"),
               )
             ),
             column(

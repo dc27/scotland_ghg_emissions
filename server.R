@@ -229,8 +229,10 @@ server <- function(input, output, session) {
   
   output$highest_emissions_sector <- renderInfoBox({
     infoBox(
-      HTML(paste0("Sector with Highest Emissions (","<br>", max(historical_emissions_data$year), ") :")),
-      paste0(highest_emissions_cat["ccp_mapping"], ":", round(highest_emissions_cat["value"], 6)),
+      HTML(paste0("Sector with Highest,", "<br>",
+                  "Emissions (", max(historical_emissions_data$year), ") :")),
+      HTML(paste0(highest_emissions_cat["ccp_mapping"], "<br>",
+                  round(highest_emissions_cat["value"], 6))),
       #TODO: make icon change depending on industry
       icon = icon("car"),
       color = "red"

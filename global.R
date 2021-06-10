@@ -24,3 +24,5 @@ myImgResources <- paste0("imgResources/", "sunburst_emissions", ".png")
 
 # Add directory of static resources to Shiny's web server
 addResourcePath(prefix = "imgResources", directoryPath = "images")
+
+date_of_cop <- as.Date("2021-11-1")

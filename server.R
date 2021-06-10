@@ -229,13 +229,24 @@ server <- function(input, output, session) {
   
   output$highest_emissions_sector <- renderInfoBox({
     infoBox(
-      HTML(paste0("Sector with Highest,", "<br>",
+      HTML(paste0("Sector with Highest", "<br>",
                   "Emissions (", max(historical_emissions_data$year), ") :")),
       HTML(paste0(highest_emissions_cat["ccp_mapping"], "<br>",
                   round(highest_emissions_cat["value"], 6))),
       #TODO: make icon change depending on industry
       icon = icon("car"),
       color = "red"
+    )
+  })
+  
+  days_until_cop <- as.numeric(date_of_cop - Sys.Date())
+  
+  output$days_until_cop <- renderInfoBox({
+    infoBox(
+      HTML(paste0("Days until COP26", "<br>" ,"UN climate change conference")),
+      days_until_cop,
+      icon = icon("globe"),
+      color = "teal"
     )
   })
     

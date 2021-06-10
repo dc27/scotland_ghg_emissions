@@ -209,9 +209,9 @@ ui <- tagList(
                 infoBoxOutput("net_zero_progress")
               ),
               fluidRow(
-                infoBoxOutput("previous_year_emission"),
                 infoBoxOutput("highest_emissions_sector"),
-                infoBoxOutput("targets_met"),
+                infoBoxOutput("days_until_cop"),
+                infoBoxOutput("")
               )
             ),
             column(

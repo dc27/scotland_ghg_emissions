@@ -10,6 +10,10 @@ server <- function(input, output, session) {
                       selected = "emissions")
   })
   
+  observeEvent(input$goto_transport, {
+    updateTabsetPanel(session, "inTabset",
+                        selected = "transport")
+  })
   
   observeEvent(input$goto_targets_explorer, {
     updateTabsetPanel(session, "inTabset",
@@ -33,6 +37,11 @@ server <- function(input, output, session) {
   })
   
   observeEvent(input$return_home_3, {
+    updateTabsetPanel(session, "inTabset",
+                      selected = "home")
+  })
+  
+  observeEvent(input$return_home_transport, {
     updateTabsetPanel(session, "inTabset",
                       selected = "home")
   })

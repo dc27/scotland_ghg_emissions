@@ -67,7 +67,6 @@ ui <- tagList(
             }
             .info-box-icon{
             height:10vh;
-            width:10vh;
             }
             .info-box-content{
             text-align:right;
@@ -92,6 +91,12 @@ ui <- tagList(
             #emissions_plot
             {height: calc(100vh - 23vh) !important;}
             #sinks_plot
+            {height: calc(100vh - 23vh) !important;}
+            #historical_emissions_plt_line
+            {height: calc(100vh - 23vh) !important;}
+            #historical_emissions_plt_bar
+            {height: calc(100vh - 23vh) !important;}
+            #historical_emissions_plt_area
             {height: calc(100vh - 23vh) !important;}
             footer {
             background-color: grey
@@ -284,6 +289,7 @@ ui <- tagList(
                   status = "warning",
                   width = 12,
                   collapsible = TRUE,
+                  collapsed = TRUE,
                   sliderInput(
                     width = "100%", "year_historic", "Year(s) :",min = 1990, max = 2018,
                     value = c(1990, 2018)),
@@ -318,17 +324,39 @@ ui <- tagList(
             )
           )
         ),
-        # ----- Scottish Government Targets Exploration Page -----
+        # ---- Transport -----
         tabPanel(
-          title = "Scottish Government Targets and Progress",
-          value = "targets", 
-          actionButton('return_home_2', 'Home')
-        ),
-        # ------ Impact of green choices page ----- 
-        tabPanel(
-          title = "Impact of Green Choices",
-          value = "choices",
-          actionButton('return_home_3', 'Home'),
+          title = "Transport",
+          value = "transport", 
+          fluidRow(
+            column(
+              2,
+              class = "no_padding_col",
+              actionBttn(
+                style = "bordered", color = "success", icon = icon("home"),
+                inputId = 'return_home_transport',
+                label = 'Home'
+              )
+            ),
+            column(
+              10,
+              tags$div(
+                class = "header_box",
+                box(
+                  title = "",
+                  width = 12,
+                  height = "10vh",
+                  background = "light-blue",
+                  tags$div(
+                    class = "verti-hori-center",
+                    tags$h2(
+                      "Transport - Path to Net Zero"
+                    )
+                  )
+                )
+              )
+            )
+          ),
           fluidRow(
             # main ui select
             box(
@@ -368,7 +396,7 @@ ui <- tagList(
               height = "70vh",
               tabPanel(
                 "Chart",
-                plotlyOutput("plot", height = "62vh")
+                plotlyOutput("transport_plot", height = "62vh")
               )
             )
           ),
@@ -384,6 +412,19 @@ ui <- tagList(
               height = "20vh"
             )
           )
+        ),
+        # ----- Scottish Government Targets Exploration Page -----
+        tabPanel(
+          title = "Scottish Government Targets and Progress",
+          value = "targets", 
+          actionButton('return_home_2', 'Home'),
+          
+        ),
+        # ------ Impact of green choices page ----- 
+        tabPanel(
+          title = "Impact of Green Choices",
+          value = "choices",
+          actionButton('return_home_3', 'Home')
         )
       )
     )

@@ -357,61 +357,71 @@ ui <- tagList(
               )
             )
           ),
-          fluidRow(
-            # main ui select
-            box(
-              id = "data_select",
-              title = "Sector",
-              solidHeader = TRUE,
-              status = "success",
-              width = 4,
-              height = "70vh",
-              selectInput(
-                "user_sector",
-                label = "Select Sector:",
-                choices = names(dfs),
-                selected = "All"
-              ),
-              selectInput(
-                "user_dataset", label = "Select Dataset:", choices = NULL
-              ),
-              tags$hr(),
-              uiOutput("dynamic_dropdowns"),
-              tags$hr(),
-              # updates based on user input
-              radioButtons(
-                "user_plot", label = "Plot Type:", choices = ""
-              ),
-              checkboxInput("p_new_ulevs", "View Percentage of New Regs are ULEV"),
-              tags$div(
-                style = "text-align:center;",
-                actionButton("update", "Confirm Selection")
-              )
+          navlistPanel(
+            widths = c(2,10),
+            "Transport Explorer",
+            tabPanel(
+              "Newly Registered ULEVs"
             ),
-            # chart
-            box(
-              id = "vis_box",
-              width = 8,
-              title = textOutput("title"),
-              height = "70vh",
-              tabPanel(
-                "Chart",
-                plotlyOutput("transport_plot", height = "62vh")
-              )
+            tabPanel(
+              "Road Traffic"
             )
           ),
-          fluidRow(
-            # TODO::
-            # additional information, links
-            box(
-              id = "extra_info",
-              title = "Information and Links",
-              solidHeader = TRUE,
-              status = "success",
-              width = 12,
-              height = "20vh"
-            )
-          )
+          # fluidRow(
+          #   # main ui select
+          #   box(
+          #     id = "data_select",
+          #     title = "Sector",
+          #     solidHeader = TRUE,
+          #     status = "success",
+          #     width = 4,
+          #     height = "70vh",
+          #     selectInput(
+          #       "user_sector",
+          #       label = "Select Sector:",
+          #       choices = names(dfs),
+          #       selected = "All"
+          #     ),
+          #     selectInput(
+          #       "user_dataset", label = "Select Dataset:", choices = NULL
+          #     ),
+          #     tags$hr(),
+          #     uiOutput("dynamic_dropdowns"),
+          #     tags$hr(),
+          #     # updates based on user input
+          #     radioButtons(
+          #       "user_plot", label = "Plot Type:", choices = ""
+          #     ),
+          #     checkboxInput("p_new_ulevs", "View Percentage of New Regs are ULEV"),
+          #     tags$div(
+          #       style = "text-align:center;",
+          #       actionButton("update", "Confirm Selection")
+          #     )
+          #   ),
+          #   # chart
+          #   box(
+          #     id = "vis_box",
+          #     width = 8,
+          #     title = textOutput("title"),
+          #     height = "70vh",
+          #     tabPanel(
+          #       "Chart",
+          #       plotlyOutput("transport_plot", height = "62vh")
+          #     )
+          #   )
+          # ),
+          # fluidRow(
+          #   # TODO::
+          #   # additional information, links
+          #   box(
+          #     id = "extra_info",
+          #     title = "Information and Links",
+          #     solidHeader = TRUE,
+          #     status = "success",
+          #     width = 12,
+          #     height = "20vh"
+          #   )
+          # )
         ),
         # ----- Scottish Government Targets Exploration Page -----
         tabPanel(

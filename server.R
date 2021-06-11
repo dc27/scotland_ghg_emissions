@@ -53,57 +53,57 @@ server <- function(input, output, session) {
     input$user_sector
   })
   
-  # update dataset input based on user's sector choice
-  observeEvent(sector(), {
-    updateSelectInput(
-      input = "user_dataset",
-      choices = names(dfs[[input$user_sector]])
-      )
-  })
-  
-  # get information from list of dfs
-  dataset <- reactive(dfs[[input$user_sector]][[input$user_dataset]]$data)
-  vars <- reactive(dfs[[input$user_sector]][[input$user_dataset]]$explorable_vars)
-  plot_options <- reactive(dfs[[input$user_sector]][[input$user_dataset]]$plot_options)
-  
-  # dynamic input options - construct dropdowns
-  # (see filter_vars_and_join_functions.R)
-  output$dynamic_dropdowns <- renderUI(
-    map(vars(), ~ make_dropdown(dataset()[[.x]], .x))
-  )
-  
-  # update plot options based on user's dataset choices
-  observeEvent(dataset(), {
-    updateRadioButtons(
-      input = "user_plot",
-      choices = str_to_title(plot_options())
-    )
-  })
-  
-  observe({
-    if(input$user_dataset == "Newly Registered ULEVs"){
-      show("p_new_ulevs")
-    }else{
-      hide("p_new_ulevs")
-    }
-  })
-  
-  # get user's plot choice
-  plot_choice <- reactive({
-    input$user_plot
-  })
-  
-  # if plot choice is not line, set year to max year by default.
-  # user can always change this.
-  observe({
-    if (!plot_choice() %in% c("Line", "Area")) {
-    updateSliderInput(
-      input = "year",
-      # cheat to set to max year
-      value = 3000,
-    )
-    }
-  })
+  # # update dataset input based on user's sector choice
+  # observeEvent(sector(), {
+  #   updateSelectInput(
+  #     input = "user_dataset",
+  #     choices = names(dfs[[input$user_sector]])
+  #     )
+  # })
+  # 
+  # # get information from list of dfs
+  # dataset <- reactive(dfs[[input$user_sector]][[input$user_dataset]]$data)
+  # vars <- reactive(dfs[[input$user_sector]][[input$user_dataset]]$explorable_vars)
+  # plot_options <- reactive(dfs[[input$user_sector]][[input$user_dataset]]$plot_options)
+  # 
+  # # dynamic input options - construct dropdowns
+  # # (see filter_vars_and_join_functions.R)
+  # output$dynamic_dropdowns <- renderUI(
+  #   map(vars(), ~ make_dropdown(dataset()[[.x]], .x))
+  # )
+  # 
+  # # update plot options based on user's dataset choices
+  # observeEvent(dataset(), {
+  #   updateRadioButtons(
+  #     input = "user_plot",
+  #     choices = str_to_title(plot_options())
+  #   )
+  # })
+  # 
+  # observe({
+  #   if(input$user_dataset == "Newly Registered ULEVs"){
+  #     show("p_new_ulevs")
+  #   }else{
+  #     hide("p_new_ulevs")
+  #   }
+  # })
+  # 
+  # # get user's plot choice
+  # plot_choice <- reactive({
+  #   input$user_plot
+  # })
+  # 
+  # # if plot choice is not line, set year to max year by default.
+  # # user can always change this.
+  # observe({
+  #   if (!plot_choice() %in% c("Line", "Area")) {
+  #   updateSliderInput(
+  #     input = "year",
+  #     # cheat to set to max year
+  #     value = 3000,
+  #   )
+  #   }
+  # })
   
   
   

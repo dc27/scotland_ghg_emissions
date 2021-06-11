@@ -357,14 +357,38 @@ ui <- tagList(
               )
             )
           ),
+          absolutePanel(
+            id = "controls", fixed = TRUE, class = "panel panel-default",
+            draggable = TRUE, top = 60, left = "auto", right = 20,
+            bottom = "auto",
+            width = "20vw", padding = "1vh",
+            
+            # plot options change for each dataset
+            box(
+              title = "Plot Options",
+              status = "warning",
+              width = 12,
+              collapsible = TRUE,
+              collapsed = TRUE,
+              uiOutput("dynamic_dropdowns"),
+              actionButton("update_transport_plt", "Update Plot")
+            )
+          ),
           navlistPanel(
             widths = c(2,10),
+            id = "transport_nav",
             "Transport Explorer",
             tabPanel(
-              "Newly Registered ULEVs"
+              "Newly Registered ULEVs",
+              plotlyOutput("new_ulevs")
             ),
             tabPanel(
-              "Road Traffic"
+              "Licensed ULEVs",
+              plotlyOutput("all_ulevs")
+            ),
+            tabPanel(
+              "Road Traffic",
+              plotlyOutput("road_traffic")
             )
           ),
           # fluidRow(

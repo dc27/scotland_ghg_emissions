@@ -103,23 +103,8 @@ server <- function(input, output, session) {
   # 
   # 
   # ---- filter data -----
-  # get df of TRUEs and FALSEs to filter
-  selected <- eventReactive(
-    input$update_transport_plt,
-    ignoreNULL = FALSE,
-    {
-    each_var <- map(vars(), ~ filter_var(dataset()[[.x]], input[[.x]]))
-    reduce(each_var, `&`)
-  })
-  # 
-  # apply filtration
-  selected_df <- eventReactive(
-    input$update_transport_plt,
-    ignoreNULL = FALSE,
-    {
-    dataset()[selected(), ] %>% 
-      group_and_summarise_including("year")
-  })
+
+  
   #   
   #   # TODO:: percentages need a bit of work
   #   if (input$user_dataset == "Newly Registered ULEVs" & input$p_new_ulevs) {
@@ -323,24 +308,51 @@ server <- function(input, output, session) {
   # ----- Transport -----
   
   # new ULEVs
-  
-  transport_plt <- eventReactive(
-    input$update_transport_plt,
-    ignoreNULL = FALSE,
+  observeEvent(
+    input$transport_nav,
     {
-    selected_df() %>% 
-      create_line_plot()
-  })
-  
-  output$new_ulevs <- renderPlotly({
-    transport_plt()
-  })
-  # Licensed ULEVs
+    # reset on changing tab
+    selected <<- NULL
+    transport_plt <<- NULL
+    
+    # get df of TRUEs and FALSEs to filter
+    selected <- eventReactive(
+      input$update_transport_plt,
+      {
+        each_var <- map(vars(), ~ filter_var(dataset()[[.x]], input[[.x]]))
+        reduce(each_var, `&`)
+      })
+    # 
+    # apply filtration
+    selected_df <- eventReactive(
+      input$update_transport_plt,
+      {
+        dataset()[selected(), ] %>% 
+          group_and_summarise_including("year")
+      })
+    
+    transport_plt <<- eventReactive(
+      input$update_transport_plt,
+      {
+        selected_df() %>% 
+          create_line_plot()
+      })
+    })
+    
+    # new ulevs
+    output$new_ulevs <- renderPlotly(
+      {
+      transport_plt()
+    })
 
   
-  output$road_traffic <- renderPlotly({
-    transport_plt()
-  })
+    # new ulevs
+    output$road_traffic <- renderPlotly(
+      {
+      transport_plt()
+      })
+
+    
   
   
 }

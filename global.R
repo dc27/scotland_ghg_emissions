@@ -16,6 +16,8 @@ source("dropdown_lookup.R")
 
 dfs <- explorable_dfs
 
+historical_emissions_data <- dfs$All$`Historic Emissions`$data
+
 dropdown_lookup <- dropdown_lookup
 
 theme_set(theme_bw())

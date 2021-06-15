@@ -188,12 +188,45 @@ server <- function(input, output, session) {
         each_var <- map(vars(), ~ filter_var(dataset()[[.x]], input[[.x]]))
         selected <- reduce(each_var, `&`)
         
-        while (length(selected != 0)) {
-          # apply filtration
+        req(selected)
+        # apply filtration
+        
+        selected_df <- dataset()[selected, ] %>%
+            group_and_summarise_including("year")
+        
+        
+        transport_plt <- selected_df %>%
+          create_line_plot()
+        
+        # new ulevs
+        output$new_ulevs <- renderPlotly(
+          {
+            transport_plt
+          })
+        
+        
+        # road traffic
+        output$road_traffic <- renderPlotly(
+          {
+            transport_plt
+          })
           
+        
+      })
+      
+      observeEvent(
+        input$update_transport_plt,
+        {
+          # get df of TRUEs and FALSEs to filter
           
+          each_var <- map(vars(), ~ filter_var(dataset()[[.x]], input[[.x]]))
+          selected <- reduce(each_var, `&`)
+          
+          req(selected)
+            # apply filtration
+            
           selected_df <- dataset()[selected, ] %>%
-              group_and_summarise_including("year")
+            group_and_summarise_including("year")
           
           
           transport_plt <- selected_df %>%
@@ -212,42 +245,7 @@ server <- function(input, output, session) {
               transport_plt
             })
           
-        }
-      })
-      
-      observeEvent(
-        input$update_transport_plt,
-        {
-          # get df of TRUEs and FALSEs to filter
-          
-          each_var <- map(vars(), ~ filter_var(dataset()[[.x]], input[[.x]]))
-          selected <- reduce(each_var, `&`)
-          
-          while (length(selected != 0)) {
-            # apply filtration
-            
-            
-            selected_df <- dataset()[selected, ] %>%
-              group_and_summarise_including("year")
-            
-            
-            transport_plt <- selected_df %>%
-              create_line_plot()
-            
-            # new ulevs
-            output$new_ulevs <- renderPlotly(
-              {
-                transport_plt
-              })
-            
-            
-            # road traffic
-            output$road_traffic <- renderPlotly(
-              {
-                transport_plt
-              })
-            
-          }
+        
         })
       
     } else if (sector() == "Home") {
@@ -389,10 +387,7 @@ server <- function(input, output, session) {
       output$historical_emissions_plt_area <-renderPlotly(
         area_plot()
       )
-      
-    
-        
-      
+
     }
   })
 }

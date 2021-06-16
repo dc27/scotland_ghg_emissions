@@ -369,7 +369,6 @@ ui <- tagList(
               status = "warning",
               width = 12,
               collapsible = TRUE,
-              collapsed = TRUE,
               uiOutput("dynamic_dropdowns"),
               actionButton("update_transport_plt", "Update Plot")
             )

@@ -165,67 +165,50 @@ server <- function(input, output, session) {
       
       
       # ----- Transport -----
-      current_tab <- reactive({input$transport_nav})
-
-
-      dataset <- reactive({dfs[[sector()]][[current_tab()]]$data})
-      vars <- reactive({dfs[[sector()]][[current_tab()]]$explorable_vars})
-
-      # dynamic input options - construct dropdowns
-      # (see filter_vars_and_join_functions.R)
-      dropdowns <- map(vars(), ~ make_dropdown(dataset()[[.x]], .x))
-
-      output$dynamic_dropdowns <- renderUI(
-        dropdowns
-      )
+      # current_tab <- reactive({input$transport_nav})
+      # 
+      # 
+      # dataset <- reactive({dfs[[sector()]][[current_tab()]]$data})
+      # vars <- reactive({dfs[[sector()]][[current_tab()]]$explorable_vars})
+      # 
+      # # dynamic input options - construct dropdowns
+      # # (see filter_vars_and_join_functions.R)
+      # dropdowns <- map(vars(), ~ make_dropdown(dataset()[[.x]], .x))
+      # 
+      # output$dynamic_dropdowns <- renderUI(
+      #   dropdowns
+      # )
 
       observeEvent(
         input$transport_nav,
+        priority = 1,
         {
-        # get df of TRUEs and FALSEs to filter
           
-        
-        each_var <- map(vars(), ~ filter_var(dataset()[[.x]], input[[.x]]))
-        selected <- reduce(each_var, `&`)
-        
-        req(selected)
-        # apply filtration
-        
-        selected_df <- dataset()[selected, ] %>%
-            group_and_summarise_including("year")
-        
-        
-        transport_plt <- selected_df %>%
-          create_line_plot()
-        
-        # new ulevs
-        output$new_ulevs <- renderPlotly(
-          {
-            transport_plt
-          })
-        
-        
-        # road traffic
-        output$road_traffic <- renderPlotly(
-          {
-            transport_plt
-          })
+          current_tab <- input$transport_nav
           
-        
-      })
+          dataset <<- dfs[[sector()]][[current_tab]]$data
+          ex_vars <<- dfs[[sector()]][[current_tab]]$explorable_vars
+          
+          dropdowns <- map(ex_vars, ~make_dropdown(dataset[[.x]], .x))
+          
+          output$dynamic_dropdowns <- renderUI (
+            dropdowns
+          )
+        })
       
       observeEvent(
-        input$update_transport_plt,
+        input[[ex_vars[1]]],
+        priority = 0,
         {
+          
           # get df of TRUEs and FALSEs to filter
           
-          each_var <- map(vars(), ~ filter_var(dataset()[[.x]], input[[.x]]))
+          each_var <- map(ex_vars, ~ filter_var(dataset[[.x]], input[[.x]]))
           selected <- reduce(each_var, `&`)
           
-          req(selected)
-            # apply filtration
-            
-          selected_df <- dataset()[selected, ] %>%
+          # apply filtration
+          
+          selected_df <- dataset[selected, ] %>%
             group_and_summarise_including("year")
           
           
@@ -238,6 +221,40 @@ server <- function(input, output, session) {
               transport_plt
             })
           
+          
+          # road traffic
+          output$road_traffic <- renderPlotly(
+            {
+              transport_plt
+            })
+        }
+      )
+          
+
+ 
+      
+      observeEvent(
+        input$update_transport_plt,
+        {
+          # get df of TRUEs and FALSEs to filter
+          
+          each_var <- map(ex_vars, ~ filter_var(dataset[[.x]], input[[.x]]))
+          selected <- reduce(each_var, `&`)
+          
+          req(selected)
+            # apply filtration
+            
+          selected_df <- dataset[selected, ] %>%
+            group_and_summarise_including("year")
+          
+          transport_plt <- selected_df %>%
+            create_line_plot()
+          
+          # new ulevs
+          output$new_ulevs <- renderPlotly(
+            {
+              transport_plt
+            })
           
           # road traffic
           output$road_traffic <- renderPlotly(

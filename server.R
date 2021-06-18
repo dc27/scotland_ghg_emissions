@@ -200,7 +200,6 @@ server <- function(input, output, session) {
         input[[ex_vars[1]]],
         priority = 0,
         {
-          
           # get df of TRUEs and FALSEs to filter
           
           each_var <- map(ex_vars, ~ filter_var(dataset[[.x]], input[[.x]]))
@@ -212,27 +211,15 @@ server <- function(input, output, session) {
             group_and_summarise_including("year")
           
           
-          transport_plt <- selected_df %>%
+          transport_plt <<- selected_df %>%
             create_line_plot()
-          
-          # new ulevs
-          output$new_ulevs <- renderPlotly(
-            {
-              transport_plt
-            })
-          
-          
-          # road traffic
-          output$road_traffic <- renderPlotly(
-            {
-              transport_plt
-            })
         }
       )
           
 
       observeEvent(
         input$update_transport_plt,
+        priority = 1,
         {
           # get df of TRUEs and FALSEs to filter
           
@@ -245,22 +232,37 @@ server <- function(input, output, session) {
           selected_df <- dataset[selected, ] %>%
             group_and_summarise_including("year")
           
-          transport_plt <- selected_df %>%
+          transport_plt <<- selected_df %>%
             create_line_plot()
           
-          # new ulevs
           output$new_ulevs <- renderPlotly(
             {
+              req(transport_plt)
               transport_plt
             })
+          
           
           # road traffic
           output$road_traffic <- renderPlotly(
             {
               transport_plt
             })
-
         })
+          
+      output$new_ulevs <- renderPlotly(
+        {
+          req(transport_plt)
+          transport_plt
+        })
+      
+      
+      # road traffic
+      output$road_traffic <- renderPlotly(
+        {
+          transport_plt
+        })
+
+
       
     } else if (sector() == "Home") {
         

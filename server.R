@@ -231,8 +231,6 @@ server <- function(input, output, session) {
       )
           
 
- 
-      
       observeEvent(
         input$update_transport_plt,
         {
@@ -261,8 +259,7 @@ server <- function(input, output, session) {
             {
               transport_plt
             })
-          
-        
+
         })
       
     } else if (sector() == "Home") {

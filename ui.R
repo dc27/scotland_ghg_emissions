@@ -98,6 +98,13 @@ ui <- tagList(
             {height: calc(100vh - 23vh) !important;}
             #historical_emissions_plt_area
             {height: calc(100vh - 23vh) !important;}
+            #new_ulevs
+            {height: calc(100vh - 23vh) !important;}
+            #all_ulevs
+            {height: calc(100vh - 23vh) !important;}
+            #road_traffic
+            {height: calc(100vh - 23vh) !important;}
+            #
             footer {
             background-color: grey
             margin-bottom:0;

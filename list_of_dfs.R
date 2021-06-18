@@ -30,7 +30,7 @@ explorable_dfs <- list(
 
   ),
   "Transport" = list(
-    "Newly Registered ULEVs" = list(
+    "Newly Registered Vehicles" = list(
       data = read_csv(
         "data/clean_data/transport/newly_registered_vehicles_and_ulevs.csv"
         ),

@@ -377,6 +377,7 @@ ui <- tagList(
               width = 12,
               collapsible = TRUE,
               uiOutput("dynamic_dropdowns"),
+              checkboxInput("p_new_ulevs", "View Percentage of New Regs are ULEV"),
               actionButton("update_transport_plt", "Update Plot")
             )
           ),
@@ -385,13 +386,13 @@ ui <- tagList(
             id = "transport_nav",
             "Transport Explorer",
             tabPanel(
-              "Newly Registered ULEVs",
+              "Newly Registered Vehicles",
               plotlyOutput("new_ulevs")
             ),
-            tabPanel(
-              "Licensed ULEVs",
-              plotlyOutput("all_ulevs")
-            ),
+            # tabPanel(
+            #   "Licensed Vehicles",
+            #   plotlyOutput("all_ulevs")
+            # ),
             tabPanel(
               "Road Traffic",
               plotlyOutput("road_traffic")

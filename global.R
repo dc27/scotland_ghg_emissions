@@ -10,6 +10,7 @@ library(stringr)
 library(ggplot2)
 library(purrr)
 library(plotly)
+library(viridis)
 
 source("list_of_dfs.R")
 source("dropdown_lookup.R")
@@ -20,7 +21,15 @@ historical_emissions_data <- dfs$All$`Historic Emissions`$data
 
 dropdown_lookup <- dropdown_lookup
 
+# default plot options
 theme_set(theme_bw())
+theme_update(plot.title = element_text(hjust = 1))
+
+options(ggplot2.continuous.colour="viridis")
+options(ggplot2.continuous.fill = "viridis")
+scale_fill_discrete <- function(...) {
+  scale_fill_manual(..., values = c(viridis_pal()(9)))
+} 
 
 myImgResources <- paste0("imgResources/", "sunburst_emissions", ".png")
 

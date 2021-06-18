@@ -19,7 +19,7 @@ create_bar_plot <-function(df = selected_df(), facet_var = NULL) {
   return(p)
 }
 
-create_line_plot <- function(df = selected_df(), facet_var = NULL ) {
+create_line_plot <- function(df = selected_df(), plt_title, facet_var = NULL ) {
   # to clean up output for x-axis
   min_year = min(df[["year"]])
   max_year = max(df[["year"]])
@@ -35,7 +35,8 @@ create_line_plot <- function(df = selected_df(), facet_var = NULL ) {
     geom_point() +
     scale_x_continuous(limits = c(min_year, max_year),
                        breaks = seq(min_year, max_year, sep)) +
-    scale_y_continuous(labels = scales::comma, limits = c(0, NA))
+    scale_y_continuous(labels = scales::comma, limits = c(0, NA)) +
+    labs(x = "Year", y = df[["units"]][1], title = plt_title)
   
   # facet if required
   if (!is.null(facet_var)) {

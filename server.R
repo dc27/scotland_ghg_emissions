@@ -196,23 +196,35 @@ server <- function(input, output, session) {
           )
         })
       
+      
       observeEvent(
-        input[[ex_vars[1]]],
+        input$transport_nav,
         priority = 0,
         {
-          # get df of TRUEs and FALSEs to filter
-          
           each_var <- map(ex_vars, ~ filter_var(dataset[[.x]], input[[.x]]))
           selected <- reduce(each_var, `&`)
           
+          req(selected)
           # apply filtration
           
           selected_df <- dataset[selected, ] %>%
             group_and_summarise_including("year")
           
-          
           transport_plt <<- selected_df %>%
-            create_line_plot()
+            create_line_plot(plt_title = input$transport_nav)
+          
+          output$new_ulevs <- renderPlotly(
+            {
+              req(transport_plt)
+              transport_plt
+            })
+          
+          
+          # road traffic
+          output$road_traffic <- renderPlotly(
+            {
+              transport_plt
+            })
         }
       )
           
@@ -233,7 +245,7 @@ server <- function(input, output, session) {
             group_and_summarise_including("year")
           
           transport_plt <<- selected_df %>%
-            create_line_plot()
+            create_line_plot(plt_title = input$transport_nav)
           
           output$new_ulevs <- renderPlotly(
             {
@@ -248,18 +260,33 @@ server <- function(input, output, session) {
               transport_plt
             })
         })
+      
+
+      
+      dirty_default <- reactive({
+        if (input$transport_nav == "Newly Registered ULEVs") {
+        dirty_default <- dfs$Transport$`Newly Registered ULEVs`$data %>% 
+          filter(statistic == "Vehicle Registrations") %>% 
+          group_and_summarise_including("year") %>% 
+          create_line_plot(plt_title = input$transport_nav)
+        } else if (input$transport_nav == "Road Traffic") {
+          dirty_default <- dfs$Transport$`Road Traffic`$data %>% 
+            group_and_summarise_including("year") %>% 
+            create_line_plot(plt_title = input$transport_nav)
+        }
+      })
+        
           
       output$new_ulevs <- renderPlotly(
         {
-          req(transport_plt)
-          transport_plt
+          dirty_default()
         })
-      
-      
+
+
       # road traffic
       output$road_traffic <- renderPlotly(
         {
-          transport_plt
+          dirty_default()
         })
 
 
@@ -273,7 +300,7 @@ server <- function(input, output, session) {
       
       home_line_plot <- historical_emissions_data %>% 
           group_and_summarise_including("year") %>% 
-          create_line_plot()
+          create_line_plot(plt_title = "Annual Net Emissions in Scotland")
       
       output$headline_plot <- renderPlotly(
         home_line_plot

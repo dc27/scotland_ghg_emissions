@@ -23,7 +23,7 @@ dropdown_lookup <- dropdown_lookup
 
 # default plot options
 theme_set(theme_bw())
-theme_update(plot.title = element_text(hjust = 1))
+theme_update(plot.title = element_text(hjust = 0.5))
 
 options(ggplot2.continuous.colour="viridis")
 options(ggplot2.continuous.fill = "viridis")

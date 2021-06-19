@@ -168,7 +168,7 @@ server <- function(input, output, session) {
             if(current_tab == "Newly Registered Vehicles"){
               show("p_new_ulevs")
             }else{
-              updateCheckboxInput(session, "p_new_ulevs", "View Percentage of New Regs are ULEV",value = FALSE)
+              updateCheckboxInput(session, "p_new_ulevs", "View Percentage of New Regs are ULEV", value = FALSE)
               hide("p_new_ulevs")
             }
           })
@@ -189,7 +189,9 @@ server <- function(input, output, session) {
           req(selected)
           # apply filtration
           
-          if (isTruthy(input$p_new_ulevs)) {
+          browser()
+          
+          if (isTruthy(input$p_new_ulevs) & input$transport_nav == "Newly Registered Vehicles") {
             selected_df <- dataset %>%
               filter(vehicle_type %in% input$vehicle_type) %>%
               filter(year >= input$year[1] & year <= input$year[2]) %>%
@@ -205,7 +207,7 @@ server <- function(input, output, session) {
               group_and_summarise_including("year")
           }
           
-          transport_plt <<- selected_df %>%
+          transport_plt <- selected_df %>%
             create_line_plot(plt_title = input$transport_nav)
           
           output$new_ulevs <- renderPlotly(
@@ -236,7 +238,7 @@ server <- function(input, output, session) {
           req(selected)
             # apply filtration
           
-          if (isTruthy(input$p_new_ulevs)) {
+          if (isTruthy(input$p_new_ulevs) & input$transport_nav == "Newly Registered Vehicles") {
             selected_df <- dataset %>%
               filter(vehicle_type %in% input$vehicle_type) %>%
               filter(year >= input$year[1] & year <= input$year[2]) %>%
@@ -246,6 +248,7 @@ server <- function(input, output, session) {
               select(- c(statistic, value)) %>%
               drop_na() %>%
               select(year, value = perc_new_ulevs, units)
+            
           } else {
             
             
@@ -254,7 +257,7 @@ server <- function(input, output, session) {
           }
             
           
-          transport_plt <<- selected_df %>%
+          transport_plt <- selected_df %>%
             create_line_plot(plt_title = input$transport_nav)
           
           output$new_ulevs <- renderPlotly(

@@ -247,6 +247,7 @@ ui <- tagList(
             ),
             column(
               10,
+              class = "no_padding_col",
               tags$div(
                 class = "header_box",
                 box(
@@ -347,6 +348,7 @@ ui <- tagList(
             ),
             column(
               10,
+              class = "no_padding_col",
               tags$div(
                 class = "header_box",
                 box(

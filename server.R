@@ -151,179 +151,26 @@ server <- function(input, output, session) {
       
       
       # ----- Transport -----
-      observeEvent(
-        input$transport_nav,
-        priority = 1,
-        {
-          current_tab <- input$transport_nav
-          
-          dataset <<- dfs[[sector()]][[current_tab]]$data
-          ex_vars <<- dfs[[sector()]][[current_tab]]$explorable_vars
-          
-          dropdowns <- map(ex_vars, ~make_dropdown(dataset[[.x]], .x))
-          
-          
-          observe({
-            if(current_tab == "Newly Registered Vehicles"){
-              show("p_new_ulevs")
-            }else{
-              updateCheckboxInput(session, "p_new_ulevs", "View Percentage of New Regs are ULEV", value = FALSE)
-              hide("p_new_ulevs")
-            }
-          })
-          
-          output$dynamic_dropdowns <- renderUI (
-            dropdowns
-          )
-        })
-      
-      
-      observeEvent(
-        input$transport_nav,
-        priority = 0,
-        {
-          each_var <- map(ex_vars, ~ filter_var(dataset[[.x]], input[[.x]]))
-          selected <- reduce(each_var, `&`)
-          
-          req(selected)
-          # apply filtration
-          
-          browser()
-          
-          if (isTruthy(input$p_new_ulevs) & input$transport_nav == "Newly Registered Vehicles") {
-            selected_df <- dataset %>%
-              filter(vehicle_type %in% input$vehicle_type) %>%
-              filter(year >= input$year[1] & year <= input$year[2]) %>%
-              group_and_summarise_including(c("year", "statistic")) %>%
-              mutate(perc_new_ulevs = lag(value)/value *100) %>%
-              mutate(units = "% newly registered vehicles are ULEV") %>%
-              select(- c(statistic, value)) %>%
-              drop_na() %>%
-              select(year, value = perc_new_ulevs, units)
-          } else {
-          
-            selected_df <- dataset[selected, ] %>%
-              group_and_summarise_including("year")
-          }
-          
-          transport_plt <- selected_df %>%
-            create_line_plot(plt_title = input$transport_nav)
-          
-          output$new_ulevs <- renderPlotly(
-            {
-              req(transport_plt)
-              transport_plt
-            })
-          
-          
-          # road traffic
-          output$road_traffic <- renderPlotly(
-            {
-              transport_plt
-            })
-        }
-      )
-          
-
-      observeEvent(
-        input$update_transport_plt,
-        priority = 1,
-        {
-          # get df of TRUEs and FALSEs to filter
-          
-          each_var <- map(ex_vars, ~ filter_var(dataset[[.x]], input[[.x]]))
-          selected <- reduce(each_var, `&`)
-          
-          req(selected)
-            # apply filtration
-          
-          if (isTruthy(input$p_new_ulevs) & input$transport_nav == "Newly Registered Vehicles") {
-            selected_df <- dataset %>%
-              filter(vehicle_type %in% input$vehicle_type) %>%
-              filter(year >= input$year[1] & year <= input$year[2]) %>%
-              group_and_summarise_including(c("year", "statistic")) %>%
-              mutate(perc_new_ulevs = lag(value)/value *100) %>%
-              mutate(units = "% newly registered vehicles are ULEV") %>%
-              select(- c(statistic, value)) %>%
-              drop_na() %>%
-              select(year, value = perc_new_ulevs, units)
-            
-          } else {
-            
-            
-            selected_df <- dataset[selected, ] %>%
-              group_and_summarise_including("year")
-          }
-            
-          
-          transport_plt <- selected_df %>%
-            create_line_plot(plt_title = input$transport_nav)
-          
-          output$new_ulevs <- renderPlotly(
-            {
-              req(transport_plt)
-              transport_plt
-            })
-          
-          
-          # road traffic
-          output$road_traffic <- renderPlotly(
-            {
-              transport_plt
-            })
-        })
-      
 
       
-      dirty_default <- reactive({
-        if (input$transport_nav == "Newly Registered Vehicles") {
-        dirty_default <- dfs$Transport$`Newly Registered Vehicles`$data %>% 
-          filter(statistic == "Vehicle Registrations") %>% 
-          group_and_summarise_including("year") %>% 
-          create_line_plot(plt_title = input$transport_nav)
-        } else if (input$transport_nav == "Road Traffic") {
-          dirty_default <- dfs$Transport$`Road Traffic`$data %>% 
-            group_and_summarise_including("year") %>% 
-            create_line_plot(plt_title = input$transport_nav)
-        }
-      })
-        
-          
-      output$new_ulevs <- renderPlotly(
-        {
-          dirty_default()
-        })
-
-
-      # road traffic
-      output$road_traffic <- renderPlotly(
-        {
-          dirty_default()
-        })
+      #  execution guide
       
-      
-
-    output$new_ulevs <- renderPlotly({
-      
-    })
-      
-
-    
-# depending on the value of input$x_nav          
-# 1. create default plot
-# 2. create dynamic inputs
-# 3. update plot with user inputs (upon press)
+      # depending on the value of input$x_nav          
+      # 1. create default plot
+      # 2. create dynamic inputs
+      # 3. update plot with user inputs (upon press)
 
     observeEvent(
       input$transport_nav,
       {
         if (input$transport_nav == "Newly Registered Vehicles") {
+          # 1. create default plot
           dirty_default <- dfs$Transport$`Newly Registered Vehicles`$data %>% 
             filter(statistic == "Vehicle Registrations") %>% 
             group_and_summarise_including("year") %>% 
             create_line_plot(plt_title = input$transport_nav)
           
-          # 1. create default plot
+          
           output$new_ulevs <- renderPlotly({
             dirty_default
           })
@@ -331,8 +178,8 @@ server <- function(input, output, session) {
           # 2. update dynamic inputs
           current_tab <- input$transport_nav
           
-          dataset <<- dfs[[sector()]][[current_tab]]$data
-          ex_vars <<- dfs[[sector()]][[current_tab]]$explorable_vars
+          dataset <- dfs[[sector()]][[current_tab]]$data
+          ex_vars <- dfs[[sector()]][[current_tab]]$explorable_vars
           
           dropdowns <- map(ex_vars, ~make_dropdown(dataset[[.x]], .x))
           
@@ -342,16 +189,88 @@ server <- function(input, output, session) {
             dropdowns
           )
           
-          observeEvent({
-            
+          
+          # 3. update plot with user inputs (upon press)
+          
+          observeEvent(
+            input$update_transport_plt, {
+              
+              each_var <- map(ex_vars, ~ filter_var(dataset[[.x]], input[[.x]]))
+              selected <- reduce(each_var, `&`)
+              
+              req(selected)
+              # apply filtration
+              
+              
+              # extra required when % of new registrations that are ULEV is selected
+              # due to how percentages are calculated (in maths - not in R)
+              if (isTruthy(input$p_new_ulevs) & input$transport_nav == "Newly Registered Vehicles") {
+                selected_df <- dataset %>%
+                  filter(vehicle_type %in% input$vehicle_type) %>%
+                  filter(year >= input$year[1] & year <= input$year[2]) %>%
+                  group_and_summarise_including(c("year", "statistic")) %>%
+                  mutate(perc_new_ulevs = lag(value)/value *100) %>%
+                  mutate(units = "% newly registered vehicles are ULEV") %>%
+                  select(- c(statistic, value)) %>%
+                  drop_na() %>%
+                  select(year, value = perc_new_ulevs, units)
+              } else {
+                # standard way
+                selected_df <- dataset[selected, ] %>%
+                  group_and_summarise_including("year")
+              }
+              
+              transport_plt <- selected_df %>%
+                create_line_plot(plt_title = input$transport_nav)
+              
+              output$new_ulevs <- renderPlotly(
+                {
+                  transport_plt
+              })
           })
-        } else 
+          
+        } else if (input$transport_nav == "Road Traffic") {
+          dirty_default <- dfs$Transport$`Road Traffic`$data %>%
+            group_and_summarise_including("year") %>%
+            create_line_plot(plt_title = input$transport_nav)
+          
+          output$road_traffic <- renderPlotly({
+            dirty_default
+          })
+          
+          current_tab <- input$transport_nav
+          
+          dataset <- dfs[[sector()]][[current_tab]]$data
+          ex_vars <- dfs[[sector()]][[current_tab]]$explorable_vars
+          
+          dropdowns <- map(ex_vars, ~make_dropdown(dataset[[.x]], .x))
+          
+          updateCheckboxInput(session, "p_new_ulevs", "View Percentage of New Regs are ULEV", value = FALSE)
+          hide("p_new_ulevs")
+          
+          output$dynamic_dropdowns <- renderUI (
+            dropdowns
+          )
+          
+          observeEvent(
+            input$update_transport_plt, {
+              
+              each_var <- map(ex_vars, ~ filter_var(dataset[[.x]], input[[.x]]))
+              selected <- reduce(each_var, `&`)
+          
+              selected_df <- dataset[selected, ] %>%
+                group_and_summarise_including("year")
+              
+              transport_plt <- selected_df %>%
+                create_line_plot(plt_title = input$transport_nav)
+            
+            output$road_traffic <- renderPlotly ({
+              transport_plt
+            })
+          })
+        }
       }
     )
-    
-    output$new_ulevs <- renderPlotly({
-      
-    })
     
 
       

@@ -6,7 +6,7 @@ ui <- tagList(
     ),
     dashboardSidebar(disable = TRUE),
     dashboardBody(
-      # call shinyjs
+      # call shinyjs - required for navigation to work (eventListeners)
       useShinyjs(),
       # specify box heights in css
       tagList(

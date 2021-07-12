@@ -163,6 +163,7 @@ server <- function(input, output, session) {
     observeEvent(
       input$transport_nav,
       {
+        update_plot <- reactiveVal(FALSE)
         if (input$transport_nav == "Newly Registered Vehicles") {
           # 1. create default plot
           dirty_default <- dfs$Transport$`Newly Registered Vehicles`$data %>% 
@@ -191,9 +192,13 @@ server <- function(input, output, session) {
           
           
           # 3. update plot with user inputs (upon press)
+          update_plot <- eventReactive(input$update_transport_plt, {
+            TRUE
+          })
           
-          observeEvent(
-            input$update_transport_plt, {
+          browser()
+          
+          if (isTRUE(update_plot)) {
               
               each_var <- map(ex_vars, ~ filter_var(dataset[[.x]], input[[.x]]))
               selected <- reduce(each_var, `&`)
@@ -227,7 +232,7 @@ server <- function(input, output, session) {
                 {
                   transport_plt
               })
-          })
+          }
           
         } else if (input$transport_nav == "Road Traffic") {
           dirty_default <- dfs$Transport$`Road Traffic`$data %>%
@@ -244,7 +249,6 @@ server <- function(input, output, session) {
           ex_vars <- dfs[[sector()]][[current_tab]]$explorable_vars
           
           dropdowns <- map(ex_vars, ~make_dropdown(dataset[[.x]], .x))
-          
           updateCheckboxInput(session, "p_new_ulevs", "View Percentage of New Regs are ULEV", value = FALSE)
           hide("p_new_ulevs")
           
@@ -252,8 +256,12 @@ server <- function(input, output, session) {
             dropdowns
           )
           
-          observeEvent(
-            input$update_transport_plt, {
+          update <- eventReactive(input$update_transport_plt, {
+            TRUE
+          })
+          if (isTRUE(update_plot)) {
+              
+              browser()
               
               each_var <- map(ex_vars, ~ filter_var(dataset[[.x]], input[[.x]]))
               selected <- reduce(each_var, `&`)
@@ -267,7 +275,7 @@ server <- function(input, output, session) {
             output$road_traffic <- renderPlotly ({
               transport_plt
             })
-          })
+          }
         }
       }
     )

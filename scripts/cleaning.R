@@ -31,6 +31,8 @@ ghg_emissions_clean %>%
   write_csv("data/clean_data/ghg_emissions_summary.csv")
 
 # ----- hierarchical data -----
+# heirarchical data is necessary for sunburst type visualisations
+
 
 # get number of separators in source column
 n_breaks <- max(str_count(ghg_emissions_clean$source_name, " - "), na.rm = TRUE)

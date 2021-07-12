@@ -1,14 +1,17 @@
+# required for shiny operation
 library(shiny)
 library(shinydashboard)
 library(shinyWidgets)
 library(shinyjs)
+# reading/data wrangling
 library(readr)
 library(dplyr)
 library(tidyr)
 library(readxl)
 library(stringr)
-library(ggplot2)
 library(purrr)
+# data vis
+library(ggplot2)
 library(plotly)
 library(viridis)
 
@@ -31,6 +34,7 @@ scale_fill_discrete <- function(...) {
   scale_fill_manual(..., values = c(viridis_pal()(9)))
 } 
 
+# to render images in app from the images folder:
 myImgResources <- paste0("imgResources/", "sunburst_emissions", ".png")
 
 # Add directory of static resources to Shiny's web server
